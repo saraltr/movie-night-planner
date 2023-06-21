@@ -12,6 +12,7 @@
     "parcel": "^2.9.2"
   },
   "devDependencies": {
+    "lint": "^1.1.2",
     "prettier": "2.8.8"
   }
 }
