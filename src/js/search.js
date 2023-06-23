@@ -1,5 +1,4 @@
-import { getMoviesBySearch, fetchMovieBySearch } from './externalServices.mjs';
-
+// creates the search box
 export function createSearchBox() {
 
   const searchInput = document.createElement("input");
@@ -25,9 +24,15 @@ export function createSearchBox() {
   menuDiv.prepend(searchBox);
 }
 
+// redirect to search results page
 export function redirectToSearchResults(searchTerm) {
+  // Create URL parameters and set the search term
   const urlParams = new URLSearchParams();
   urlParams.set("search", searchTerm);
+
+  // create the new URL with the search term as a parameter
   const newUrl = `results/results.html?${urlParams.toString()}`;
+
+  // redirect the page to the new URL
   window.location.href = newUrl;
 }

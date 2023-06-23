@@ -12,6 +12,11 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  text-align: center;
 }
 
 h1, h2, h3 {
@@ -38,6 +43,28 @@ p {
   align-items: center;
   gap: 2rem;
   display: flex;
+}
+
+.posters-container::-webkit-scrollbar {
+  background-color: #0000;
+  width: .5rem;
+}
+
+.posters-container::-webkit-scrollbar-thumb {
+  background-color: var(--light-grey);
+}
+
+.posters-container::-webkit-scrollbar-track {
+  background-color: #0000;
+}
+
+.banner {
+  background-color: var(--secondary-color);
+}
+
+.banner h1, .banner p {
+  color: #f5f5f5;
+  padding: .5rem;
 }
 
 /*# sourceMappingURL=index.c92073ef.css.map */
