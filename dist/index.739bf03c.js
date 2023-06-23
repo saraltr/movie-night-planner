@@ -575,24 +575,44 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"ebWYT":[function(require,module,exports) {
 var _search = require("./search");
-(0, _search.fetchMovieData)("the lord of the rings"); // example on the console
+// fetchMovieByTitle("Barbie");
+// fetchMovieBySearch("shrek");
+document.addEventListener("DOMContentLoaded", ()=>{
+    const searchButton = document.getElementById("searchButton");
+    const searchInput = document.querySelector("#searchInput");
+    searchButton.addEventListener("click", ()=>{
+        const searchTerm = searchInput.value;
+        (0, _search.redirectToSearchResults)(searchTerm);
+    });
+});
+(0, _search.createSearchBox)();
 
 },{"./search":"4TESp"}],"4TESp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "fetchMovieData", ()=>fetchMovieData);
-var _externalServices = require("./externalServices");
-async function fetchMovieData(title) {
-    try {
-        const response = await (0, _externalServices.getMoviesByTitle)(title);
-        const data = await response.json();
-        console.log(data);
-    } catch (error) {
-        console.error(error);
-    }
+parcelHelpers.export(exports, "createSearchBox", ()=>createSearchBox);
+parcelHelpers.export(exports, "redirectToSearchResults", ()=>redirectToSearchResults);
+var _externalServicesMjs = require("./externalServices.mjs");
+function createSearchBox() {
+    const searchInput = document.createElement("input");
+    searchInput.setAttribute("type", "text");
+    searchInput.setAttribute("id", "searchInput");
+    // Create the search button element
+    const searchButton = document.createElement("button");
+    searchButton.setAttribute("id", "searchButton");
+    searchButton.textContent = "Search";
+    // Append the search box and button to the document body or a container element
+    document.body.appendChild(searchInput);
+    document.body.appendChild(searchButton);
+}
+function redirectToSearchResults(searchTerm) {
+    const urlParams = new URLSearchParams();
+    urlParams.set("search", searchTerm);
+    const newUrl = `results/results.html?${urlParams.toString()}`;
+    window.location.href = newUrl;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./externalServices":"hNHUh"}],"gkKU3":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./externalServices.mjs":"bAUxH"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -622,12 +642,14 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"hNHUh":[function(require,module,exports) {
+},{}],"bAUxH":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getMoviesByTitle", ()=>getMoviesByTitle);
 parcelHelpers.export(exports, "getMoviesBySearch", ()=>getMoviesBySearch);
 parcelHelpers.export(exports, "getMoviePosterById", ()=>getMoviePosterById);
+parcelHelpers.export(exports, "fetchMovieByTitle", ()=>fetchMovieByTitle);
+parcelHelpers.export(exports, "fetchMovieBySearch", ()=>fetchMovieBySearch);
 async function getMoviesByTitle(title) {
     const apiKey = "f8b853da";
     const baseURL = "https://www.omdbapi.com/";
@@ -648,6 +670,25 @@ async function getMoviePosterById(imdbId) {
     const response = await fetch(`${posterURL}?apikey=${apiKey}&i=${imdbId}`);
     if (response.ok) return response;
     else throw new Error("Failed to fetch movie poster");
+}
+async function fetchMovieByTitle(title) {
+    try {
+        const response = await getMoviesByTitle(title);
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error(error);
+    }
+}
+async function fetchMovieBySearch(search) {
+    try {
+        const response = await getMoviesBySearch(search);
+        const data = await response.json();
+        //   console.log(data);
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["j9r0q","ebWYT"], "ebWYT", "parcelRequireac40")
