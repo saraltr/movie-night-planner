@@ -575,26 +575,32 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"ebWYT":[function(require,module,exports) {
 var _search = require("./search");
+var _homePageMjs = require("./homePage.mjs");
+// event listener to make sure the dom is loaded before the js is executed
 document.addEventListener("DOMContentLoaded", ()=>{
     const searchButton = document.querySelector("#searchButton");
     const searchInput = document.querySelector("#searchInput");
+    //  event listener for when the research is sent
     searchButton.addEventListener("click", ()=>{
-        const searchTerm = searchInput.value;
-        (0, _search.redirectToSearchResults)(searchTerm);
+        const searchTerm = searchInput.value; // getting the value from the search input
+        (0, _search.redirectToSearchResults)(searchTerm); // redirecting to the search results page with the search term
     });
 });
-(0, _search.createSearchBox)(); // I wanted to add the icons from here, but the path doesn't work
+(0, _search.createSearchBox)(); // creates the search box component
+(0, _homePageMjs.createBanner)(); // creates the banner component
+ // I wanted to add the icons from here, but the path doesn't work
  // const menuDiv = document.querySelector(".menu");
  // const userIcon = document.createElement("img");
  // userIcon.src = "../public/images/mnp-logo.svg";
  // menuDiv.appendChild(userIcon);
 
-},{"./search":"4TESp"}],"4TESp":[function(require,module,exports) {
+},{"./search":"4TESp","./homePage.mjs":"lshS8"}],"4TESp":[function(require,module,exports) {
+// creates the search box
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createSearchBox", ()=>createSearchBox);
+// redirect to search results page
 parcelHelpers.export(exports, "redirectToSearchResults", ()=>redirectToSearchResults);
-var _externalServicesMjs = require("./externalServices.mjs");
 function createSearchBox() {
     const searchInput = document.createElement("input");
     searchInput.setAttribute("type", "text");
@@ -615,59 +621,13 @@ function createSearchBox() {
     menuDiv.prepend(searchBox);
 }
 function redirectToSearchResults(searchTerm) {
+    // Create URL parameters and set the search term
     const urlParams = new URLSearchParams();
     urlParams.set("search", searchTerm);
+    // create the new URL with the search term as a parameter
     const newUrl = `results/results.html?${urlParams.toString()}`;
+    // redirect the page to the new URL
     window.location.href = newUrl;
-}
-
-},{"./externalServices.mjs":"bAUxH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bAUxH":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "getMoviesByTitle", ()=>getMoviesByTitle);
-parcelHelpers.export(exports, "getMoviesBySearch", ()=>getMoviesBySearch);
-parcelHelpers.export(exports, "getMoviePosterById", ()=>getMoviePosterById);
-parcelHelpers.export(exports, "fetchMovieByTitle", ()=>fetchMovieByTitle);
-parcelHelpers.export(exports, "fetchMovieBySearch", ()=>fetchMovieBySearch);
-async function getMoviesByTitle(title) {
-    const apiKey = "f8b853da";
-    const baseURL = "https://www.omdbapi.com/";
-    const response = await fetch(`${baseURL}?apikey=${apiKey}&t=${title}`);
-    if (response.ok) return response;
-    else throw new Error("Something went wrong");
-}
-async function getMoviesBySearch(search) {
-    const apiKey = "f8b853da";
-    const baseURL = "https://www.omdbapi.com/";
-    const response = await fetch(`${baseURL}?apikey=${apiKey}&s=${search}`);
-    if (response.ok) return response;
-    else throw new Error("Something went wrong");
-}
-async function getMoviePosterById(imdbId) {
-    const apiKey = "f8b853da";
-    const posterURL = "https://img.omdbapi.com/";
-    const response = await fetch(`${posterURL}?apikey=${apiKey}&i=${imdbId}`);
-    if (response.ok) return response;
-    else throw new Error("Failed to fetch movie poster");
-}
-async function fetchMovieByTitle(title) {
-    try {
-        const response = await getMoviesByTitle(title);
-        const data = await response.json();
-        console.log(data);
-    } catch (error) {
-        console.error(error);
-    }
-}
-async function fetchMovieBySearch(search) {
-    try {
-        const response = await getMoviesBySearch(search);
-        const data = await response.json();
-        //   console.log(data);
-        return data;
-    } catch (error) {
-        console.error(error);
-    }
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
@@ -700,6 +660,115 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["j9r0q","ebWYT"], "ebWYT", "parcelRequireac40")
+},{}],"lshS8":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+// creates the home page banner
+parcelHelpers.export(exports, "createBanner", ()=>createBanner);
+var _externalServicesMjs = require("./externalServices.mjs");
+async function createBanner() {
+    try {
+        const mainElement = document.querySelector("main");
+        const bannerSection = document.createElement("section");
+        const bannerDiv = document.createElement("div");
+        bannerDiv.classList.add("banner");
+        const bannerTitle = document.createElement("h1");
+        bannerTitle.textContent = "Banner";
+        bannerDiv.appendChild(bannerTitle);
+        bannerSection.appendChild(bannerDiv);
+        mainElement.appendChild(bannerSection);
+        // fetching movie data using the fetchMovieBySearch function and the keyword "dark" as it is common in films name
+        const bannerMovies = await (0, _externalServicesMjs.fetchMovieBySearch)("dark");
+        //   console.log(bannerMovies); 
+        const bannerPosters = createBannerPosters(bannerMovies); // creating the HTML template for banner posters
+        const postersContainer = document.createElement("div");
+        postersContainer.classList.add("posters-container");
+        postersContainer.innerHTML = bannerPosters;
+        // applied additional styling using js to experiment 
+        postersContainer.style.display = "flex";
+        postersContainer.style.flexDirection = "row";
+        postersContainer.style.overflowX = "auto";
+        postersContainer.style.gap = "10px";
+        postersContainer.style.transform = "scale(0.8)";
+        const posterImages = postersContainer.querySelectorAll("img"); // selecting all img elements within the posters container
+        posterImages.forEach((img)=>{
+            // applying additional styling to each poster image
+            img.style.height = "500px";
+            img.style.width = "300px";
+            img.style.objectFit = "cover";
+            img.style.transition = "transform 0.3s";
+        });
+        bannerDiv.appendChild(postersContainer);
+    } catch (error) {
+        console.error("An error occurred:", error);
+    }
+}
+// create the HTML template for the banner posters
+function createBannerPosters(bannerMovies) {
+    if (!bannerMovies || !Array.isArray(bannerMovies)) return ""; // return an empty string if the movie data is invalid
+    let template = "";
+    bannerMovies.forEach((movie)=>{
+        const moviePoster = movie.Poster;
+        const mediaType = movie.Type;
+        const movieTitle = movie.Title;
+        if (mediaType === "movie") // if the media type is a movie, add the movie details to the template
+        template += `
+        <div class="movie-details">
+          <a href="#">
+            <img src="${moviePoster}" alt="${movieTitle} poster"/>
+          </a>
+        </div>`;
+    });
+    return template;
+}
+
+},{"./externalServices.mjs":"bAUxH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bAUxH":[function(require,module,exports) {
+// fetch a movie by its title
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getMoviesByTitle", ()=>getMoviesByTitle);
+// fetch movies by search term
+parcelHelpers.export(exports, "getMoviesBySearch", ()=>getMoviesBySearch);
+// return the results by title
+parcelHelpers.export(exports, "fetchMovieByTitle", ()=>fetchMovieByTitle);
+// return the search results
+parcelHelpers.export(exports, "fetchMovieBySearch", ()=>fetchMovieBySearch);
+async function getMoviesByTitle(title) {
+    const apiKey = "f8b853da"; // our active key
+    const baseURL = "https://www.omdbapi.com/";
+    const response = await fetch(`${baseURL}?apikey=${apiKey}&t=${title}`);
+    if (response.ok) return response;
+    else throw new Error("Something went wrong");
+}
+async function getMoviesBySearch(search) {
+    const apiKey = "f8b853da";
+    const baseURL = "https://www.omdbapi.com/";
+    const response = await fetch(`${baseURL}?apikey=${apiKey}&s=${search}`);
+    if (response.ok) return response;
+    else throw new Error("Something went wrong");
+}
+async function fetchMovieByTitle(title) {
+    try {
+        const response = await getMoviesByTitle(title);
+        const data = await response.json();
+        //   console.log(data);
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+async function fetchMovieBySearch(search) {
+    try {
+        const response = await getMoviesBySearch(search);
+        const data = await response.json();
+        //   console.log(data);
+        return data.Search // search is the property that returns the array of results
+        ;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["j9r0q","ebWYT"], "ebWYT", "parcelRequireac40")
 
 //# sourceMappingURL=index.739bf03c.js.map
