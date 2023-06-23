@@ -592,25 +592,7 @@ async function fetchMovieData(title) {
     }
 }
 
-},{"./externalServices":"hNHUh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hNHUh":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "getMoviesByTitle", ()=>getMoviesByTitle);
-parcelHelpers.export(exports, "getMoviePosterById", ()=>getMoviePosterById);
-async function getMoviesByTitle(title) {
-    const apiKey = "f8b853da";
-    const baseURL = "https://www.omdbapi.com/";
-    const response = await fetch(`${baseURL}?apikey=${apiKey}&t=${title}`);
-    return response;
-}
-async function getMoviePosterById(imdbId) {
-    const apiKey = "f8b853da"; // Replace with your actual OMDB API key
-    const posterURL = "https://img.omdbapi.com/";
-    const response = await fetch(`${posterURL}?apikey=${apiKey}&i=${imdbId}`);
-    return response;
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./externalServices":"hNHUh"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -640,6 +622,34 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["j9r0q","ebWYT"], "ebWYT", "parcelRequireac40")
+},{}],"hNHUh":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getMoviesByTitle", ()=>getMoviesByTitle);
+parcelHelpers.export(exports, "getMoviesBySearch", ()=>getMoviesBySearch);
+parcelHelpers.export(exports, "getMoviePosterById", ()=>getMoviePosterById);
+async function getMoviesByTitle(title) {
+    const apiKey = "f8b853da";
+    const baseURL = "https://www.omdbapi.com/";
+    const response = await fetch(`${baseURL}?apikey=${apiKey}&t=${title}`);
+    if (response.ok) return response;
+    else throw new Error("Something went wrong");
+}
+async function getMoviesBySearch(search) {
+    const apiKey = "f8b853da";
+    const baseURL = "https://www.omdbapi.com/";
+    const response = await fetch(`${baseURL}?apikey=${apiKey}&s=${search}`);
+    if (response.ok) return response;
+    else throw new Error("Something went wrong");
+}
+async function getMoviePosterById(imdbId) {
+    const apiKey = "f8b853da";
+    const posterURL = "https://img.omdbapi.com/";
+    const response = await fetch(`${posterURL}?apikey=${apiKey}&i=${imdbId}`);
+    if (response.ok) return response;
+    else throw new Error("Failed to fetch movie poster");
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["j9r0q","ebWYT"], "ebWYT", "parcelRequireac40")
 
 //# sourceMappingURL=index.739bf03c.js.map
