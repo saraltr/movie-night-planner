@@ -575,17 +575,19 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"ebWYT":[function(require,module,exports) {
 var _search = require("./search");
-// fetchMovieByTitle("Barbie");
-// fetchMovieBySearch("shrek");
 document.addEventListener("DOMContentLoaded", ()=>{
-    const searchButton = document.getElementById("searchButton");
+    const searchButton = document.querySelector("#searchButton");
     const searchInput = document.querySelector("#searchInput");
     searchButton.addEventListener("click", ()=>{
         const searchTerm = searchInput.value;
         (0, _search.redirectToSearchResults)(searchTerm);
     });
 });
-(0, _search.createSearchBox)();
+(0, _search.createSearchBox)(); // I wanted to add the icons from here, but the path doesn't work
+ // const menuDiv = document.querySelector(".menu");
+ // const userIcon = document.createElement("img");
+ // userIcon.src = "../public/images/mnp-logo.svg";
+ // menuDiv.appendChild(userIcon);
 
 },{"./search":"4TESp"}],"4TESp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -597,13 +599,20 @@ function createSearchBox() {
     const searchInput = document.createElement("input");
     searchInput.setAttribute("type", "text");
     searchInput.setAttribute("id", "searchInput");
-    // Create the search button element
+    searchInput.setAttribute("placeholder", "Enter your search...");
+    searchInput.classList.add("search-input");
+    // create the search button element
     const searchButton = document.createElement("button");
     searchButton.setAttribute("id", "searchButton");
     searchButton.textContent = "Search";
-    // Append the search box and button to the document body or a container element
-    document.body.appendChild(searchInput);
-    document.body.appendChild(searchButton);
+    searchButton.classList.add("search-button");
+    const searchBox = document.createElement("div");
+    searchBox.classList.add("search-box");
+    searchBox.appendChild(searchInput);
+    searchBox.appendChild(searchButton);
+    // append the search box and button to the menu div
+    const menuDiv = document.querySelector(".menu");
+    menuDiv.prepend(searchBox);
 }
 function redirectToSearchResults(searchTerm) {
     const urlParams = new URLSearchParams();
