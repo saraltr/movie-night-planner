@@ -8,9 +8,13 @@ export async function createBanner() {
       const bannerDiv = document.createElement("div");
       bannerDiv.classList.add("banner");
       const bannerTitle = document.createElement("h1");
-      bannerTitle.textContent = "Banner";
+      bannerTitle.textContent = "Welcome to Movie Night Planner!";
+
+      const bannerMessage = document.createElement("p");
+      bannerMessage.textContent = "🎬 -- Lights, Camera, Action! Plan Your Perfect Movie Night. --🍿";
   
       bannerDiv.appendChild(bannerTitle);
+      bannerDiv.appendChild(bannerMessage);
       bannerSection.appendChild(bannerDiv);
       mainElement.appendChild(bannerSection);
     
