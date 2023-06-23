@@ -4,18 +4,6 @@ const urlParams = new URLSearchParams(window.location.search);
 const searchTerm = urlParams.get("search");
 const searchContainer = document.querySelector("#resultsContainer");
 
-// Display the search term on the page
-const searchTermElement = document.createElement("h2");
-document.body.appendChild(searchTermElement);
-
-if (searchTerm == null) {
-  searchTermElement.textContent = "Sorry, we couldn't find any results. Try again!";
-} else {
-  searchTermElement.textContent = `Search term: ${searchTerm}`;
-}
-
-searchContainer.appendChild(searchTermElement);
-
 export async function displayMovies() {
   try {
     const results = await fetchMovieBySearch(searchTerm);
@@ -28,28 +16,30 @@ export async function displayMovies() {
 
 function resultsTemplate(movies) {
   if (!movies || !movies.Search || !Array.isArray(movies.Search)) {
-    return '<p>No movies found</p>';
+    return "<h2>Sorry, we couldn\'t find any results. Try again!</h2>";
   }
 
-  let template = '<ul class="resultsList">';
+  let template = "<h2>Search term: " + searchTerm + "</h2>";
+  template += "<ul class='resultsList'>";
   
   movies.Search.forEach((movie) => {
     const movieTitle = movie.Title;
     const moviePoster = movie.Poster;   
-    
-    console.log("Movie title:", movieTitle);
-    console.log("Movie poster:", moviePoster);
-    
-    template += `
-      <li class="product-card">
+    const mediaType = movie.Type;
+    const movieYear = movie.Year;
+    console.log(movie);
+
+    if (mediaType === "movie"){
+      template += `
+      <li class="movie-details">
         <a href="#">
-          <h3>${movieTitle}</h3>
+          <h3>${movieTitle} (${movieYear})</h3>
           <img src="${moviePoster}" />
         </a>
       </li>`;
+    }
   });
   
   template += '</ul>';
-  
   return template;
 }
