@@ -5,15 +5,17 @@ export function createSearchBox() {
   const searchInput = document.createElement("input");
   searchInput.setAttribute("type", "text");
   searchInput.setAttribute("id", "searchInput");
+  searchInput.setAttribute("placeholder", "Enter your search...");
 
-  // Create the search button element
+
+  // create the search button element
   const searchButton = document.createElement("button");
   searchButton.setAttribute("id", "searchButton");
   searchButton.textContent = "Search";
 
-  // Append the search box and button to the document body or a container element
-  document.body.appendChild(searchInput);
-  document.body.appendChild(searchButton);
+  // append the search box and button to the menu div
+  const menuDiv = document.querySelector(".menu");
+  menuDiv.prepend(searchInput, searchButton);
 }
 
 export function redirectToSearchResults(searchTerm) {
