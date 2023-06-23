@@ -9,6 +9,7 @@
   "author": "Sara Latorre, Cardona Ruth",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.18.2",
     "parcel": "^2.9.2"
   },
   "devDependencies": {

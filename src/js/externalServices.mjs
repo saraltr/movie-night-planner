@@ -32,3 +32,23 @@ export async function getMoviePosterById(imdbId) {
         throw new Error("Failed to fetch movie poster");
     }
 }
+
+export async function fetchMovieByTitle(title) {
+    try {
+      const response = await getMoviesByTitle(title);
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+}
+export async function fetchMovieBySearch(search) {
+    try {
+      const response = await getMoviesBySearch(search);
+      const data = await response.json();
+    //   console.log(data);
+    return data
+    } catch (error) {
+      console.error(error);
+    }
+}
