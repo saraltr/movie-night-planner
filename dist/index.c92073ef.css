@@ -24,4 +24,20 @@ p {
   font-size: var(--small-font);
 }
 
+.main-header {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.logo-container img {
+  width: 200px;
+}
+
+.menu {
+  align-items: center;
+  gap: 2rem;
+  display: flex;
+}
+
 /*# sourceMappingURL=index.c92073ef.css.map */

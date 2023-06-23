@@ -26,3 +26,20 @@ p{
     font-family: var(--font-body);
     font-size: var(--small-font);
 }
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo-container img {
+    width: 200px;
+  }
+  
+  .menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+  
