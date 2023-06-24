@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"79pyb":[function(require,module,exports) {
+})({"lJGNF":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "ba60c367739bf03c";
+module.bundle.HMR_BUNDLE_ID = "ba77c333333b87f1";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -573,235 +573,14 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"ebWYT":[function(require,module,exports) {
-var _search = require("./search");
-var _homePageMjs = require("./homePage.mjs");
-// event listener to make sure the dom is loaded before the js is executed
-document.addEventListener("DOMContentLoaded", ()=>{
-    const searchButton = document.querySelector("#searchButton");
-    const searchInput = document.querySelector("#searchInput");
-    //  event listener for when the research is sent
-    searchButton.addEventListener("click", ()=>{
-        const searchTerm = searchInput.value; // getting the value from the search input
-        (0, _search.redirectToSearchResults)(searchTerm); // redirecting to the search results page with the search term
-    });
+},{}],"47T64":[function(require,module,exports) {
+const loginForm = document.getElementById("login-user");
+const redirectParam = "src/user/index.html";
+loginForm.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    window.location = "/user/index.html";
 });
-(0, _search.createSearchBox)(); // creates the search box component
-(0, _homePageMjs.createBanner)(); // creates the banner component
- // I wanted to add the icons from here, but the path doesn't work
- // const menuDiv = document.querySelector(".menu");
- // const userIcon = document.createElement("img");
- // userIcon.src = "../public/images/mnp-logo.svg";
- // menuDiv.appendChild(userIcon);
 
-},{"./search":"4TESp","./homePage.mjs":"lshS8"}],"4TESp":[function(require,module,exports) {
-// creates the search box
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "createSearchBox", ()=>createSearchBox);
-// redirect to search results page
-parcelHelpers.export(exports, "redirectToSearchResults", ()=>redirectToSearchResults);
-function createSearchBox() {
-    const searchInput = document.createElement("input");
-    searchInput.setAttribute("type", "text");
-    searchInput.setAttribute("id", "searchInput");
-    searchInput.setAttribute("placeholder", "Enter your search...");
-    searchInput.classList.add("search-input");
-    // create the search button element
-    const searchButton = document.createElement("button");
-    searchButton.setAttribute("id", "searchButton");
-    searchButton.textContent = "Search";
-    searchButton.classList.add("search-button");
-    const searchBox = document.createElement("div");
-    searchBox.classList.add("search-box");
-    searchBox.appendChild(searchInput);
-    searchBox.appendChild(searchButton);
-    // append the search box and button to the menu div
-    const menuDiv = document.querySelector(".menu");
-    menuDiv.prepend(searchBox);
-}
-function redirectToSearchResults(searchTerm) {
-    // Create URL parameters and set the search term
-    const urlParams = new URLSearchParams();
-    urlParams.set("search", searchTerm);
-    // create the new URL with the search term as a parameter
-    const newUrl = `results/results.html?${urlParams.toString()}`;
-    // redirect the page to the new URL
-    window.location.href = newUrl;
-}
+},{}]},["lJGNF","47T64"], "47T64", "parcelRequireac40")
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"lshS8":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-// creates the home page banner
-parcelHelpers.export(exports, "createBanner", ()=>createBanner);
-var _externalServicesMjs = require("./externalServices.mjs");
-async function createBanner() {
-    try {
-        const mainElement = document.querySelector("main");
-        const bannerSection = document.createElement("section");
-        const bannerDiv = document.createElement("div");
-        bannerDiv.classList.add("banner");
-        const bannerTitle = document.createElement("h1");
-        bannerTitle.textContent = "Welcome to Movie Night Planner!";
-        const bannerMessage = document.createElement("p");
-        bannerMessage.textContent = "\uD83C\uDFAC -- Lights, Camera, Action! Plan Your Perfect Movie Night. --\uD83C\uDF7F";
-        bannerDiv.appendChild(bannerTitle);
-        bannerDiv.appendChild(bannerMessage);
-        bannerSection.appendChild(bannerDiv);
-        mainElement.appendChild(bannerSection);
-        // fetching movie data using the fetchMovieBySearch function and the keyword "dark" as it is common in films name
-        const bannerMovies = await (0, _externalServicesMjs.fetchMovieBySearch)("dark");
-        //   console.log(bannerMovies); 
-        const bannerPosters = createBannerPosters(bannerMovies); // creating the HTML template for banner posters
-        const postersContainer = document.createElement("div");
-        postersContainer.classList.add("posters-container");
-        postersContainer.innerHTML = bannerPosters;
-        // applied additional styling using js to experiment 
-        postersContainer.style.display = "flex";
-        postersContainer.style.flexDirection = "row";
-        postersContainer.style.overflowX = "auto";
-        postersContainer.style.gap = "10px";
-        postersContainer.style.transform = "scale(0.8)";
-        const posterImages = postersContainer.querySelectorAll("img"); // selecting all img elements within the posters container
-        posterImages.forEach((img)=>{
-            // applying additional styling to each poster image
-            img.style.height = "500px";
-            img.style.width = "300px";
-            img.style.objectFit = "cover";
-            img.style.transition = "transform 0.3s";
-        });
-        bannerDiv.appendChild(postersContainer);
-    } catch (error) {
-        console.error("An error occurred:", error);
-    }
-}
-// create the HTML template for the banner posters
-function createBannerPosters(bannerMovies) {
-    if (!bannerMovies || !Array.isArray(bannerMovies)) return ""; // return an empty string if the movie data is invalid
-    let template = "";
-    bannerMovies.forEach((movie)=>{
-        const moviePoster = movie.Poster;
-        const mediaType = movie.Type;
-        const movieTitle = movie.Title;
-        if (mediaType === "movie") // if the media type is a movie, add the movie details to the template
-        template += `
-        <div class="movie-details">
-          <a href="#">
-            <img src="${moviePoster}" alt="${movieTitle} poster"/>
-          </a>
-        </div>`;
-    });
-    return template;
-}
-
-},{"./externalServices.mjs":"bAUxH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bAUxH":[function(require,module,exports) {
-// fetch a movie by its title
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "getMoviesByTitle", ()=>getMoviesByTitle);
-// fetch movies by search term
-parcelHelpers.export(exports, "getMoviesBySearch", ()=>getMoviesBySearch);
-// return the results by title
-parcelHelpers.export(exports, "fetchMovieByTitle", ()=>fetchMovieByTitle);
-// return the search results
-parcelHelpers.export(exports, "fetchMovieBySearch", ()=>fetchMovieBySearch);
-async function getMoviesByTitle(title) {
-    const apiKey = "f8b853da"; // our active key
-    const baseURL = "https://www.omdbapi.com/";
-    const response = await fetch(`${baseURL}?apikey=${apiKey}&t=${title}`);
-    if (response.ok) return response;
-    else throw new Error("Something went wrong");
-}
-async function getMoviesBySearch(search) {
-    const apiKey = "f8b853da";
-    const baseURL = "https://www.omdbapi.com/";
-    const response = await fetch(`${baseURL}?apikey=${apiKey}&s=${search}`);
-    if (response.ok) return response;
-    else throw new Error("Something went wrong");
-}
-async function fetchMovieByTitle(title) {
-    try {
-        const response = await getMoviesByTitle(title);
-        const data = await response.json();
-        //   console.log(data);
-        return data;
-    } catch (error) {
-        console.error(error);
-    }
-}
-async function fetchMovieBySearch(search) {
-    try {
-        const response = await getMoviesBySearch(search);
-        const data = await response.json();
-        //   console.log(data);
-        return data.Search // search is the property that returns the array of results
-        ;
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}]},["79pyb","ebWYT"], "ebWYT", "parcelRequireac40")
-
-//# sourceMappingURL=index.739bf03c.js.map
+//# sourceMappingURL=index.333b87f1.js.map
