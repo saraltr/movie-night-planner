@@ -1,20 +1,29 @@
 import { fetchMovieBySearch } from './externalServices.mjs';
 
+// get the search term from the URL parameters
 const urlParams = new URLSearchParams(window.location.search);
 const searchTerm = urlParams.get("search");
+
 const searchContainer = document.querySelector("#resultsContainer");
 
+// function to display movies based on the search term
 export async function displayMovies() {
   try {
+    // fetch the movie results using the search term
     const results = await fetchMovieBySearch(searchTerm);
+
+    // generate the HTML template using the results
     const template = resultsTemplate(results);
+
+    // update the search container with the template
     searchContainer.innerHTML = template;
   } catch (error) {
     console.error("An error occurred:", error);
   }
 }
 
-function resultsTemplate(movies) {
+// generate the HTML template for the movie results
+export function resultsTemplate(movies) {
   if (!movies || !movies.Search || !Array.isArray(movies.Search)) {
     return "<h2>Sorry, we couldn\'t find any results. Try again!</h2>";
   }
