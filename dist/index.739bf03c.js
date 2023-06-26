@@ -576,6 +576,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"ebWYT":[function(require,module,exports) {
 var _search = require("./search");
 var _homePageMjs = require("./homePage.mjs");
+var _userListsMjs = require("./userLists.mjs");
 // event listener to make sure the dom is loaded before the js is executed
 document.addEventListener("DOMContentLoaded", ()=>{
     const searchButton = document.querySelector("#searchButton");
@@ -588,13 +589,13 @@ document.addEventListener("DOMContentLoaded", ()=>{
 });
 (0, _search.createSearchBox)(); // creates the search box component
 (0, _homePageMjs.createBanner)(); // creates the banner component
- // I wanted to add the icons from here, but the path doesn't work
+(0, _userListsMjs.movieFavList)(".fav-user-list"); // I wanted to add the icons from here, but the path doesn't work
  // const menuDiv = document.querySelector(".menu");
  // const userIcon = document.createElement("img");
  // userIcon.src = "../public/images/mnp-logo.svg";
  // menuDiv.appendChild(userIcon);
 
-},{"./search":"4TESp","./homePage.mjs":"lshS8"}],"4TESp":[function(require,module,exports) {
+},{"./search":"4TESp","./homePage.mjs":"lshS8","./userLists.mjs":"hmFcI"}],"4TESp":[function(require,module,exports) {
 // creates the search box
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -800,6 +801,48 @@ function setLocalStorage(key, data) {
     localStorage.setItem(key, JSON.stringify(data));
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["79pyb","ebWYT"], "ebWYT", "parcelRequireac40")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hmFcI":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "movieFavList", ()=>movieFavList);
+var _utilsMjs = require("./utils.mjs");
+function movieFavList(selector) {
+    try {
+        const favList = (0, _utilsMjs.getLocalStorage)("fav-list") || [];
+        const favEl = document.querySelector(selector);
+        const favCtner = document.querySelector(".fav-container");
+        if (favList.length === 0) favCtner.innerHTML = `<h3>Create your Fav List</h3>
+                            <p>Explore and add Movies to share with your friends!</p>`;
+        console.log(favList);
+        // applied additional styling using js to experiment 
+        favEl.style.display = "flex";
+        favEl.style.flexDirection = "row";
+        favEl.style.overflowX = "auto";
+        favEl.style.gap = "10px";
+        favEl.style.transform = "scale(0.8)";
+        favEl.style.padding = "1rem";
+        const movie = favList.map((item)=>{
+            return template = `<li>
+            <a href="#">   
+                <img src="${item.Poster}" alt="Poster of ${item.Title}" />
+                <h3>${item.Title} (${item.Year})</h3>
+                </a>
+            </li>`;
+        });
+        console.log(movie);
+        favEl.innerHTML = movie.join("");
+        const favImages = favEl.querySelectorAll("img"); // selecting all img elements within the fav list container
+        favImages.forEach((img)=>{
+            // applying additional styling to each image
+            img.style.width = "250px";
+            img.style.objectFit = "cover";
+            img.style.transition = "transform 0.3s";
+        });
+    } catch  {
+        console.log("Error: Could not create list");
+    }
+}
+
+},{"./utils.mjs":"6Qrgp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["79pyb","ebWYT"], "ebWYT", "parcelRequireac40")
 
 //# sourceMappingURL=index.739bf03c.js.map

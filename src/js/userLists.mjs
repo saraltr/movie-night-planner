@@ -4,6 +4,12 @@ export function movieFavList(selector){
     try{
     const favList = getLocalStorage("fav-list") || [];
     const favEl = document.querySelector(selector);
+    const favCtner = document.querySelector(".fav-container");
+
+    if(favList.length === 0){
+        favCtner.innerHTML = `<h3>Create your Fav List</h3>
+                            <p>Explore and add Movies to share with your friends!</p>`
+    }
 
     console.log(favList);
 
@@ -18,7 +24,7 @@ export function movieFavList(selector){
     const movie = favList.map((item) => {
          return template = `<li>
             <a href="#">   
-                <img src="${item.Poster}" alt="Porter of ${item.Title}" />
+                <img src="${item.Poster}" alt="Poster of ${item.Title}" />
                 <h3>${item.Title} (${item.Year})</h3>
                 </a>
             </li>`;
@@ -34,6 +40,7 @@ export function movieFavList(selector){
       img.style.objectFit = "cover";
       img.style.transition = "transform 0.3s";
     });
+
 
 } catch {
     console.log("Error: Could not create list");

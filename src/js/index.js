@@ -1,5 +1,6 @@
 import { createSearchBox, redirectToSearchResults } from './search';
 import { createBanner } from './homePage.mjs';
+import { movieFavList } from './userLists.mjs';
 
 // event listener to make sure the dom is loaded before the js is executed
 document.addEventListener("DOMContentLoaded", () => {
@@ -17,6 +18,7 @@ createSearchBox(); // creates the search box component
 
 createBanner(); // creates the banner component
 
+movieFavList(".fav-user-list");
 // I wanted to add the icons from here, but the path doesn't work
 // const menuDiv = document.querySelector(".menu");
 
