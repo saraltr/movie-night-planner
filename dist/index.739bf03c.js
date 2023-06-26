@@ -589,7 +589,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 });
 (0, _search.createSearchBox)(); // creates the search box component
 (0, _homePageMjs.createBanner)(); // creates the banner component
-(0, _userListsMjs.movieFavList)(".fav-user-list"); // I wanted to add the icons from here, but the path doesn't work
+ // I wanted to add the icons from here, but the path doesn't work
  // const menuDiv = document.querySelector(".menu");
  // const userIcon = document.createElement("img");
  // userIcon.src = "../public/images/mnp-logo.svg";
