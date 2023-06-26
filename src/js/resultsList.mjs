@@ -1,4 +1,4 @@
-import { fetchMovieBySearch } from './externalServices.mjs';
+import { fetchMovieBySearch, addMovieToStorage } from './externalServices.mjs';
 
 // get the search term from the URL parameters
 const urlParams = new URLSearchParams(window.location.search);
@@ -31,6 +31,7 @@ export function resultsTemplate(movies) {
   let template = "<h2>Search term: " + searchTerm + "</h2>";
   template += "<ul class='resultsList'>";
   
+  
   movies.Search.forEach((movie) => {
     const movieTitle = movie.Title;
     const moviePoster = movie.Poster;   
@@ -41,9 +42,10 @@ export function resultsTemplate(movies) {
     if (mediaType === "movie"){
       template += `
       <li class="movie-details">
-        <a href="#">
+        <button id="fav-Btn" data-title="${movieTitle}" onclick="${addMovieToStorage(movie)}"><img src="../public/images/icons8-favorite-40.png" alt="Fav Icon"></button>
+        <a href="#" >
           <h3>${movieTitle} (${movieYear})</h3>
-          <img src="${moviePoster}" />
+          <img src="${moviePoster}" alt="Porter of ${movieTitle}" />
         </a>
       </li>`;
     }

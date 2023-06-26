@@ -32,6 +32,10 @@ p{
     font-size: var(--small-font);
 }
 
+a{
+    text-decoration: none;
+}
+
 /* Home page */
 .main-header {
     display: flex;
@@ -55,16 +59,16 @@ p{
 }
 
 /* hide the scrollbar on the posters-container */
-.posters-container::-webkit-scrollbar {
+.posters-container::-webkit-scrollbar, .fav-user-list::-webkit-scrollbar {
     width: 0.5rem;
     background-color: transparent;
   }
   
-.posters-container::-webkit-scrollbar-thumb {
+.posters-container::-webkit-scrollbar-thumb, .fav-user-list::-webkit-scrollbar-thumb {
     background-color: var(--light-grey);
 }
   
-.posters-container::-webkit-scrollbar-track {
+.posters-container::-webkit-scrollbar-track, .fav-user-list::-webkit-scrollbar-track {
     background-color: transparent;
 }
   
@@ -72,7 +76,24 @@ p{
     background-color: var(--secondary-color);
 }
 
-.banner h1, .banner p {
+.banner h1, .banner p, .fav-user-list h3 {
     padding: .5rem;
     color: whitesmoke;
+}
+
+/*USER PAGE*/
+.fav-user-list{
+    background-color: var(--tertiary-color);
+}
+.fav-user-list li{
+    list-style: none;
+}
+.fav-container{
+    margin: .2rem .5rem;
+    padding: 0;
+    box-shadow: 1px 2px 3px var(--light-grey);
+}
+#favMovie-icon{
+    width: 30px;
+    height: 30px;
 }

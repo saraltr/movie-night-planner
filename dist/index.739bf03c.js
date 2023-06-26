@@ -576,6 +576,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"ebWYT":[function(require,module,exports) {
 var _search = require("./search");
 var _homePageMjs = require("./homePage.mjs");
+var _userListsMjs = require("./userLists.mjs");
 // event listener to make sure the dom is loaded before the js is executed
 document.addEventListener("DOMContentLoaded", ()=>{
     const searchButton = document.querySelector("#searchButton");
@@ -594,7 +595,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
  // userIcon.src = "../public/images/mnp-logo.svg";
  // menuDiv.appendChild(userIcon);
 
-},{"./search":"4TESp","./homePage.mjs":"lshS8"}],"4TESp":[function(require,module,exports) {
+},{"./search":"4TESp","./homePage.mjs":"lshS8","./userLists.mjs":"hmFcI"}],"4TESp":[function(require,module,exports) {
 // creates the search box
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -726,9 +727,9 @@ function createBannerPosters(bannerMovies) {
 }
 
 },{"./externalServices.mjs":"bAUxH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bAUxH":[function(require,module,exports) {
-// fetch a movie by its title
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+// fetch a movie by its title
 parcelHelpers.export(exports, "getMoviesByTitle", ()=>getMoviesByTitle);
 // fetch movies by search term
 parcelHelpers.export(exports, "getMoviesBySearch", ()=>getMoviesBySearch);
@@ -736,6 +737,8 @@ parcelHelpers.export(exports, "getMoviesBySearch", ()=>getMoviesBySearch);
 parcelHelpers.export(exports, "fetchMovieByTitle", ()=>fetchMovieByTitle);
 // return the search results
 parcelHelpers.export(exports, "fetchMovieBySearch", ()=>fetchMovieBySearch);
+parcelHelpers.export(exports, "addMovieToStorage", ()=>addMovieToStorage);
+var _utilsMjs = require("./utils.mjs");
 async function getMoviesByTitle(title) {
     const apiKey = "f8b853da"; // our active key
     const baseURL = "https://www.omdbapi.com/";
@@ -771,37 +774,75 @@ async function fetchMovieBySearch(search) {
         console.error(error);
     }
 }
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
+function addMovieToStorage(movie) {
+    const favList = (0, _utilsMjs.getLocalStorage)("fav-list") || [];
+    const index = favList.findIndex((item)=>{
+        item.Title, movie.Title;
     });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
+    if (index === -1) favList.push({
+        ...movie,
+        poster: movie.Poster,
+        title: movie.Title
+    });
+    (0, _utilsMjs.setLocalStorage)("fav-list", favList);
+}
+
+},{"./utils.mjs":"6Qrgp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6Qrgp":[function(require,module,exports) {
+// retrieve data from localstorage
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getLocalStorage", ()=>getLocalStorage);
+// save data to local storage
+parcelHelpers.export(exports, "setLocalStorage", ()=>setLocalStorage);
+function getLocalStorage(key) {
+    return JSON.parse(localStorage.getItem(key));
+}
+function setLocalStorage(key, data) {
+    localStorage.setItem(key, JSON.stringify(data));
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hmFcI":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "movieFavList", ()=>movieFavList);
+var _utilsMjs = require("./utils.mjs");
+function movieFavList(selector) {
+    try {
+        const favList = (0, _utilsMjs.getLocalStorage)("fav-list") || [];
+        const favEl = document.querySelector(selector);
+        const favCtner = document.querySelector(".fav-container");
+        if (favList.length === 0) favCtner.innerHTML = `<h3>Create your Fav List</h3>
+                            <p>Explore and add Movies to share with your friends!</p>`;
+        console.log(favList);
+        // applied additional styling using js to experiment 
+        favEl.style.display = "flex";
+        favEl.style.flexDirection = "row";
+        favEl.style.overflowX = "auto";
+        favEl.style.gap = "10px";
+        favEl.style.transform = "scale(0.8)";
+        favEl.style.padding = "1rem";
+        const movie = favList.map((item)=>{
+            return template = `<li>
+            <a href="#">   
+                <img src="${item.Poster}" alt="Poster of ${item.Title}" />
+                <h3>${item.Title} (${item.Year})</h3>
+                </a>
+            </li>`;
         });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
+        console.log(movie);
+        favEl.innerHTML = movie.join("");
+        const favImages = favEl.querySelectorAll("img"); // selecting all img elements within the fav list container
+        favImages.forEach((img)=>{
+            // applying additional styling to each image
+            img.style.width = "250px";
+            img.style.objectFit = "cover";
+            img.style.transition = "transform 0.3s";
+        });
+    } catch  {
+        console.log("Error: Could not create list");
+    }
+}
 
-},{}]},["79pyb","ebWYT"], "ebWYT", "parcelRequireac40")
+},{"./utils.mjs":"6Qrgp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["79pyb","ebWYT"], "ebWYT", "parcelRequireac40")
 
 //# sourceMappingURL=index.739bf03c.js.map
