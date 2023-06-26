@@ -726,9 +726,9 @@ function createBannerPosters(bannerMovies) {
 }
 
 },{"./externalServices.mjs":"bAUxH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bAUxH":[function(require,module,exports) {
-// fetch a movie by its title
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+// fetch a movie by its title
 parcelHelpers.export(exports, "getMoviesByTitle", ()=>getMoviesByTitle);
 // fetch movies by search term
 parcelHelpers.export(exports, "getMoviesBySearch", ()=>getMoviesBySearch);
@@ -736,6 +736,8 @@ parcelHelpers.export(exports, "getMoviesBySearch", ()=>getMoviesBySearch);
 parcelHelpers.export(exports, "fetchMovieByTitle", ()=>fetchMovieByTitle);
 // return the search results
 parcelHelpers.export(exports, "fetchMovieBySearch", ()=>fetchMovieBySearch);
+parcelHelpers.export(exports, "addMovieToStorage", ()=>addMovieToStorage);
+var _utilsMjs = require("./utils.mjs");
 async function getMoviesByTitle(title) {
     const apiKey = "f8b853da"; // our active key
     const baseURL = "https://www.omdbapi.com/";
@@ -770,6 +772,32 @@ async function fetchMovieBySearch(search) {
     } catch (error) {
         console.error(error);
     }
+}
+function addMovieToStorage(movie) {
+    const favList = (0, _utilsMjs.getLocalStorage)("fav-list") || [];
+    const index = favList.findIndex((item)=>{
+        item.Title, movie.Title;
+    });
+    if (index === -1) favList.push({
+        ...movie,
+        poster: movie.Poster,
+        title: movie.Title
+    });
+    (0, _utilsMjs.setLocalStorage)("fav-list", favList);
+}
+
+},{"./utils.mjs":"6Qrgp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6Qrgp":[function(require,module,exports) {
+// retrieve data from localstorage
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getLocalStorage", ()=>getLocalStorage);
+// save data to local storage
+parcelHelpers.export(exports, "setLocalStorage", ()=>setLocalStorage);
+function getLocalStorage(key) {
+    return JSON.parse(localStorage.getItem(key));
+}
+function setLocalStorage(key, data) {
+    localStorage.setItem(key, JSON.stringify(data));
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["79pyb","ebWYT"], "ebWYT", "parcelRequireac40")

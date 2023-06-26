@@ -1,3 +1,4 @@
 import { movieFavList } from "./userLists.mjs";
 
-movieFavList();
+//display the favorite movies list
+movieFavList(".fav-user-list");

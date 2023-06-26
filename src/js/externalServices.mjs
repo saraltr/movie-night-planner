@@ -1,3 +1,4 @@
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 // fetch a movie by its title
 export async function getMoviesByTitle(title) {
     const apiKey = "f8b853da"; // our active key
@@ -46,4 +47,13 @@ export async function fetchMovieBySearch(search) {
     } catch (error) {
       console.error(error);
     }
+}
+export function addMovieToStorage(movie){
+  const favList = getLocalStorage("fav-list") || [];
+  const index = favList.findIndex((item) =>{ item.Title === movie.Title})
+  if (index === -1) {
+    favList.push({ ...movie, poster: movie.Poster, title: movie.Title});
+  } 
+  setLocalStorage("fav-list", favList);
+
 }

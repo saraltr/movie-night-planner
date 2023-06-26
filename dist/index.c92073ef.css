@@ -29,6 +29,10 @@ p {
   font-size: var(--small-font);
 }
 
+a {
+  text-decoration: none;
+}
+
 .main-header {
   justify-content: space-between;
   align-items: center;
@@ -50,7 +54,16 @@ p {
   width: .5rem;
 }
 
+.fav-user-list::-webkit-scrollbar {
+  background-color: #0000;
+  width: .5rem;
+}
+
 .posters-container::-webkit-scrollbar-thumb {
+  background-color: var(--light-grey);
+}
+
+.fav-user-list::-webkit-scrollbar-thumb {
   background-color: var(--light-grey);
 }
 
@@ -58,13 +71,35 @@ p {
   background-color: #0000;
 }
 
+.fav-user-list::-webkit-scrollbar-track {
+  background-color: #0000;
+}
+
 .banner {
   background-color: var(--secondary-color);
 }
 
-.banner h1, .banner p {
+.banner h1, .banner p, .fav-user-list h3 {
   color: #f5f5f5;
   padding: .5rem;
+}
+
+.fav-user-list {
+  background-color: var(--tertiary-color);
+}
+
+.fav-user-list li {
+  list-style: none;
+}
+
+.fav-container {
+  margin: .2rem .5rem;
+  padding: 0;
+}
+
+#favMovie-icon {
+  width: 30px;
+  height: 30px;
 }
 
 /*# sourceMappingURL=index.c92073ef.css.map */

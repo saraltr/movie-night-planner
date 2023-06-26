@@ -1,5 +1,4 @@
-import { fetchMovieBySearch } from './externalServices.mjs';
-import { getLocalStorage, setLocalStorage } from './utils.mjs';
+import { fetchMovieBySearch, addMovieToStorage } from './externalServices.mjs';
 
 // get the search term from the URL parameters
 const urlParams = new URLSearchParams(window.location.search);
@@ -43,8 +42,8 @@ export function resultsTemplate(movies) {
     if (mediaType === "movie"){
       template += `
       <li class="movie-details">
-        <button id="fav-Btn" data-title="${movieTitle}" onclick="addToStorage(${movie})"><img src="../public/images/icons8-favorite-40.png" alt="Fav Icon"></button>
-        <a href="#">
+        <button id="fav-Btn" data-title="${movieTitle}" onclick="${addMovieToStorage(movie)}"><img src="../public/images/icons8-favorite-40.png" alt="Fav Icon"></button>
+        <a href="#" >
           <h3>${movieTitle} (${movieYear})</h3>
           <img src="${moviePoster}" alt="Porter of ${movieTitle}" />
         </a>
@@ -54,14 +53,4 @@ export function resultsTemplate(movies) {
   
   template += '</ul>';
   return template;
-}
-
-function addToStorage(movie){
-  const favList = getLocalStorage("fav-list") || [];
-  const index = favList.findIndex((item) =>{ item.Title === movie.Title})
-  if (index === -1) {
-    favList.push({ ...movie, poster: movie.Poster, title: movie.Title});
-  } 
-  setLocalStorage("fav-list", favList);
-
 }
