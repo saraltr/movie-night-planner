@@ -31,7 +31,7 @@ export function redirectToSearchResults(searchTerm) {
   urlParams.set("search", searchTerm);
 
   // create the new URL with the search term as a parameter
-  const newUrl = `results/results.html?${urlParams.toString()}`;
+  const newUrl = `results/index.html?${urlParams.toString()}`;
 
   // redirect the page to the new URL
   window.location.href = newUrl;
