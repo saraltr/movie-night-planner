@@ -24,7 +24,6 @@ body{
 
 h1, h2, h3{
     font-family: var(--font-headline);
-    font-size: var(--large-font);
 }
 
 p{
@@ -96,4 +95,48 @@ a{
 #favMovie-icon{
     width: 30px;
     height: 30px;
+}
+
+/* search results page */
+
+.resultsList {
+    /* background-image: linear-gradient(var(--primary-color), var(--tertiary-color)); */
+    background-color: var(--tertiary-color);
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 35px;
+    overflow: hidden;
+    padding: 40px 0;
+
+}
+
+.resultsList .movie-details h3 {
+    color: white;
+    margin: 0;
+    margin-top: auto;
+}
+  
+.resultsList {
+    max-width: 100%;
+    height: auto;
+    flex-grow: 1; 
+}
+#posterImg {
+    max-width: 200px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+#posterImg:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.movie-details p{
+    color: white;
+}
+
+#resultsContainer h1, h2{
+    color: white;
+    background-color: var(--tertiary-color);
 }

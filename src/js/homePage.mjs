@@ -18,8 +18,10 @@ export async function createBanner() {
       bannerSection.appendChild(bannerDiv);
       mainElement.appendChild(bannerSection);
     
-      // fetching movie data using the fetchMovieBySearch function and the keyword "dark" as it is common in films name
-      const bannerMovies = await fetchMovieBySearch("dark");
+      // fetching movie data using the fetchMovieBySearch function and common words in films titles
+      const popularWords = ["dark", "flower", "youth", "home", "fire", "little", "fantastic", "one", "star", "lady"];
+      const randomWord = popularWords[Math.floor(Math.random() * popularWords.length)];
+      const bannerMovies = await fetchMovieBySearch(randomWord);
     //   console.log(bannerMovies); 
       const bannerPosters = createBannerPosters(bannerMovies); // creating the HTML template for banner posters
 
