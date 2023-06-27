@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "WDD 330 Final Project Spring 2023.",
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "start": "parcel src/**/*.html",
+     "build": "parcel build src/index.html"
   },
   "author": "Sara Latorre, Ruth Cardona",
   "license": "ISC",
@@ -13,7 +13,9 @@
     "parcel": "^2.9.2"
   },
   "devDependencies": {
+    "cssnano": "^6.0.1",
     "lint": "^1.1.2",
+    "postcss": "^8.4.24",
     "prettier": "2.8.8"
   }
 }
