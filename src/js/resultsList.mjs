@@ -24,11 +24,14 @@ export async function displayMovies() {
 
 // generate the HTML template for the movie results
 export function resultsTemplate(movies) {
+  console.log(movies)
   if (!movies || !movies.Search || !Array.isArray(movies.Search)) {
     return "<h2>Sorry, we couldn\'t find any results. Try again!</h2>";
   }
 
-  let template = "<h2>Search term: " + searchTerm + "</h2>";
+  const numMatches = movies.Search.length;
+  let template = `<h1>🔎 Search Results</h1>
+  <h2>Found ${numMatches} Matches for "${searchTerm}"</h2>`;
   template += "<ul class='resultsList'>";
   
   
@@ -37,15 +40,15 @@ export function resultsTemplate(movies) {
     const moviePoster = movie.Poster;   
     const mediaType = movie.Type;
     const movieYear = movie.Year;
-    console.log(movie);
+    // console.log(movie);
 
     if (mediaType === "movie"){
       template += `
       <li class="movie-details">
-        <button id="fav-Btn" data-title="${movieTitle}" onclick="${addMovieToStorage(movie)}"><img src="../public/images/icons8-favorite-40.png" alt="Fav Icon"></button>
         <a href="#" >
-          <h3>${movieTitle} (${movieYear})</h3>
-          <img src="${moviePoster}" alt="Porter of ${movieTitle}" />
+          <img id="posterImg" src="${moviePoster}" alt="Poster of ${movieTitle}" />
+          <p>${movieTitle} (${movieYear})<p>
+          <button id="fav-Btn" data-title="${movieTitle}" onclick="${addMovieToStorage(movie)}"><img src="../public/images/icons8-favorite-40.png" alt="Fav Icon"></button>
         </a>
       </li>`;
     }
