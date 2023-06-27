@@ -43,7 +43,7 @@ export async function fetchMovieBySearch(search) {
       const response = await getMoviesBySearch(search);
       const data = await response.json();
     //   console.log(data);
-    return data 
+    return data
     } catch (error) {
       console.error(error);
     }

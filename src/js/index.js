@@ -17,11 +17,3 @@ document.addEventListener("DOMContentLoaded", () => {
 createSearchBox(); // creates the search box component
 
 createBanner(); // creates the banner component
-
-// I wanted to add the icons from here, but the path doesn't work
-// const menuDiv = document.querySelector(".menu");
-
-// const userIcon = document.createElement("img");
-// userIcon.src = "../public/images/mnp-logo.svg";
-
-// menuDiv.appendChild(userIcon);
