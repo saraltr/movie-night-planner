@@ -21,20 +21,31 @@ export async function displayMovieDetails(movieTitle, selector){
 
 function renderMovieDetails(movie){
 
-    const template = `<h1>${movie.Title} (${movie.Year})</h1>
+    const template = `
     <div class="mov-inf">
+    <h1>${movie.Title} (${movie.Year})</h1>
         <p><b>Genre:</b> ${movie.Genre}</p>
         <p><b>Runtime:</b> ${movie.Runtime}</p>
         <p><b>Released:</b> ${movie.Released}</p>
+        <p><b>Country:</b> ${movie.Country}</p>
         <p><b>Rated:</b> ${movie.Rated}</p>
         <p><b>Director:</b> ${movie.Director}</p>
         <p><b>Actors:</b> ${movie.Actors}</p>
         <p><b>Language:</b> ${movie.Language}</p>
+        <p><b>Awards:</b> ${movie.Awards}</p>
+
     </div>
     <img class="mov-inf-img" src="${movie.Poster}" alt="Poster of ${movie.Title}">
     <div class="mov-inf-descr">
-        <h2>Description</h2>
+        <h3>Description</h3>
         <p>${movie.Plot}</p>
+    </div>
+    
+    <div class="mov-inf-rating">
+        <h3>⭐⭐Ratings⭐⭐<h3>
+        <p>🎬${movie.Ratings[0].Source}: ${movie.Ratings[0].Value}</p>
+        <p>🎬${movie.Ratings[1].Source}: ${movie.Ratings[1].Value}</p>
+        <p>🎬${movie.Ratings[2].Source}: ${movie.Ratings[2].Value}</p>
     </div>
 
     `;
