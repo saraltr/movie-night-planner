@@ -45,7 +45,7 @@ export function resultsTemplate(movies) {
     if (mediaType === "movie"){
       template += `
       <li class="movie-details">
-        <a href="#" >
+        <a href="/movie-details/index.html?movie=${movieTitle}" >
           <img id="posterImg" src="${moviePoster}" alt="Poster of ${movieTitle}" />
           <p>${movieTitle} (${movieYear})<p>
           <button id="fav-Btn" data-title="${movieTitle}" onclick="${addMovieToStorage(movie)}"><img src="../public/images/icons8-favorite-40.png" alt="Fav Icon"></button>
