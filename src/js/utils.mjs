@@ -10,3 +10,9 @@ export function setLocalStorage(key, data) {
 export function generateBreadcrumb(){
   
 }
+export function getParam(param){
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const product = urlParams.get(param)
+  return product
+}

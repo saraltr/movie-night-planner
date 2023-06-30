@@ -70,7 +70,7 @@ function createBannerPosters(bannerMovies) {
         // if the media type is a movie, add the movie details to the template
         template += `
         <div class="movie-details">
-          <a href="#">
+          <a href="/movie-details/index.html?movie=${movieTitle}" >
             <img src="${moviePoster}" alt="${movieTitle} poster"/>
           </a>
         </div>`;
