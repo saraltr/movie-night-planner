@@ -100,7 +100,6 @@ a{
 /* search results page */
 
 .resultsList {
-    /* background-image: linear-gradient(var(--primary-color), var(--tertiary-color)); */
     background-color: var(--tertiary-color);
     list-style: none;
     display: grid;
@@ -139,6 +138,45 @@ a{
 #resultsContainer h1, h2{
     color: white;
     background-color: var(--tertiary-color);
+}
+
+/* watch party page */
+
+.trailerSection {
+    margin: 1rem 0;
+    padding: 2rem;
+    background-color: var(--tertiary-color);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+iframe {
+    max-width: 100%;
+    width: 560px;
+    height: 315px;
+}
+
+.joinBtn {
+    grid-row: 2/3;
+    width: fit-content;
+    margin: auto;
+    padding: 0.5em;
+    font-family: var(--font-body);
+    font-size: medium;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.joinBtn:hover {
+    transform: scale(1.1);
+}
+
+.movie-info {
+    margin-top: 1em;
+    color: var(--light-grey);
+    text-align: start;
 }
 
 @media screen and (min-width: 700px) {

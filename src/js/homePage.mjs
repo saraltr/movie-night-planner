@@ -5,6 +5,7 @@ export async function createBanner() {
     try {
       const mainElement = document.querySelector("main");
       const bannerSection = document.createElement("section");
+      bannerSection.classList.add("bannerSection");
       const bannerDiv = document.createElement("div");
       bannerDiv.classList.add("banner");
       const bannerTitle = document.createElement("h1");
@@ -53,7 +54,6 @@ export async function createBanner() {
   
 // create the HTML template for the banner posters
 function createBannerPosters(bannerMovies) {
-  console.log(bannerMovies);
     if (!bannerMovies || !Array.isArray(bannerMovies.Search)) {
       return ""; // return an empty string if the movie data is invalid
     }
@@ -61,7 +61,6 @@ function createBannerPosters(bannerMovies) {
     let template = "";
   
     bannerMovies.Search.forEach((movie) => {
-      console.log(movie);
       const moviePoster = movie.Poster;
       const mediaType = movie.Type;
       const movieTitle = movie.Title;
@@ -79,4 +78,3 @@ function createBannerPosters(bannerMovies) {
   
     return template;
   }
-  

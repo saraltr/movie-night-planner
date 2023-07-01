@@ -48,6 +48,7 @@ export async function fetchMovieBySearch(search) {
       console.error(error);
     }
 }
+
 export function addMovieToStorage(movie){
   const favList = getLocalStorage("fav-list") || [];
   const index = favList.findIndex((item) =>{ item.Title === movie.Title})
@@ -56,4 +57,16 @@ export function addMovieToStorage(movie){
   } 
   setLocalStorage("fav-list", favList);
 
+}
+
+export async function fetchTrailerId(movieTitle) {
+  try {
+    // const apiKey = "AIzaSyCH37v8r3AA8XJJ_zQYPYrpp2bofTKZWGI";
+    const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&q=${encodeURIComponent(movieTitle + " trailer")}`);
+    const data = await response.json();
+    const trailerId = data.items[0].id.videoId;
+    return trailerId;
+  } catch (error) {
+    console.error("Error fetching trailer:", error);
+  }
 }
