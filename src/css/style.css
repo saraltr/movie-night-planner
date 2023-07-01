@@ -65,7 +65,7 @@ a{
   }
   
 .posters-container::-webkit-scrollbar-thumb, .fav-user-list::-webkit-scrollbar-thumb {
-    background-color: var(--light-grey);
+    background-color: white;
 }
   
 .posters-container::-webkit-scrollbar-track, .fav-user-list::-webkit-scrollbar-track {
@@ -108,7 +108,6 @@ a{
     gap: 35px;
     overflow: hidden;
     padding: 40px 0;
-
 }
 
 .resultsList .movie-details h3 {
@@ -116,12 +115,12 @@ a{
     margin: 0;
     margin-top: auto;
 }
-  
-.resultsList {
-    max-width: 100%;
-    height: auto;
-    flex-grow: 1; 
+
+#fav-Btn {
+    margin: auto;
 }
+
+
 #posterImg {
     max-width: 200px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
@@ -131,9 +130,16 @@ a{
 #posterImg:hover{
     transform: scale(1.1);
     cursor: pointer;
+    border: solid 2px var(--light-grey);
+    filter: drop-shadow(0 0 0.70rem #526C8D);
 }
-.movie-details, #movie-detail  p{
+.movie-details p, #movie-detail  p{
     color: white;
+}
+
+.movie-details {
+    display: flex;
+    flex-direction: column;
 }
 
 #movie-detail{
@@ -144,17 +150,12 @@ a{
     background-color: var(--tertiary-color);
 }
 
-
-
 /* watch party page */
 
-.trailerSection {
+.trailerSection{
     margin: 1rem 0;
     padding: 2rem;
     background-color: var(--tertiary-color);
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
 }
 
 .partySection {
@@ -165,18 +166,23 @@ iframe {
     max-width: 100%;
     width: 560px;
     height: 315px;
+    filter: drop-shadow(0 0 0.70rem #526C8D)
 }
 
 .joinBtn {
     grid-row: 2/3;
     width: fit-content;
-    margin: auto;
     padding: 0.5em;
     font-family: var(--font-body);
     font-size: medium;
     border-radius: 10px;
     border: none;
     cursor: pointer;
+    margin: 20px 0;
+}
+
+.userIcons {
+    margin-top: 20px;
 }
 
 .joinBtn:hover {
@@ -191,20 +197,38 @@ iframe {
 
 @media screen and (min-width: 700px) {
     #movie-detail{
+        padding: 1rem;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        /* margin: .5rem 5rem; */
+        grid-template-columns: 1.5fr 1fr;
     }
     .mov-inf{
+        display: flex;
+        flex-direction: column;
         grid-column: 1/2;
+        justify-content: center;
+        text-align: end;
+    }
+
+    .mov-inf p{
+        text-align: end;
     }
     .mov-inf-img{
         grid-column: 2/3;
-        justify-self: center;
+        justify-self: start;
+        margin-left: 20px;
+        filter: drop-shadow(0 0 0.70rem #122936)
     }
     .mov-inf-descr, .mov-inf-rating{
         grid-column: 1/3;
         margin-top: 1rem;
+    }
+    .trailerSection {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .joinBtn, .userIcons {
+        margin: auto;
     }
    
 }

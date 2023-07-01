@@ -1,4 +1,4 @@
-import { getMoviesByTitle } from "./externalServices.mjs";
+import { getMoviesByTitle, addMovieToStorage } from "./externalServices.mjs";
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 export async function displayMovieDetails(movieTitle, selector){
   try{
@@ -47,6 +47,10 @@ function renderMovieDetails(movie){
         <p>🎬${movie.Ratings[1].Source}: ${movie.Ratings[1].Value}</p>
         <p>🎬${movie.Ratings[2].Source}: ${movie.Ratings[2].Value}</p>
     </div>
+
+    <div><button id="fav-Btn" data-title="${movie.Title}" onclick="${addMovieToStorage(movie)}"><img src="../public/images/icons8-favorite-40.png" alt="Fav Icon"></button></div>
+    <div>Add to watch list</div>
+
 
     `;
     
