@@ -24,6 +24,7 @@ body{
 
 h1, h2, h3{
     font-family: var(--font-headline);
+    color: white;
 }
 
 p{
@@ -131,14 +132,19 @@ a{
     transform: scale(1.1);
     cursor: pointer;
 }
-.movie-details p{
+.movie-details, #movie-detail  p{
     color: white;
 }
 
+#movie-detail{
+    background-color: var(--primary-color);
+}
+
 #resultsContainer h1, h2{
-    color: white;
     background-color: var(--tertiary-color);
 }
+
+
 
 /* watch party page */
 
@@ -151,6 +157,10 @@ a{
     gap: 20px;
 }
 
+.partySection {
+    background-color: var(--tertiary-color);
+    padding: 1.5rem;
+}
 iframe {
     max-width: 100%;
     width: 560px;
@@ -183,7 +193,7 @@ iframe {
     #movie-detail{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        margin: .5rem 5rem;
+        /* margin: .5rem 5rem; */
     }
     .mov-inf{
         grid-column: 1/2;

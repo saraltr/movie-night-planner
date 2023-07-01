@@ -1,7 +1,7 @@
 import { createSearchBox, redirectToSearchResults } from './search';
 import { createBanner } from './homePage.mjs';
 import { movieFavList } from './userLists.mjs';
-import { initialize } from './watchParty';
+import { initialize } from './watchParty.mjs';
 
 // event listener to make sure the dom is loaded before the js is executed
 document.addEventListener("DOMContentLoaded", () => {
