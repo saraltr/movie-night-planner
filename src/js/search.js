@@ -30,8 +30,11 @@ export function redirectToSearchResults(searchTerm) {
   const urlParams = new URLSearchParams();
   urlParams.set("search", searchTerm);
 
+  // Get the root path of the website so we can uses the search box everywhere
+  const rootPath = window.location.origin;
+
   // create the new URL with the search term as a parameter
-  const newUrl = `results/index.html?${urlParams.toString()}`;
+  const newUrl = `${rootPath}/results/index.html?${urlParams.toString()}`;
 
   // redirect the page to the new URL
   window.location.href = newUrl;
