@@ -2,10 +2,11 @@
     --font-body: "Titillium Web", sans-serif;
     --font-headline: "Kanit", sans-serif;
     /* colors */
-    --primary-color: #526C8D;
+    --primary-color: #122936;
     --secondary-color: #9D3433;
-    --tertiary-color: #122936;
+    --tertiary-color: #631f90;
     --light-grey: #d0d0d0;
+    --quaternary: #526C8D;
 
     /* font sizes */
     --font-base: 19px;
@@ -25,6 +26,7 @@ body{
 h1, h2, h3{
     font-family: var(--font-headline);
     color: white;
+    font-size: var(--large-font);
 }
 
 p{
@@ -58,32 +60,62 @@ a{
     background-color: var(--secondary-color);
 }
 
+.posters-container::-webkit-scrollbar {
+    display: none; /* hide the scrollbar for the banner */
+}
+
 /* hide the scrollbar on the posters-container */
-.posters-container::-webkit-scrollbar, .fav-user-list::-webkit-scrollbar {
-    width: 0.5rem;
+.list-container::-webkit-scrollbar, 
+.fav-user-list::-webkit-scrollbar {
+    width: 0.5rem; /* sets the width of the scrollbar */
     background-color: transparent;
-  }
+}
   
-.posters-container::-webkit-scrollbar-thumb, .fav-user-list::-webkit-scrollbar-thumb {
+.fav-user-list::-webkit-scrollbar-thumb {
     background-color: white;
 }
   
-.posters-container::-webkit-scrollbar-track, .fav-user-list::-webkit-scrollbar-track {
+.list-container::-webkit-scrollbar-track, 
+.fav-user-list::-webkit-scrollbar-track{
     background-color: transparent;
 }
+  
+.list-container::-webkit-scrollbar-thumb {
+    background-color: var(--tertiary-color);
+}
+  
+/* .posters-container.loop {
+    animation: scrollLoop 20s linear infinite;
+}
+
+@keyframes scrollLoop {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+} */
   
 .banner {
     background-color: var(--secondary-color);
 }
 
 .banner h1, .banner p, .fav-user-list h3 {
-    padding: .5rem;
-    color: whitesmoke;
+    padding: 1rem;
+    color: white;
+}
+
+.bannerSection h2 {
+    color: var(--tertiary-color);
+    background-color: transparent;
+    margin-top: 1em;
+    margin-bottom: -1.5em;
 }
 
 /*USER PAGE*/
 .fav-user-list{
-    background-color: var(--tertiary-color);
+    background-color: var(--primary-color);
 }
 .fav-user-list li{
     list-style: none;
@@ -101,7 +133,7 @@ a{
 /* search results page */
 
 .resultsList {
-    background-color: var(--tertiary-color);
+    background-color: var(--primary-color);
     list-style: none;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -115,6 +147,7 @@ a{
     margin: 0;
     margin-top: auto;
 }
+
 
 #fav-Btn {
     margin: auto;
@@ -143,11 +176,11 @@ a{
 }
 
 #movie-detail{
-    background-color: var(--primary-color);
+    background-color: var(--tertiary-color);
 }
 
-#resultsContainer h1, h2{
-    background-color: var(--tertiary-color);
+#resultsContainer h1, #resultsContainer h2{
+    background-color: var(--primary-color);
 }
 
 /* watch party page */
@@ -155,11 +188,11 @@ a{
 .trailerSection{
     margin: 1rem 0;
     padding: 2rem;
-    background-color: var(--tertiary-color);
+    background-color: var(--primary-color);
 }
 
 .partySection {
-    background-color: var(--tertiary-color);
+    background-color: var(--primary-color);
     padding: 1.5rem;
 }
 iframe {
@@ -216,7 +249,7 @@ iframe {
         grid-column: 2/3;
         justify-self: start;
         margin-left: 20px;
-        filter: drop-shadow(0 0 0.70rem #122936)
+        filter: drop-shadow(0 0 0.70rem white)
     }
     .mov-inf-descr, .mov-inf-rating{
         grid-column: 1/3;

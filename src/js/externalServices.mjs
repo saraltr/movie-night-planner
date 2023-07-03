@@ -1,7 +1,9 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+require("dotenv").config()
+
 // fetch a movie by its title
 export async function getMoviesByTitle(title) {
-    const apiKey = "f8b853da"; // our active key
+    const apiKey = process.env.OMDB_KEY; // our active key
     const baseURL = "https://www.omdbapi.com/";
     const response = await fetch(`${baseURL}?apikey=${apiKey}&t=${title}`);
     if (response.ok){
@@ -14,7 +16,7 @@ export async function getMoviesByTitle(title) {
 
 // fetch movies by search term
 export async function getMoviesBySearch(search) {
-    const apiKey = "f8b853da";
+    const apiKey = process.env.OMDB_KEY;
     const baseURL = "https://www.omdbapi.com/";
     const response = await fetch(`${baseURL}?apikey=${apiKey}&s=${search}`);
     if (response.ok){
@@ -56,17 +58,32 @@ export function addMovieToStorage(movie){
     favList.push({ ...movie, poster: movie.Poster, title: movie.Title});
   } 
   setLocalStorage("fav-list", favList);
-
 }
 
 export async function fetchTrailerId(movieTitle) {
   try {
-    const apiKey = "AIzaSyCH37v8r3AA8XJJ_zQYPYrpp2bofTKZWGI";
+    const apiKey = process.env.GOOGLE_KEY;
     const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&q=${encodeURIComponent(movieTitle + " trailer")}`);
     const data = await response.json();
     const trailerId = data.items[0].id.videoId;
     return trailerId;
   } catch (error) {
     console.error("Error fetching trailer:", error);
+  }
+}
+
+export async function getMovies(url) {
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4ZTMyYjY2MjM2YzI4OTQyZjgyOWYyYWM1Njg2N2E4YiIsInN1YiI6IjY0YTEwNDJhOGMwYTQ4MDEzYjNkYWI5NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TidpZEZvWp4o6Cy9_P3FexJEttfATJwtGZCjlfAXeZI"
+    }
+  };
+  const response = await fetch(`https://api.themoviedb.org/3/${url}`, options)
+  if (response.ok){
+    const data = response.json()
+    // console.log(data)
+    return data;
   }
 }
