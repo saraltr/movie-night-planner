@@ -85,21 +85,28 @@ export async function initialize(movieTitle = null) {
   // gets random movie of the json file 
   const randomMovie = selectRandomMovie(movieData);
 
-  // gets the if using the title
-  const trailerId = await fetchTrailerId(randomMovie.title);
-  // console.log(trailerId);
-
-  // passes the id to the iframe
-  const trailerIframe = playTrailer(trailerId);
 
   if (movieTitle) {
     // for watch party pages
+
+    // gets the id of the movie using the title
+    const trailerId = await fetchTrailerId(movieTitle);
+    // passes the id to the iframe
+    const trailerIframe = playTrailer(trailerId);
+
     createTrailerSection(trailerIframe, false)
     const filmTitle = document.querySelector(".filmTitle");
     filmTitle.innerHTML=  `Currently watching: ▶️${movieTitle}`;
 
   } else {
     // for the home page
+
+    // gets the id of the movie using the title
+    const trailerId = await fetchTrailerId(randomMovie.title);
+    // console.log(trailerId);
+
+    // passes the id to the iframe
+    const trailerIframe = playTrailer(trailerId);
     createTrailerSection(trailerIframe);
     const movieInfoTemplate = createMovieInfoTemplate(randomMovie);
     const mainSection = document.querySelector(".trailerSection");
