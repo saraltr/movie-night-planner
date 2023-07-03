@@ -201,5 +201,230 @@
       "synopsis": "Set in the port town of Dover, Mary Hussain suddenly finds herself a widow following the unexpected death of her husband. A day after the burial, she discovers he has a secret just twenty-one miles across the English Channel in Calais.",
       "starring": "Joanna Scanlan, Nathalie Richards, Talid Ariss",
       "directed_by": "Aleem Khan"
-    }
+    },
+    {
+      "id": 22,
+      "title": "M3GAN",
+      "rating": "93%",
+      "consensus": "Unapologetically silly and all the more entertaining for it, M3GAN is the rare horror-comedy that delivers chuckles as effortlessly as chills.",
+      "synopsis": "M3GAN is a marvel of artificial intelligence, a life-like doll programmed to be a child's greatest companion and a parent's... [More]",
+      "starring": "Allison Williams, Violet McGraw, Ronny Chieng, Brian Jordan Alvarez",
+      "directed_by": "Gerard Johnstone"
+  },
+  {
+      "id": 23,
+      "title": "INFLUENCER",
+      "rating": "92%",
+      "consensus": "Influencer should get plenty of likes from horror fans hungry for a smart, scary chiller with something to say.",
+      "synopsis": "INFLUENCER tells the story of Madison (Emily Tennant, \"Riverdale\"), a popular social media influencer who is having a lonely and... [More]",
+      "starring": "Emily Tennant, Cassandra Naud, Sara Canning, Rory J. Saper",
+      "directed_by": "Kurtis David Harder"
+  },
+  {
+      "id": 24,
+      "title": "CHILE '76",
+      "rating": "92%",
+      "consensus": "Chile '76 is an intriguing historical noir that radiographs Pinochet's patronizing and patriarchal society through the eyes of a steely bourgeois woman who dares to take a stand.",
+      "synopsis": "Chile, 1976. Carmen heads off to her beach house to supervise its renovation. Her husband, children, and grandchildren come back... [More]",
+      "starring": "Aline Küppenheim, Nicolás Sepúlveda, Hugo Medina, Alejandro Goic",
+      "directed_by": "Manuela Martelli"
+  },
+  {
+    "id": 26,
+    "title": "The Shawshank Redemption",
+    "rating": "91%",
+    "consensus": "With its poignant story and stellar performances, The Shawshank Redemption has become a modern classic and a beloved film for audiences around the world.",
+    "synopsis": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+    "starring": "Tim Robbins, Morgan Freeman, Bob Gunton",
+    "directed_by": "Frank Darabont"
+  },
+  {
+    "id": 28,
+    "title": "The Dark Knight",
+    "rating": "94%",
+    "consensus": "Led by an iconic performance by Heath Ledger as the Joker, The Dark Knight is a gripping and visually stunning superhero film that transcends the genre.",
+    "synopsis": "When the Joker wreaks havoc on Gotham City, Batman must confront his own moral dilemmas as he fights to protect the city he has sworn to defend.",
+    "starring": "Christian Bale, Heath Ledger, Aaron Eckhart",
+    "directed_by": "Christopher Nolan"
+  },
+  {
+    "id": 29,
+    "title": "The Matrix",
+    "rating": "87%",
+    "consensus": "The Matrix is a groundbreaking sci-fi film that combines mind-bending concepts with thrilling action sequences, creating a visually stunning and thought-provoking experience.",
+    "synopsis": "A computer hacker learns about the true nature of his reality and his role in the war against the machines.",
+    "starring": "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss",
+    "directed_by": "The Wachowskis"
+  },
+  {
+    "id": 30,
+    "title": "Star Wars: Episode IV - A New Hope",
+    "rating": "93%",
+    "consensus": "A New Hope is the film that launched the epic Star Wars saga, introducing audiences to a galaxy far, far away and capturing their imaginations with its unforgettable characters and timeless story.",
+    "synopsis": "Luke Skywalker embarks on a journey to rescue Princess Leia from the clutches of the evil Darth Vader and help the Rebel Alliance in their struggle against the Galactic Empire.",
+    "starring": "Mark Hamill, Harrison Ford, Carrie Fisher",
+    "directed_by": "George Lucas"
+  },
+  {
+    "id": 32,
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "rating": "91%",
+    "consensus": "The Fellowship of the Ring is the captivating first installment of the Lord of the Rings trilogy, featuring breathtaking visuals, a richly detailed world, and an epic story of good versus evil.",
+    "synopsis": "A young hobbit named Frodo Baggins embarks on a perilous journey to destroy a powerful ring and save Middle-earth from the dark lord Sauron.",
+    "starring": "Elijah Wood, Ian McKellen, Viggo Mortensen",
+    "directed_by": "Peter Jackson"
+  },
+  {
+    "id": 33,
+    "title": "Inception",
+    "rating": "87%",
+    "consensus": "Inception is a mind-bending and visually stunning film that takes audiences on a thrilling journey through dreams and reality, leaving them questioning what is real and what is illusion.",
+    "synopsis": "A skilled thief, specializing in the extraction of valuable secrets from people's dreams, is given a seemingly impossible task of planting an idea in someone's mind.",
+    "starring": "Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page",
+    "directed_by": "Christopher Nolan"
+  },
+  {
+    "id": 34,
+    "title": "In the Mood for Love",
+    "rating": "87%",
+    "consensus": "In the Mood for Love is a visually stunning and emotionally resonant film that explores themes of love, desire, and missed connections in 1960s Hong Kong.",
+    "synopsis": "Two neighbors form a bond when they suspect their spouses are having an affair, leading them to confront their own feelings for each other.",
+    "starring": "Tony Leung, Maggie Cheung, Rebecca Pan",
+    "directed_by": "Wong Kar-wai"
+  },
+  {
+      "id": 35,
+      "title": "Shrek 2",
+      "rating": "89%",
+      "consensus": "Shrek 2 is a hilarious and heartwarming animated film that takes viewers on a fairy tale adventure filled with memorable characters and clever humor.",
+      "synopsis": "Shrek and Fiona return from their honeymoon to find an invitation from Fiona's parents, leading them on a journey to meet the royal in-laws.",
+      "starring": "Mike Myers, Eddie Murphy, Cameron Diaz",
+      "directed_by": "Andrew Adamson, Kelly Asbury, Conrad Vernon"
+  },
+  {
+      "id": 36,
+      "title": "ASTEROID CITY",
+      "rating": "Not Available",
+      "consensus": "Asteroid City is unlikely to win Wes Anderson many new converts, but those who respond to his signature style will find this a return to immaculately arranged form.",
+      "synopsis": "The itinerary of a Junior Stargazer/Space Cadet convention (organized to bring together students and parents from across the country for fellowship and scholarly competition) is spectacularly disrupted by world-changing events.",
+      "starring": "Jason Schwartzman, Scarlett Johansson, Tom Hanks, Jeffrey Wright",
+      "directed_by": "Wes Anderson"
+  },
+  {
+      "id": 38,
+      "title": "Pride and Prejudice",
+      "rating": "85%",
+      "consensus": "Pride and Prejudice is a timeless romantic drama that brings Jane Austen's classic novel to life, featuring strong performances and beautiful cinematography.",
+      "synopsis": "In 19th-century England, the headstrong Elizabeth Bennet clashes with the arrogant Mr. Darcy, leading to a captivating and complex love story.",
+      "starring": "Keira Knightley, Matthew Macfadyen, Rosamund Pike",
+      "directed_by": "Joe Wright"
+  },
+  {
+      "id": 39,
+      "title": "Scream",
+      "rating": "79%",
+      "consensus": "Scream revitalized the slasher genre with its self-awareness and clever meta-commentary, delivering a thrilling and entertaining experience for horror fans.",
+      "synopsis": "A masked killer terrorizes a small town, targeting a group of high school students, who must uncover the killer's identity before it's too late.",
+      "starring": "Neve Campbell, Courteney Cox, David Arquette",
+      "directed_by": "Wes Craven"
+  },
+  {
+      "id": 40,
+      "title": "Scream 2",
+      "rating": "81%",
+      "consensus": "Scream 2 successfully builds upon its predecessor with a fresh set of twists and turns, offering more suspense, scares, and self-aware humor.",
+      "synopsis": "A new string of murders reminiscent of the Ghostface killer's reign of terror haunts a college campus, forcing the survivors of the first attack to confront their past fears.",
+      "starring": "Neve Campbell, Courteney Cox, David Arquette",
+      "directed_by": "Wes Craven"
+  },
+  {
+      "id": 41,
+      "title": "Scream 6",
+      "rating": "Not Available",
+      "consensus": "Scream 6 continues the iconic horror franchise with a new chapter of suspense, mystery, and self-referential humor, keeping audiences on the edge of their seats.",
+      "synopsis": "When a new wave of killings begins in the town of Woodsboro, a new generation must face the return of Ghostface and uncover the dark secrets behind the mask.",
+      "starring": "TBD",
+      "directed_by": "TBD"
+  },
+  {
+      "id": 42,
+      "title": "Spirited Away",
+      "rating": "97%",
+      "consensus": "Spirited Away is a magical and enchanting animated film that transports viewers to a fantastical world filled with imaginative creatures and a heartfelt coming-of-age story.",
+      "synopsis": "A young girl named Chihiro stumbles upon a mysterious spirit world, where she must navigate through various challenges to rescue her parents and find her way back home.",
+      "starring": "Rumi Hiiragi, Miyu Irino, Mari Natsuki",
+      "directed_by": "Hayao Miyazaki"
+  },
+  {
+      "id": 43,
+      "title": "Sunset Boulevard",
+      "rating": "98%",
+      "consensus": "Sunset Boulevard is a classic film noir that masterfully explores themes of faded glory, obsession, and the dark side of Hollywood, anchored by a mesmerizing performance by Gloria Swanson.",
+      "synopsis": "A struggling screenwriter becomes entangled with a faded silent film star, leading to a twisted and haunting tale of delusion and desperation.",
+      "starring": "William Holden, Gloria Swanson, Erich von Stroheim",
+      "directed_by": "Billy Wilder"
+  },
+  {
+      "id": 44,
+      "title": "Casablanca",
+      "rating": "97%",
+      "consensus": "Casablanca is a timeless romantic drama that has endured as a cinematic masterpiece, featuring memorable performances, quotable dialogue, and a captivating wartime love story.",
+      "synopsis": "Set in World War II-era Casablanca, an American expatriate must choose between love and virtue when his former lover and her husband seek his help to escape the Nazis.",
+      "starring": "Humphrey Bogart, Ingrid Bergman, Paul Henreid",
+      "directed_by": "Michael Curtiz"
+  },
+  {
+      "id": 45,
+      "title": "Whiplash",
+      "rating": "94%",
+      "consensus": "Whiplash is an intense and gripping drama that explores the pursuit of greatness and the sacrifices required to achieve it, fueled by electrifying performances and a pulsating soundtrack.",
+      "synopsis": "A young drummer enrolls in a prestigious music conservatory, where he comes under the brutal tutelage of an esteemed but demanding instructor.",
+      "starring": "Miles Teller, J.K. Simmons, Paul Reiser",
+      "directed_by": "Damien Chazelle"
+  },
+  {
+      "id": 46,
+      "title": "Barry Lyndon",
+      "rating": "94%",
+      "consensus": "Barry Lyndon is a visually stunning period drama that showcases Stanley Kubrick's meticulous attention to detail, featuring breathtaking cinematography and a compelling narrative.",
+      "synopsis": "An Irish rogue named Barry Lyndon navigates through 18th-century Europe, using his wit and cunning to rise in the ranks of society.",
+      "starring": "Ryan O'Neal, Marisa Berenson, Patrick Magee",
+      "directed_by": "Stanley Kubrick"
+  },
+  {
+      "id": 47,
+      "title": "Twilight",
+      "rating": "49%",
+      "consensus": "Twilight is a supernatural romance that captivated a generation of fans with its star-crossed love story, but received mixed reviews for its pacing and character development.",
+      "synopsis": "A teenage girl falls in love with a mysterious vampire, leading to a dangerous and forbidden romance that puts her life at risk.",
+      "starring": "Kristen Stewart, Robert Pattinson, Taylor Lautner",
+      "directed_by": "Catherine Hardwicke"
+  },
+  {
+      "id": 48,
+      "title": "The Hunger Games",
+      "rating": "84%",
+      "consensus": "The Hunger Games is a thrilling dystopian adventure that resonated with audiences for its engaging story, strong performances, and social commentary.",
+      "synopsis": "In a post-apocalyptic world, a young girl volunteers for a brutal televised competition where teenagers fight to the death, challenging the oppressive regime that controls their lives.",
+      "starring": "Jennifer Lawrence, Josh Hutcherson, Liam Hemsworth",
+      "directed_by": "Gary Ross"
+  },
+  {
+      "id": 49,
+      "title": "Harry Potter and the Philosopher's Stone",
+      "rating": "81%",
+      "consensus": "Harry Potter and the Philosopher's Stone introduces audiences to the magical world of Hogwarts with its enchanting story, charming characters, and visual spectacle.",
+      "synopsis": "An orphaned boy named Harry Potter discovers he is a wizard and enrolls in Hogwarts School of Witchcraft and Wizardry, where he unravels the mysteries of his past and confronts the dark forces threatening the wizarding world.",
+      "starring": "Daniel Radcliffe, Rupert Grint, Emma Watson",
+      "directed_by": "Chris Columbus"
+  },
+  {
+    "id": 25,
+    "title": "AVATAR THE WAY OF WATER",
+    "rating": "76%",
+    "consensus": "Narratively, it might be fairly standard stuff -- but visually speaking, Avatar: The Way of Water is a stunningly immersive experience",
+    "synopsis": "Set more than a decade after the events of the first film, 'Avatar: The Way of Water' begins to tell the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.",
+    "starring": "Joanna Scanlan, Nathalie Richards, Talid Ariss",
+    "directed_by": "Aleem Khan"
+  }
 ]
