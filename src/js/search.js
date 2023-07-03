@@ -26,6 +26,8 @@ export function createSearchBox() {
 
 // redirect to search results page
 export function redirectToSearchResults(searchTerm) {
+
+  localStorage.setItem('searchTerm', searchTerm);
   // Create URL parameters and set the search term
   const urlParams = new URLSearchParams();
   urlParams.set("search", searchTerm);

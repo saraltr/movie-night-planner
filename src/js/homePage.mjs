@@ -1,80 +1,178 @@
-import { fetchMovieBySearch} from './externalServices.mjs';
+import { fetchMovieBySearch, getMovies } from './externalServices.mjs';
+import { getLocalStorage } from './utils.mjs';
 
-// creates the home page banner
-export async function createBanner() {
-    try {
-      const mainElement = document.querySelector("main");
-      const bannerSection = document.createElement("section");
-      bannerSection.classList.add("bannerSection");
-      const bannerDiv = document.createElement("div");
-      bannerDiv.classList.add("banner");
+function createPostersContainer(movies, createTemplate, className) {
+  const postersContainer = document.createElement("div");
+  postersContainer.classList.add(className);
+
+  const template = createTemplate(movies);
+  postersContainer.innerHTML = template;
+
+  postersContainer.style.display = "flex";
+  postersContainer.style.flexDirection = "row";
+  postersContainer.style.overflowX = "auto";
+  postersContainer.style.gap = "10px";
+  postersContainer.style.transform = "scale(0.8)";
+
+  const posterImages = postersContainer.querySelectorAll("img");
+  posterImages.forEach((img) => {
+    img.style.height = "500px";
+    img.style.width = "300px";
+    img.style.objectFit = "cover";
+  });
+
+  return postersContainer;
+}
+
+export async function createList() {
+  try {
+    const mainElement = document.querySelector("main");
+    const bannerSection = document.createElement("section");
+    bannerSection.classList.add("bannerSection");
+    const bannerDiv = document.createElement("div");
+    bannerDiv.classList.add("movie-list");
+    const bannerTitle = document.createElement("h2");
+    bannerTitle.textContent = "Discover";
+
+    bannerDiv.appendChild(bannerTitle);
+    bannerSection.appendChild(bannerDiv);
+    mainElement.appendChild(bannerSection);
+
+    const popularWords = ["dark", "flower", "youth", "home", "fire", "little", "fantastic", "one", "star", "lady"];
+    const randomWord = popularWords[Math.floor(Math.random() * popularWords.length)];
+    const bannerMovies = await fetchMovieBySearch(randomWord);
+
+    const createBannerPostersTemplate = (movies) => {
+      if (!movies || !Array.isArray(movies.Search)) {
+        return "";
+      }
+
+      let template = "";
+      movies.Search.forEach((movie) => {
+        const moviePoster = movie.Poster;
+        const mediaType = movie.Type;
+        const movieTitle = movie.Title;
+
+        if (mediaType === "movie") {
+          template += `
+            <div class="movie-details">
+              <a href="/movie-details/index.html?movie=${movieTitle}">
+                <img src="${moviePoster}" alt="${movieTitle} poster"/>
+              </a>
+            </div>`;
+        }
+      });
+
+      return template;
+    };
+
+    const postersContainer = createPostersContainer(bannerMovies, createBannerPostersTemplate, "list-container");
+    bannerDiv.appendChild(postersContainer);
+  } catch (error) {
+    console.error("An error occurred:", error);
+  }
+}
+
+export async function createBanner(url, bannerText, mainBanner = true) {
+  try {
+    const mainElement = document.querySelector("main");
+    const bannerSection = document.createElement("section");
+    bannerSection.classList.add("bannerSection");
+    const bannerDiv = document.createElement("div");
+
+    if (mainBanner) {
       const bannerTitle = document.createElement("h1");
-      bannerTitle.textContent = "Welcome to Movie Night Planner!";
-
+      bannerTitle.textContent = bannerText;
       const bannerMessage = document.createElement("p");
       bannerMessage.textContent = "🎬 -- Lights, Camera, Action! Plan Your Perfect Movie Night. --🍿";
-  
+      bannerDiv.classList.add("banner")
       bannerDiv.appendChild(bannerTitle);
       bannerDiv.appendChild(bannerMessage);
       bannerSection.appendChild(bannerDiv);
       mainElement.appendChild(bannerSection);
-    
-      // fetching movie data using the fetchMovieBySearch function and common words in films titles
-      const popularWords = ["dark", "flower", "youth", "home", "fire", "little", "fantastic", "one", "star", "lady"];
-      const randomWord = popularWords[Math.floor(Math.random() * popularWords.length)];
-      const bannerMovies = await fetchMovieBySearch(randomWord);
-    //   console.log(bannerMovies); 
-      const bannerPosters = createBannerPosters(bannerMovies); // creating the HTML template for banner posters
 
-      const postersContainer = document.createElement("div");
-      postersContainer.classList.add("posters-container");
-      postersContainer.innerHTML = bannerPosters;
-  
-      // applied additional styling using js to experiment 
-      postersContainer.style.display = "flex";
-      postersContainer.style.flexDirection = "row";
-      postersContainer.style.overflowX = "auto";
-      postersContainer.style.gap = "10px";
-      postersContainer.style.transform = "scale(0.8)";
-  
-      const posterImages = postersContainer.querySelectorAll("img"); // selecting all img elements within the posters container
-      posterImages.forEach((img) => {
-        // applying additional styling to each poster image
-        img.style.height = "500px";
-        img.style.width = "300px";
-        img.style.objectFit = "cover";
-        img.style.transition = "transform 0.3s";
-      });
-  
-      bannerDiv.appendChild(postersContainer);
-    } catch (error) {
-      console.error("An error occurred:", error);
-    }
-  }
-  
-// create the HTML template for the banner posters
-function createBannerPosters(bannerMovies) {
-    if (!bannerMovies || !Array.isArray(bannerMovies.Search)) {
-      return ""; // return an empty string if the movie data is invalid
-    }
-    
-    let template = "";
-  
-    bannerMovies.Search.forEach((movie) => {
-      const moviePoster = movie.Poster;
-      const mediaType = movie.Type;
-      const movieTitle = movie.Title;
-  
-      if (mediaType === "movie") {
-        // if the media type is a movie, add the movie details to the template
-        template += `
-        <div class="movie-details">
-          <a href="/movie-details/index.html?movie=${movieTitle}" >
-            <img src="${moviePoster}" alt="${movieTitle} poster"/>
-          </a>
-        </div>`;
+      const bannerMovies = await getMovies(url);
+      if (bannerMovies && bannerMovies.results) {
+        const createListTemplate = (movies) => {
+          let template = "";
+          movies.results.forEach((movie) => {
+            const movieTitle = movie.original_title;
+            const image = movie.poster_path;
+
+            template += `
+              <div class="movie-details">
+                <a href="/movie-details/index.html?movie=${movieTitle}">
+                  <img src="https://image.tmdb.org/t/p/w500/${image}" alt="${movieTitle} poster">
+                </a>
+              </div>
+            `;
+          });
+
+          return template;
+        };
+
+        const postersContainer = createPostersContainer(bannerMovies, createListTemplate, "posters-container");
+        bannerDiv.appendChild(postersContainer);
+        postersContainer.classList.add("loop");
+      } else {
+        console.log('Trending movies data is missing or invalid');
       }
-    });
-  
-    return template;
+    } else {
+      const bannerTitle = document.createElement("h2");
+      bannerTitle.textContent = bannerText;
+      const bannerMessage = document.createElement("p");
+      bannerDiv.appendChild(bannerTitle);
+      bannerDiv.classList.add("movie-list");
+      bannerDiv.appendChild(bannerMessage);
+      bannerSection.appendChild(bannerDiv);
+      mainElement.appendChild(bannerSection);
+
+      const bannerMovies = await getMovies(url);
+      if (bannerMovies && bannerMovies.results) {
+        const createListTemplate = (movies) => {
+          let template = "";
+          movies.results.forEach((movie) => {
+            const movieTitle = movie.original_title;
+            const image = movie.poster_path;
+
+            template += `
+              <div class="movie-details">
+                <a href="/movie-details/index.html?movie=${movieTitle}">
+                  <img src="https://image.tmdb.org/t/p/w500/${image}" alt="${movieTitle} poster">
+                </a>
+              </div>
+            `;
+          });
+
+          return template;
+        };
+
+        const postersContainer = createPostersContainer(bannerMovies, createListTemplate, "list-container");
+        bannerDiv.appendChild(postersContainer);
+        postersContainer.classList.add("loop");
+      } else {
+        console.log('Trending movies data is missing or invalid');
+      }
+    }
+  } catch (error) {
+    console.log('Error fetching trending movies:', error);
   }
+}
+
+export async function createCustomList(templateCreator) {
+  try {
+    const mainElement = document.querySelector("main");
+    const bannerSection = document.createElement("section");
+    bannerSection.classList.add("bannerSection");
+    const bannerDiv = document.createElement("div");
+    bannerDiv.classList.add("banner");
+
+    const template = templateCreator(); // call the template creator function to get the custom template
+    bannerDiv.innerHTML = template;
+
+    bannerSection.appendChild(bannerDiv);
+    mainElement.appendChild(bannerSection);
+  } catch (error) {
+    console.log('An error occurred:', error);
+  }
+}

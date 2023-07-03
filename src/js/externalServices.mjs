@@ -56,12 +56,11 @@ export function addMovieToStorage(movie){
     favList.push({ ...movie, poster: movie.Poster, title: movie.Title});
   } 
   setLocalStorage("fav-list", favList);
-
 }
 
 export async function fetchTrailerId(movieTitle) {
   try {
-    const apiKey = "AIzaSyCH37v8r3AA8XJJ_zQYPYrpp2bofTKZWGI";
+    // const apiKey = "AIzaSyCH37v8r3AA8XJJ_zQYPYrpp2bofTKZWGI";
     const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&q=${encodeURIComponent(movieTitle + " trailer")}`);
     const data = await response.json();
     const trailerId = data.items[0].id.videoId;
@@ -70,3 +69,21 @@ export async function fetchTrailerId(movieTitle) {
     console.error("Error fetching trailer:", error);
   }
 }
+
+export async function getMovies(url) {
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4ZTMyYjY2MjM2YzI4OTQyZjgyOWYyYWM1Njg2N2E4YiIsInN1YiI6IjY0YTEwNDJhOGMwYTQ4MDEzYjNkYWI5NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TidpZEZvWp4o6Cy9_P3FexJEttfATJwtGZCjlfAXeZI'
+    }
+  };
+  const response = await fetch(`https://api.themoviedb.org/3/${url}`, options)
+  if (response.ok){
+    const data = response.json()
+    // console.log(data)
+    return data;
+  }
+}
+
+const trendingUrl = "https://api.themoviedb.org/3/trending/movie/week?language=en-US"
