@@ -7,12 +7,20 @@ export async function displayMovieDetails(movieTitle, selector){
    console.log( movie)
    if(!movie){
        throw new SyntaxError("The movie you are trying to find is not available.")
-   }
-
-   
-   
+   }   
    container.innerHTML = renderMovieDetails(movie)
-
+   const detailsContainer = document.querySelector(".detailsContainer");
+   detailsContainer.style.backgroundImage = `url("${movie.Poster}")`;
+   detailsContainer.style.backgroundSize = "auto";
+   detailsContainer.style.backgroundPosition = "center";
+   const favBtn = document.querySelector("#fav-Btn");
+   favBtn.addEventListener("click", () => {
+    addMovieToStorage(movie, "fav-list");
+   });
+   const watchlistBtn = document.querySelector("#watchlist-Btn");
+   watchlistBtn.addEventListener("click", () => {
+    addMovieToStorage(movie, "watch-list");
+   });
   } catch(err) {
       console.log(err) 
   }
@@ -20,7 +28,6 @@ export async function displayMovieDetails(movieTitle, selector){
 }
 
 function renderMovieDetails(movie){
-
     const template = `
     <div class="mov-inf">
     <h1>${movie.Title} (${movie.Year})</h1>
@@ -48,9 +55,8 @@ function renderMovieDetails(movie){
         <p>🎬${movie.Ratings[2].Source}: ${movie.Ratings[2].Value}</p>
     </div>
 
-    <div><button id="fav-Btn" data-title="${movie.Title}" onclick="${addMovieToStorage(movie)}"><img src="../public/images/icons8-favorite-40.png" alt="Fav Icon"></button></div>
-    <div>Add to watch list</div>
-
+    <div><button id="fav-Btn" data-title="${movie.Title}"><img src="../public/images/icons8-favorite-40.png" alt="Fav Icon"></button></div>
+    <div><button id="watchlist-Btn" data-title="${movie.Title}"><img src="../public/images/bookmark.png" alt="Watchlist Icon"></button></div>
 
     `;
     
