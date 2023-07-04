@@ -293,133 +293,232 @@
     "directed_by": "Wong Kar-wai"
   },
   {
-      "id": 35,
-      "title": "Shrek 2",
-      "rating": "89%",
-      "consensus": "Shrek 2 is a hilarious and heartwarming animated film that takes viewers on a fairy tale adventure filled with memorable characters and clever humor.",
-      "synopsis": "Shrek and Fiona return from their honeymoon to find an invitation from Fiona's parents, leading them on a journey to meet the royal in-laws.",
-      "starring": "Mike Myers, Eddie Murphy, Cameron Diaz",
-      "directed_by": "Andrew Adamson, Kelly Asbury, Conrad Vernon"
+    "id": 35,
+    "title": "Shrek 2",
+    "rating": "89%",
+    "consensus": "Shrek 2 is a hilarious and heartwarming animated film that takes viewers on a fairy tale adventure filled with memorable characters and clever humor.",
+    "synopsis": "Shrek and Fiona return from their honeymoon to find an invitation from Fiona's parents, leading them on a journey to meet the royal in-laws.",
+    "starring": "Mike Myers, Eddie Murphy, Cameron Diaz",
+    "directed_by": "Andrew Adamson, Kelly Asbury, Conrad Vernon"
   },
   {
-      "id": 36,
-      "title": "ASTEROID CITY",
-      "rating": "Not Available",
-      "consensus": "Asteroid City is unlikely to win Wes Anderson many new converts, but those who respond to his signature style will find this a return to immaculately arranged form.",
-      "synopsis": "The itinerary of a Junior Stargazer/Space Cadet convention (organized to bring together students and parents from across the country for fellowship and scholarly competition) is spectacularly disrupted by world-changing events.",
-      "starring": "Jason Schwartzman, Scarlett Johansson, Tom Hanks, Jeffrey Wright",
-      "directed_by": "Wes Anderson"
+    "id": 36,
+    "title": "ASTEROID CITY",
+    "rating": "Not Available",
+    "consensus": "Asteroid City is unlikely to win Wes Anderson many new converts, but those who respond to his signature style will find this a return to immaculately arranged form.",
+    "synopsis": "The itinerary of a Junior Stargazer/Space Cadet convention (organized to bring together students and parents from across the country for fellowship and scholarly competition) is spectacularly disrupted by world-changing events.",
+    "starring": "Jason Schwartzman, Scarlett Johansson, Tom Hanks, Jeffrey Wright",
+    "directed_by": "Wes Anderson"
   },
   {
-      "id": 38,
-      "title": "Pride and Prejudice",
-      "rating": "85%",
-      "consensus": "Pride and Prejudice is a timeless romantic drama that brings Jane Austen's classic novel to life, featuring strong performances and beautiful cinematography.",
-      "synopsis": "In 19th-century England, the headstrong Elizabeth Bennet clashes with the arrogant Mr. Darcy, leading to a captivating and complex love story.",
-      "starring": "Keira Knightley, Matthew Macfadyen, Rosamund Pike",
-      "directed_by": "Joe Wright"
+    "id": 38,
+    "title": "Pride and Prejudice",
+    "rating": "85%",
+    "consensus": "Pride and Prejudice is a timeless romantic drama that brings Jane Austen's classic novel to life, featuring strong performances and beautiful cinematography.",
+    "synopsis": "In 19th-century England, the headstrong Elizabeth Bennet clashes with the arrogant Mr. Darcy, leading to a captivating and complex love story.",
+    "starring": "Keira Knightley, Matthew Macfadyen, Rosamund Pike",
+    "directed_by": "Joe Wright"
   },
   {
-      "id": 39,
-      "title": "Scream",
-      "rating": "79%",
-      "consensus": "Scream revitalized the slasher genre with its self-awareness and clever meta-commentary, delivering a thrilling and entertaining experience for horror fans.",
-      "synopsis": "A masked killer terrorizes a small town, targeting a group of high school students, who must uncover the killer's identity before it's too late.",
-      "starring": "Neve Campbell, Courteney Cox, David Arquette",
-      "directed_by": "Wes Craven"
+    "id": 39,
+    "title": "Scream",
+    "rating": "79%",
+    "consensus": "Scream revitalized the slasher genre with its self-awareness and clever meta-commentary, delivering a thrilling and entertaining experience for horror fans.",
+    "synopsis": "A masked killer terrorizes a small town, targeting a group of high school students, who must uncover the killer's identity before it's too late.",
+    "starring": "Neve Campbell, Courteney Cox, David Arquette",
+    "directed_by": "Wes Craven"
   },
   {
-      "id": 40,
-      "title": "Scream 2",
-      "rating": "81%",
-      "consensus": "Scream 2 successfully builds upon its predecessor with a fresh set of twists and turns, offering more suspense, scares, and self-aware humor.",
-      "synopsis": "A new string of murders reminiscent of the Ghostface killer's reign of terror haunts a college campus, forcing the survivors of the first attack to confront their past fears.",
-      "starring": "Neve Campbell, Courteney Cox, David Arquette",
-      "directed_by": "Wes Craven"
+    "id": 40,
+    "title": "Scream 2",
+    "rating": "81%",
+    "consensus": "Scream 2 successfully builds upon its predecessor with a fresh set of twists and turns, offering more suspense, scares, and self-aware humor.",
+    "synopsis": "A new string of murders reminiscent of the Ghostface killer's reign of terror haunts a college campus, forcing the survivors of the first attack to confront their past fears.",
+    "starring": "Neve Campbell, Courteney Cox, David Arquette",
+    "directed_by": "Wes Craven"
   },
   {
-      "id": 41,
-      "title": "Scream 6",
-      "rating": "Not Available",
-      "consensus": "Scream 6 continues the iconic horror franchise with a new chapter of suspense, mystery, and self-referential humor, keeping audiences on the edge of their seats.",
-      "synopsis": "When a new wave of killings begins in the town of Woodsboro, a new generation must face the return of Ghostface and uncover the dark secrets behind the mask.",
-      "starring": "TBD",
-      "directed_by": "TBD"
+    "id": 41,
+    "title": "Scream 6",
+    "rating": "Not Available",
+    "consensus": "Scream 6 continues the iconic horror franchise with a new chapter of suspense, mystery, and self-referential humor, keeping audiences on the edge of their seats.",
+    "synopsis": "When a new wave of killings begins in the town of Woodsboro, a new generation must face the return of Ghostface and uncover the dark secrets behind the mask.",
+    "starring": "TBD",
+    "directed_by": "TBD"
   },
   {
-      "id": 42,
-      "title": "Spirited Away",
-      "rating": "97%",
-      "consensus": "Spirited Away is a magical and enchanting animated film that transports viewers to a fantastical world filled with imaginative creatures and a heartfelt coming-of-age story.",
-      "synopsis": "A young girl named Chihiro stumbles upon a mysterious spirit world, where she must navigate through various challenges to rescue her parents and find her way back home.",
-      "starring": "Rumi Hiiragi, Miyu Irino, Mari Natsuki",
-      "directed_by": "Hayao Miyazaki"
+    "id": 42,
+    "title": "Spirited Away",
+    "rating": "97%",
+    "consensus": "Spirited Away is a magical and enchanting animated film that transports viewers to a fantastical world filled with imaginative creatures and a heartfelt coming-of-age story.",
+    "synopsis": "A young girl named Chihiro stumbles upon a mysterious spirit world, where she must navigate through various challenges to rescue her parents and find her way back home.",
+    "starring": "Rumi Hiiragi, Miyu Irino, Mari Natsuki",
+    "directed_by": "Hayao Miyazaki"
   },
   {
-      "id": 43,
-      "title": "Sunset Boulevard",
-      "rating": "98%",
-      "consensus": "Sunset Boulevard is a classic film noir that masterfully explores themes of faded glory, obsession, and the dark side of Hollywood, anchored by a mesmerizing performance by Gloria Swanson.",
-      "synopsis": "A struggling screenwriter becomes entangled with a faded silent film star, leading to a twisted and haunting tale of delusion and desperation.",
-      "starring": "William Holden, Gloria Swanson, Erich von Stroheim",
-      "directed_by": "Billy Wilder"
+    "id": 43,
+    "title": "Sunset Boulevard",
+    "rating": "98%",
+    "consensus": "Sunset Boulevard is a classic film noir that masterfully explores themes of faded glory, obsession, and the dark side of Hollywood, anchored by a mesmerizing performance by Gloria Swanson.",
+    "synopsis": "A struggling screenwriter becomes entangled with a faded silent film star, leading to a twisted and haunting tale of delusion and desperation.",
+    "starring": "William Holden, Gloria Swanson, Erich von Stroheim",
+    "directed_by": "Billy Wilder"
   },
   {
-      "id": 44,
-      "title": "Casablanca",
-      "rating": "97%",
-      "consensus": "Casablanca is a timeless romantic drama that has endured as a cinematic masterpiece, featuring memorable performances, quotable dialogue, and a captivating wartime love story.",
-      "synopsis": "Set in World War II-era Casablanca, an American expatriate must choose between love and virtue when his former lover and her husband seek his help to escape the Nazis.",
-      "starring": "Humphrey Bogart, Ingrid Bergman, Paul Henreid",
-      "directed_by": "Michael Curtiz"
+    "id": 44,
+    "title": "Casablanca",
+    "rating": "97%",
+    "consensus": "Casablanca is a timeless romantic drama that has endured as a cinematic masterpiece, featuring memorable performances, quotable dialogue, and a captivating wartime love story.",
+    "synopsis": "Set in World War II-era Casablanca, an American expatriate must choose between love and virtue when his former lover and her husband seek his help to escape the Nazis.",
+    "starring": "Humphrey Bogart, Ingrid Bergman, Paul Henreid",
+    "directed_by": "Michael Curtiz"
   },
   {
-      "id": 45,
-      "title": "Whiplash",
-      "rating": "94%",
-      "consensus": "Whiplash is an intense and gripping drama that explores the pursuit of greatness and the sacrifices required to achieve it, fueled by electrifying performances and a pulsating soundtrack.",
-      "synopsis": "A young drummer enrolls in a prestigious music conservatory, where he comes under the brutal tutelage of an esteemed but demanding instructor.",
-      "starring": "Miles Teller, J.K. Simmons, Paul Reiser",
-      "directed_by": "Damien Chazelle"
+    "id": 45,
+    "title": "Whiplash",
+    "rating": "94%",
+    "consensus": "Whiplash is an intense and gripping drama that explores the pursuit of greatness and the sacrifices required to achieve it, fueled by electrifying performances and a pulsating soundtrack.",
+    "synopsis": "A young drummer enrolls in a prestigious music conservatory, where he comes under the brutal tutelage of an esteemed but demanding instructor.",
+    "starring": "Miles Teller, J.K. Simmons, Paul Reiser",
+    "directed_by": "Damien Chazelle"
   },
   {
-      "id": 46,
-      "title": "Barry Lyndon",
-      "rating": "94%",
-      "consensus": "Barry Lyndon is a visually stunning period drama that showcases Stanley Kubrick's meticulous attention to detail, featuring breathtaking cinematography and a compelling narrative.",
-      "synopsis": "An Irish rogue named Barry Lyndon navigates through 18th-century Europe, using his wit and cunning to rise in the ranks of society.",
-      "starring": "Ryan O'Neal, Marisa Berenson, Patrick Magee",
-      "directed_by": "Stanley Kubrick"
+    "id": 46,
+    "title": "Barry Lyndon",
+    "rating": "94%",
+    "consensus": "Barry Lyndon is a visually stunning period drama that showcases Stanley Kubrick's meticulous attention to detail, featuring breathtaking cinematography and a compelling narrative.",
+    "synopsis": "An Irish rogue named Barry Lyndon navigates through 18th-century Europe, using his wit and cunning to rise in the ranks of society.",
+    "starring": "Ryan O'Neal, Marisa Berenson, Patrick Magee",
+    "directed_by": "Stanley Kubrick"
   },
   {
-      "id": 47,
-      "title": "Twilight",
-      "rating": "49%",
-      "consensus": "Twilight is a supernatural romance that captivated a generation of fans with its star-crossed love story, but received mixed reviews for its pacing and character development.",
-      "synopsis": "A teenage girl falls in love with a mysterious vampire, leading to a dangerous and forbidden romance that puts her life at risk.",
-      "starring": "Kristen Stewart, Robert Pattinson, Taylor Lautner",
-      "directed_by": "Catherine Hardwicke"
+    "id": 47,
+    "title": "Twilight",
+    "rating": "49%",
+    "consensus": "Twilight is a supernatural romance that captivated a generation of fans with its star-crossed love story, but received mixed reviews for its pacing and character development.",
+    "synopsis": "A teenage girl falls in love with a mysterious vampire, leading to a dangerous and forbidden romance that puts her life at risk.",
+    "starring": "Kristen Stewart, Robert Pattinson, Taylor Lautner",
+    "directed_by": "Catherine Hardwicke"
   },
   {
-      "id": 48,
-      "title": "The Hunger Games",
-      "rating": "84%",
-      "consensus": "The Hunger Games is a thrilling dystopian adventure that resonated with audiences for its engaging story, strong performances, and social commentary.",
-      "synopsis": "In a post-apocalyptic world, a young girl volunteers for a brutal televised competition where teenagers fight to the death, challenging the oppressive regime that controls their lives.",
-      "starring": "Jennifer Lawrence, Josh Hutcherson, Liam Hemsworth",
-      "directed_by": "Gary Ross"
+    "id": 48,
+    "title": "The Hunger Games",
+    "rating": "84%",
+    "consensus": "The Hunger Games is a thrilling dystopian adventure that resonated with audiences for its engaging story, strong performances, and social commentary.",
+    "synopsis": "In a post-apocalyptic world, a young girl volunteers for a brutal televised competition where teenagers fight to the death, challenging the oppressive regime that controls their lives.",
+    "starring": "Jennifer Lawrence, Josh Hutcherson, Liam Hemsworth",
+    "directed_by": "Gary Ross"
   },
   {
-      "id": 49,
-      "title": "Harry Potter and the Philosopher's Stone",
-      "rating": "81%",
-      "consensus": "Harry Potter and the Philosopher's Stone introduces audiences to the magical world of Hogwarts with its enchanting story, charming characters, and visual spectacle.",
-      "synopsis": "An orphaned boy named Harry Potter discovers he is a wizard and enrolls in Hogwarts School of Witchcraft and Wizardry, where he unravels the mysteries of his past and confronts the dark forces threatening the wizarding world.",
-      "starring": "Daniel Radcliffe, Rupert Grint, Emma Watson",
-      "directed_by": "Chris Columbus"
+    "id": 49,
+    "title": "Harry Potter and the Philosopher's Stone",
+    "rating": "81%",
+    "consensus": "Harry Potter and the Philosopher's Stone introduces audiences to the magical world of Hogwarts with its enchanting story, charming characters, and visual spectacle.",
+    "synopsis": "An orphaned boy named Harry Potter discovers he is a wizard and enrolls in Hogwarts School of Witchcraft and Wizardry, where he unravels the mysteries of his past and confronts the dark forces threatening the wizarding world.",
+    "starring": "Daniel Radcliffe, Rupert Grint, Emma Watson",
+    "directed_by": "Chris Columbus"
   },
   {
-    "id": 25,
+    "id": 50,
+    "title": "The Lion King",
+    "rating": "93%",
+    "consensus": "The Lion King is a beloved animated classic that combines stunning visuals, memorable songs, and a heartwarming story to create a timeless masterpiece.",
+    "synopsis": "A young lion prince named Simba must reclaim his throne from his treacherous uncle and fulfill his destiny as the rightful king of the Pride Lands.",
+    "starring": "Matthew Broderick, Jeremy Irons, James Earl Jones",
+    "directed_by": "Roger Allers, Rob Minkoff"
+  },
+  {
+    "id": 51,
+    "title": "The Wizard of Oz",
+    "rating": "98%",
+    "consensus": "The Wizard of Oz is a magical and enchanting fantasy adventure that has captivated audiences for generations with its iconic characters, memorable songs, and timeless message.",
+    "synopsis": "Dorothy, a young girl from Kansas, is swept away to the magical land of Oz, where she embarks on a journey to find the powerful Wizard and return home.",
+    "starring": "Judy Garland, Frank Morgan, Ray Bolger",
+    "directed_by": "Victor Fleming"
+  },
+  {
+    "id": 52,
+    "title": "Breakfast at Tiffany's",
+    "rating": "87%",
+    "consensus": "Breakfast at Tiffany's is a stylish romantic comedy that showcases Audrey Hepburn's iconic performance, timeless fashion, and a bittersweet story of love and self-discovery.",
+    "synopsis": "A young woman in New York City, known for her eccentricities and love for expensive things, forms an unlikely bond with a struggling writer in her apartment building.",
+    "starring": "Audrey Hepburn, George Peppard, Patricia Neal",
+    "directed_by": "Blake Edwards"
+  },
+  {
+    "id": 53,
+    "title": "Citizen Kane",
+    "rating": "100%",
+    "consensus": "Citizen Kane is a groundbreaking masterpiece of cinema that revolutionized storytelling techniques, featuring Orson Welles' tour-de-force performance and a captivating examination of power and identity.",
+    "synopsis": "A newspaper tycoon's life is examined through the eyes of those who knew him, as a reporter investigates the meaning behind his dying words: 'Rosebud'.",
+    "starring": "Orson Welles, Joseph Cotten, Dorothy Comingore",
+    "directed_by": "Orson Welles"
+  },
+  {
+    "id": 54,
+    "title": "The Sound of Music",
+    "rating": "91%",
+    "consensus": "The Sound of Music is a joyous and heartwarming musical that showcases memorable songs, stunning landscapes, and Julie Andrews' radiant performance as Maria.",
+    "synopsis": "A young woman named Maria becomes a governess for a widowed naval captain's seven children, bringing joy and music back into their lives amidst the rising tensions of World War II.",
+    "starring": "Julie Andrews, Christopher Plummer, Eleanor Parker",
+    "directed_by": "Robert Wise"
+  },
+  {
+    "id": 55,
+    "title": "12 Angry Men",
+    "rating": "100%",
+    "consensus": "12 Angry Men is a gripping and thought-provoking courtroom drama that delves into themes of justice, prejudice, and the power of reasonable doubt, driven by stellar performances and powerful storytelling.",
+    "synopsis": "In a jury room, one juror's doubts about a murder case gradually expose the flaws and biases of the legal system as the rest of the jurors reconsider their initial verdict.",
+    "starring": "Henry Fonda, Lee J. Cobb, Martin Balsam",
+    "directed_by": "Sidney Lumet"
+  },
+  {
+    "id": 56,
+    "title": "Singin' in the Rain",
+    "rating": "100%",
+    "consensus": "Singin' in the Rain is a joyful and exuberant musical that showcases dazzling dance numbers, catchy songs, and a lighthearted story set during Hollywood's transition from silent films to talkies.",
+    "synopsis": "A silent film star and a young dancer navigate the challenges and romance of the film industry as talking pictures take over, leading to memorable musical sequences and comedic moments.",
+    "starring": "Gene Kelly, Donald O'Connor, Debbie Reynolds",
+    "directed_by": "Gene Kelly, Stanley Donen"
+  },
+  {
+    "id": 57,
+    "title": "Rebecca",
+    "rating": "100%",
+    "consensus": "Rebecca is a haunting and atmospheric psychological thriller that captivates with its suspenseful storytelling, lush cinematography, and memorable performances.",
+    "synopsis": "A young woman marries a wealthy widower, only to find herself haunted by the memory of his deceased first wife, Rebecca.",
+    "starring": "Laurence Olivier, Joan Fontaine, Judith Anderson",
+    "directed_by": "Alfred Hitchcock"
+  },
+  {
+    "id": 58,
+    "title": "Vertigo",
+    "rating": "93%",
+    "consensus": "Vertigo is a mesmerizing and psychologically complex thriller that explores themes of obsession, identity, and manipulation, crafted with Hitchcock's signature visual style and masterful storytelling.",
+    "synopsis": "A retired detective suffering from acrophobia becomes entangled in a mysterious and obsessive love affair, leading to a series of twists and revelations.",
+    "starring": "James Stewart, Kim Novak, Barbara Bel Geddes",
+    "directed_by": "Alfred Hitchcock"
+  },
+  {
+    "id": 59,
+    "title": "The Philadelphia Story",
+    "rating": "97%",
+    "consensus": "The Philadelphia Story is a sophisticated and witty romantic comedy that showcases sparkling dialogue, sharp performances, and a delightful love triangle.",
+    "synopsis": "As her wedding day approaches, a wealthy socialite finds herself caught between her charming ex-husband and a tabloid reporter assigned to cover the event.",
+    "starring": "Katharine Hepburn, Cary Grant, James Stewart",
+    "directed_by": "George Cukor"
+  },
+  {
+    "id": 60,
+    "title": "Indiana Jones and the Raiders of the Lost Ark",
+    "rating": "95%",
+    "consensus": "Indiana Jones and the Raiders of the Lost Ark is a thrilling and adventurous tale that combines action, humor, and archaeology, introducing audiences to one of cinema's most iconic heroes.",
+    "synopsis": "Renowned archaeologist Indiana Jones races against the Nazis in a quest to find the mythical Ark of the Covenant, a powerful relic with the potential to change the course of history.",
+    "starring": "Harrison Ford, Karen Allen, Paul Freeman",
+    "directed_by": "Steven Spielberg"
+  },
+  {
+    "id": 61,
     "title": "AVATAR THE WAY OF WATER",
     "rating": "76%",
     "consensus": "Narratively, it might be fairly standard stuff -- but visually speaking, Avatar: The Way of Water is a stunningly immersive experience",
