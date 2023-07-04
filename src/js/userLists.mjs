@@ -1,8 +1,8 @@
 import { getLocalStorage } from './utils.mjs';
 
-export function movieFavList(selector){
+export function movieFavList(selector, list){
     try{
-    const favList = getLocalStorage("fav-list") || [];
+    const favList = getLocalStorage(list) || [];
     const favEl = document.querySelector(selector);
     const favCtner = document.querySelector(".fav-container");
 
@@ -23,11 +23,11 @@ export function movieFavList(selector){
 
     const movie = favList.map((item) => {
          return template = `<li>
-            <a href="#">   
+            <a href="/movie-details/index.html?movie=${item.Title}" > 
                 <img src="${item.Poster}" alt="Poster of ${item.Title}" />
                 <h3>${item.Title} (${item.Year})</h3>
-                </a>
-            </li>`;
+            </a>
+        </li>`;
 
     })
     console.log(movie);
@@ -38,7 +38,6 @@ export function movieFavList(selector){
       // applying additional styling to each image
       img.style.width = "250px";
       img.style.objectFit = "cover";
-      img.style.transition = "transform 0.3s";
     });
 
 

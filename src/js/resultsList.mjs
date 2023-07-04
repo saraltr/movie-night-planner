@@ -14,9 +14,20 @@ export async function displayMovies() {
 
     // generate the HTML template using the results
     const template = resultsTemplate(results);
-
     // update the search container with the template
     searchContainer.innerHTML = template;
+
+    addMovieToStorage(results.Search, "recs-list")
+
+    const favBtns = document.querySelectorAll("#fav-Btn");
+    favBtns.forEach((favBtn) => {
+      favBtn.addEventListener("click", () => {
+        const movieTitle = favBtn.getAttribute("data-title");
+        const movie = results.Search.find((movie) => movie.Title === movieTitle);
+        addMovieToStorage(movie, "fav-list");
+      });
+    });
+    
   } catch (error) {
     console.error("An error occurred:", error);
   }
@@ -50,7 +61,7 @@ export function resultsTemplate(movies) {
           <p>${movieTitle} (${movieYear})<p>
 
         </a>
-        <button id="fav-Btn" data-title="${movieTitle}" onclick="${addMovieToStorage(movie)}"><img src="../public/images/icons8-favorite-40.png" alt="Fav Icon"></button>
+        <button id="fav-Btn" data-title="${movieTitle}"><img src="../public/images/icons8-favorite-40.png" alt="Fav Icon"></button>
       </li>`;
     }
   });

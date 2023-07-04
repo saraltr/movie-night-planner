@@ -51,18 +51,18 @@ export async function fetchMovieBySearch(search) {
     }
 }
 
-export function addMovieToStorage(movie){
-  const favList = getLocalStorage("fav-list") || [];
-  const index = favList.findIndex((item) =>{ item.Title === movie.Title})
+export function addMovieToStorage(movie, list) {
+  const favList = getLocalStorage(list) || [];
+  const index = favList.findIndex((item) => item.Title === movie.Title);
   if (index === -1) {
-    favList.push({ ...movie, poster: movie.Poster, title: movie.Title});
-  } 
-  setLocalStorage("fav-list", favList);
+    favList.push({ ...movie, poster: movie.Poster, title: movie.Title });
+    setLocalStorage(list, favList);
+  }
 }
 
 export async function fetchTrailerId(movieTitle) {
   try {
-    const apiKey = process.env.GOOGLE_KEY;
+    // const apiKey = process.env.GOOGLE_KEY;
     const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&q=${encodeURIComponent(movieTitle + " trailer")}`);
     const data = await response.json();
     const trailerId = data.items[0].id.videoId;
