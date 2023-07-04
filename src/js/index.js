@@ -1,4 +1,4 @@
-import { createSearchBox, redirectToSearchResults } from './search';
+import { createSearchBox, redirectToSearchResults } from './search.mjs';
 import { createBanner, createList  } from './homePage.mjs';
 import { movieFavList } from './userLists.mjs';
 import { initialize } from './watchParty.mjs';

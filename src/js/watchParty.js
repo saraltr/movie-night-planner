@@ -1,4 +1,4 @@
-import { createSearchBox, redirectToSearchResults } from './search';
+import { createSearchBox, redirectToSearchResults } from './search.mjs';
 import { getParam } from "./utils.mjs"
 import { initialize } from "./watchParty.mjs"
 

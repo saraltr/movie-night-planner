@@ -14,8 +14,8 @@ export function generateBreadcrumb(){
 export function getParam(param){
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get(param)
-  return product
+  const url = urlParams.get(param)
+  return url
 }
 
 export async function getData(url) {
@@ -23,4 +23,13 @@ export async function getData(url) {
   const data = await response.json();
   console.log(data);
   return data;
+}
+
+export function addMovieToStorage(movie, list) {
+  const favList = getLocalStorage(list) || [];
+  const index = favList.findIndex((item) => item.Title === movie.Title);
+  if (index === -1) {
+    favList.push({ ...movie, poster: movie.Poster, title: movie.Title });
+    setLocalStorage(list, favList);
+  }
 }

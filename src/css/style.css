@@ -114,16 +114,24 @@ a{
 }
 
 /*USER PAGE*/
-.fav-user-list{
-    background-color: var(--primary-color);
+
+.userContainer h1 {
+    color: var(--secondary-color);
 }
-.fav-user-list li{
+.userContainer li{
     list-style: none;
 }
-.fav-container{
-    margin: .2rem .5rem;
+.fav-container, .watchlist-Container{
+    margin: 1rem 0;
     padding: 0;
     box-shadow: 1px 2px 3px var(--light-grey);
+}
+.fav-container {
+    background-color: var(--secondary-color);
+}
+
+.watchlist-Container {
+    background-color: var(--quaternary);
 }
 #favMovie-icon{
     width: 30px;
@@ -176,7 +184,8 @@ a{
 }
 
 #movie-detail{
-    background-color: var(--tertiary-color);
+    background-color: #631f90b5;
+    /* background-image: linear-gradient(to right, #631f90b5, #122936ac); */
 }
 
 #resultsContainer h1, #resultsContainer h2{
