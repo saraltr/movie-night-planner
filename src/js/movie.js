@@ -1,6 +1,6 @@
 import {displayMovieDetails} from './movieDetails.mjs';
 import { getParam } from './utils.mjs';
-import { createSearchBox, redirectToSearchResults } from './search';
+import { createSearchBox, redirectToSearchResults } from './search.mjs';
 
 document.addEventListener("DOMContentLoaded", () => {
     const searchButton = document.querySelector("#searchButton");

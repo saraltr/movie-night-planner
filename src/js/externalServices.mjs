@@ -51,15 +51,6 @@ export async function fetchMovieBySearch(search) {
     }
 }
 
-export function addMovieToStorage(movie, list) {
-  const favList = getLocalStorage(list) || [];
-  const index = favList.findIndex((item) => item.Title === movie.Title);
-  if (index === -1) {
-    favList.push({ ...movie, poster: movie.Poster, title: movie.Title });
-    setLocalStorage(list, favList);
-  }
-}
-
 export async function fetchTrailerId(movieTitle) {
   try {
     // const apiKey = process.env.GOOGLE_KEY;

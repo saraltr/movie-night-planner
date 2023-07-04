@@ -1,5 +1,5 @@
-import { getMoviesByTitle, addMovieToStorage } from "./externalServices.mjs";
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { getMoviesByTitle } from "./externalServices.mjs";
+import { getLocalStorage, setLocalStorage, addMovieToStorage } from "./utils.mjs";
 export async function displayMovieDetails(movieTitle, selector){
   try{
     const container = document.querySelector(selector);

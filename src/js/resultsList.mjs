@@ -1,4 +1,5 @@
-import { fetchMovieBySearch, addMovieToStorage } from './externalServices.mjs';
+import { fetchMovieBySearch} from './externalServices.mjs';
+import { addMovieToStorage} from './utils.mjs'
 
 // get the search term from the URL parameters
 const urlParams = new URLSearchParams(window.location.search);
