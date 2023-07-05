@@ -4,7 +4,7 @@
   "description": "WDD 330 Final Project Spring 2023.",
   "scripts": {
     "start": "parcel src/**/*.html",
-    "build": "parcel build src/index.html"
+    "build": "parcel build src/**/*.html"
   },
   "author": "Sara Latorre, Ruth Cardona",
   "license": "ISC",
