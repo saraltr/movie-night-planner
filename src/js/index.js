@@ -1,5 +1,5 @@
 import { createSearchBox, redirectToSearchResults } from './search.mjs';
-import { createBanner, createList  } from './homePage.mjs';
+import { createBanner, createList, createScrollBtn } from './homePage.mjs';
 import { movieFavList } from './userLists.mjs';
 import { initialize } from './watchParty.mjs';
 
@@ -22,3 +22,4 @@ createSearchBox(); // creates the search box component
 createBanner("trending/movie/week?language=en-US", "Welcome to Movie Night Planner!");
 createBanner("movie/now_playing?language=en-US&page=1", "Currently in theatres", false);
 createList();
+createScrollBtn();
