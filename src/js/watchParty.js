@@ -1,5 +1,5 @@
 import { createSearchBox, redirectToSearchResults } from './search.mjs';
-import { getParam } from "./utils.mjs"
+import { getParamn, createScrollBtn } from "./utils.mjs"
 import { initialize } from "./watchParty.mjs"
 
 
@@ -23,3 +23,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 createSearchBox(); // creates the search box component
+createScrollBtn();
