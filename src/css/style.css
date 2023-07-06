@@ -159,8 +159,11 @@ a{
 
 #fav-Btn {
     margin: auto;
+    
 }
-
+#fav-Btn img, #watchlist-Btn img{
+    width: 25px; 
+}
 
 #posterImg {
     max-width: 200px;
@@ -181,6 +184,7 @@ a{
 .movie-details {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 #movie-detail{
@@ -235,6 +239,10 @@ iframe {
     margin-top: 1em;
     color: var(--light-grey);
     text-align: start;
+}
+.mov-inf-descr, .mov-inf-rating, .mov-inf{
+    background-color: rgb(0, 0, 0, .5);
+    padding: .5rem;
 }
 
 @media screen and (min-width: 700px) {

@@ -20,12 +20,23 @@ export async function displayMovies() {
 
     addMovieToStorage(results.Search, "recs-list")
 
+    //add movie to fav list
     const favBtns = document.querySelectorAll("#fav-Btn");
     favBtns.forEach((favBtn) => {
       favBtn.addEventListener("click", () => {
         const movieTitle = favBtn.getAttribute("data-title");
         const movie = results.Search.find((movie) => movie.Title === movieTitle);
         addMovieToStorage(movie, "fav-list");
+      });
+    });
+
+    //add movie to watch list
+    const watchBtns = document.querySelectorAll("#watchlist-Btn");
+    watchBtns.forEach((watchBtn) => {
+      watchBtn.addEventListener("click", () => {
+        const movieTitle = watchBtn.getAttribute("data-title");
+        const movie = results.Search.find((movie) => movie.Title === movieTitle);
+        addMovieToStorage(movie, "watch-list");
       });
     });
     
@@ -62,7 +73,8 @@ export function resultsTemplate(movies) {
           <p>${movieTitle} (${movieYear})<p>
 
         </a>
-        <button id="fav-Btn" data-title="${movieTitle}"><img src="../public/images/icons8-favorite-40.png" alt="Fav Icon"></button>
+        <button id="fav-Btn" data-title="${movieTitle}"><img src="../images/icons8-favorite-40.png" alt="Fav Icon" title="Add ${movieTitle} to Favorites"></button>
+        <button id="watchlist-Btn" data-title="${movieTitle}"><img src="../images/bookmark.png" alt="Watchlist Icon" title="Add ${movieTitle} to Watch List"></button>
       </li>`;
     }
   });
