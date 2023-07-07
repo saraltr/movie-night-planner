@@ -46,7 +46,7 @@ export function toggleIcon(img, movie, src){
     img.src = src;
     setLocalStorage("toggle-icon", true)
   } 
-
+}
 export function createScrollBtn() {
   const mainElement = document.querySelector("main");
   const scrollBtn = document.createElement("button");
