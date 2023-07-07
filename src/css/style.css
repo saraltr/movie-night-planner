@@ -204,7 +204,8 @@ a{
 
 #movie-detail{
     /* background-color: #631f90b5; */
-    background-image: linear-gradient(to right, #631f90b5, #40125f);
+    /* color: #122936; */
+    background-image: linear-gradient(to right, #631f90f6, #526c8df1, #122936f4, #9d3533);
 }
 
 #resultsContainer h1, #resultsContainer h2{
