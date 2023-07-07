@@ -4,7 +4,7 @@
     /* colors */
     --primary-color: #122936;
     --secondary-color: #9D3433;
-    --tertiary-color: #631f90;
+    --tertiary-color: #40125f;
     --light-grey: #d0d0d0;
     --quaternary: #526C8D;
 
@@ -203,8 +203,8 @@ a{
 }
 
 #movie-detail{
-    background-color: #631f90b5;
-    /* background-image: linear-gradient(to right, #631f90b5, #122936ac); */
+    /* background-color: #631f90b5; */
+    background-image: linear-gradient(to right, #631f90b5, #40125f);
 }
 
 #resultsContainer h1, #resultsContainer h2{
@@ -294,6 +294,9 @@ iframe {
     }
     .joinBtn, .userIcons {
         margin: auto;
+    }
+    .create-Party .joinBtn {
+        margin: 20px;
     }
    
 }

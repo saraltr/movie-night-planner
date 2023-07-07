@@ -11,7 +11,7 @@ export async function displayMovieDetails(movieTitle, selector){
    container.innerHTML = renderMovieDetails(movie)
    const detailsContainer = document.querySelector(".detailsContainer");
    detailsContainer.style.backgroundImage = `url("${movie.Poster}")`;
-   detailsContainer.style.backgroundSize = "auto";
+   detailsContainer.style.backgroundSize = "cover";
    detailsContainer.style.backgroundPosition = "center";
    const favBtn = document.querySelector("#fav-Btn");
    favBtn.addEventListener("click", () => {
@@ -53,7 +53,7 @@ function renderMovieDetails(movie){
         <button id="watchlist-Btn" data-title="${movie.Title}"><img src="../images/bookmark.png" alt="Watchlist Icon" title="Add ${movie.Title} to Watch List"></button>
         </div>
         <div class="create-Party">
-            <button class="joinBtn">Create Watch Party</button>
+            <button class="joinBtn">Create Watch Party 🎥</button>
         </div>
     
     </div>
