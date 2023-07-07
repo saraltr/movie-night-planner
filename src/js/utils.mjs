@@ -34,6 +34,19 @@ export function addMovieToStorage(movie, list) {
   }
 }
 
+
+export function toggleIcon(img, movie, src){
+  const favList = getLocalStorage("fav-list") || [];
+  //const movieLst = favList.findIndex((item) => item.Title === movie.Title);
+  //console.log(favList)
+  //console.log(movieLst)
+
+  //I had to solve the refreshing to keep icons on the correct toggle
+  if(true ){
+    img.src = src;
+    setLocalStorage("toggle-icon", true)
+  } 
+
 export function createScrollBtn() {
   const mainElement = document.querySelector("main");
   const scrollBtn = document.createElement("button");
@@ -63,4 +76,5 @@ function scrollFunction(btn) {
 // function to scroll to the top when the button is clicked
 function topFunction() {
   document.documentElement.scrollTop = 0;
+
 }

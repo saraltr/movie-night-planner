@@ -40,7 +40,11 @@ function renderMovieDetails(movie){
         <p><b>Actors:</b> ${movie.Actors}</p>
         <p><b>Language:</b> ${movie.Language}</p>
         <p><b>Awards:</b> ${movie.Awards}</p>
-
+        <div>
+        <button id="fav-Btn" data-title="${movie.Title}"><img src="../images/icons8-favorite-40.png" alt="Fav Icon" title="Add ${movie.Title} to Favorites"></button>
+        <button id="watchlist-Btn" data-title="${movie.Title}"><img src="../images/bookmark.png" alt="Watchlist Icon" title="Add ${movie.Title} to Watch List"></button>
+        </div>
+    
     </div>
     <img class="mov-inf-img" src="${movie.Poster}" alt="Poster of ${movie.Title}">
     <div class="mov-inf-descr">
@@ -54,10 +58,6 @@ function renderMovieDetails(movie){
         <p>🎬${movie.Ratings[1].Source}: ${movie.Ratings[1].Value}</p>
         <p>🎬${movie.Ratings[2].Source}: ${movie.Ratings[2].Value}</p>
     </div>
-
-    <div><button id="fav-Btn" data-title="${movie.Title}"><img src="../public/images/icons8-favorite-40.png" alt="Fav Icon"></button></div>
-    <div><button id="watchlist-Btn" data-title="${movie.Title}"><img src="../public/images/bookmark.png" alt="Watchlist Icon"></button></div>
-
     `;
     
     return template;
