@@ -1,3 +1,5 @@
+import { createScrollBtn } from './utils.mjs'
+
 const loginForm = document.getElementById("login-user");
 const redirectParam = "src/user/index.html" || "/";
 
@@ -6,3 +8,5 @@ loginForm.addEventListener("submit", (e) => {
     window.location = "/user/index.html"
 
 });
+
+createScrollBtn();

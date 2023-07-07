@@ -1,5 +1,7 @@
 import { displayMovies } from './resultsList.mjs';
 import { createSearchBox, redirectToSearchResults } from './search';
+import { createScrollBtn } from './utils.mjs'
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const searchButton = document.querySelector("#searchButton");
@@ -14,3 +16,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 createSearchBox()
 displayMovies()
+createScrollBtn();

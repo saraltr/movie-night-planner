@@ -113,6 +113,20 @@ a{
     margin-bottom: -1.5em;
 }
 
+#scroll-Btn {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: solid 2px var(--tertiary-color);
+    color: white;
+    background-color: var(--primary-color);
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 15px;
+    font-family: var(--font-body);
+}
+
 /*USER PAGE*/
 
 .userContainer h1 {

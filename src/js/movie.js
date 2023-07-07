@@ -1,5 +1,5 @@
 import {displayMovieDetails} from './movieDetails.mjs';
-import { getParam } from './utils.mjs';
+import { getParam, createScrollBtn } from './utils.mjs';
 import { createSearchBox, redirectToSearchResults } from './search.mjs';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -18,3 +18,4 @@ const movieTitle = getParam("movie");
 displayMovieDetails(movieTitle, "#movie-detail");
 
 createSearchBox();
+createScrollBtn();

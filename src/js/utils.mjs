@@ -34,6 +34,7 @@ export function addMovieToStorage(movie, list) {
   }
 }
 
+
 export function toggleIcon(img, movie, src){
   const favList = getLocalStorage("fav-list") || [];
   //const movieLst = favList.findIndex((item) => item.Title === movie.Title);
@@ -45,4 +46,35 @@ export function toggleIcon(img, movie, src){
     img.src = src;
     setLocalStorage("toggle-icon", true)
   } 
+
+export function createScrollBtn() {
+  const mainElement = document.querySelector("main");
+  const scrollBtn = document.createElement("button");
+  scrollBtn.setAttribute("id", "scroll-Btn");
+  scrollBtn.textContent = "Top";
+  mainElement.appendChild(scrollBtn);
+
+  window.onscroll = function () {
+    scrollFunction(scrollBtn);
+  };
+
+  scrollBtn.addEventListener("click", () => {
+    topFunction();
+  });
+}
+
+function scrollFunction(btn) {
+  if (
+    document.documentElement.scrollTop > 100
+  ) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+}
+
+// function to scroll to the top when the button is clicked
+function topFunction() {
+  document.documentElement.scrollTop = 0;
+
 }

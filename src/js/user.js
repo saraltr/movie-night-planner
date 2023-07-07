@@ -1,5 +1,7 @@
 import { createSearchBox, redirectToSearchResults } from './search.mjs';
 import { movieFavList } from "./userLists.mjs";
+import { createScrollBtn } from './utils.mjs'
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const searchButton = document.querySelector("#searchButton");
@@ -17,3 +19,4 @@ createSearchBox();
 //display the lists
 movieFavList(".fav-user-list", "fav-list");
 movieFavList(".watch-list", "watch-list");
+createScrollBtn();
