@@ -33,3 +33,16 @@ export function addMovieToStorage(movie, list) {
     setLocalStorage(list, favList);
   }
 }
+
+export function toggleIcon(img, movie, src){
+  const favList = getLocalStorage("fav-list") || [];
+  //const movieLst = favList.findIndex((item) => item.Title === movie.Title);
+  //console.log(favList)
+  //console.log(movieLst)
+
+  //I had to solve the refreshing to keep icons on the correct toggle
+  if(true ){
+    img.src = src;
+    setLocalStorage("toggle-icon", true)
+  } 
+}
