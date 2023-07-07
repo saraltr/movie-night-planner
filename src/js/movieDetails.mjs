@@ -4,7 +4,7 @@ export async function displayMovieDetails(movieTitle, selector){
   try{
     const container = document.querySelector(selector);
    const movie = await (await getMoviesByTitle(movieTitle)).json(); 
-   console.log( movie)
+//    console.log( movie)
    if(!movie){
        throw new SyntaxError("The movie you are trying to find is not available.")
    }   
@@ -20,6 +20,14 @@ export async function displayMovieDetails(movieTitle, selector){
    const watchlistBtn = document.querySelector("#watchlist-Btn");
    watchlistBtn.addEventListener("click", () => {
     addMovieToStorage(movie, "watch-list");
+   });
+
+   const watchPartyButton = document.querySelector(".joinBtn");
+   // redirects to the watch party page using the title of the movie
+   console.log(movie.Title);
+   watchPartyButton.addEventListener("click", () => {
+     const movieTitle = encodeURIComponent(movie.Title);
+     window.location.href = `/watch-party/index.html?movie=${movieTitle}`;
    });
   } catch(err) {
       console.log(err) 
@@ -43,6 +51,9 @@ function renderMovieDetails(movie){
         <div>
         <button id="fav-Btn" data-title="${movie.Title}"><img src="../images/icons8-favorite-40.png" alt="Fav Icon" title="Add ${movie.Title} to Favorites"></button>
         <button id="watchlist-Btn" data-title="${movie.Title}"><img src="../images/bookmark.png" alt="Watchlist Icon" title="Add ${movie.Title} to Watch List"></button>
+        </div>
+        <div class="create-Party">
+            <button class="joinBtn">Create Watch Party</button>
         </div>
     
     </div>
