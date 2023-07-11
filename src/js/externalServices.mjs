@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, getParam } from "./utils.mjs";
 require("dotenv").config()
 
 // fetch a movie by its title
