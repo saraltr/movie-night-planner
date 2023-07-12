@@ -220,6 +220,9 @@ label, input, textarea{
     color: #d0d0d0;
     border: none;
 }
+#commtBtn:hover{
+    background-color: rgb(141, 26, 24)
+}
 
 #resultsContainer h1, #resultsContainer h2{
     background-color: var(--primary-color);
@@ -280,6 +283,7 @@ iframe {
         width: 80%;
         margin: auto;
         max-width: 500px;
+        box-shadow: 0px 0px 8px var(--light-grey);
     }
     
     #movie-detail{
@@ -321,6 +325,13 @@ iframe {
     }
     .create-Party .joinBtn {
         margin: 20px;
+    }
+    .reviews{
+        border: 1px solid var(--light-grey);
+        margin: .5rem 5rem;
+        padding: .5rem;
+        border-radius: 10px;
+        box-shadow: 0px 0px 8px var(--light-grey);
     }
    
 }

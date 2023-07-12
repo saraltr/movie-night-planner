@@ -38,18 +38,33 @@ export function addCommentToStorage(movie){
     const comment = document.querySelector("#comment").value;
     const username = document.querySelector("#username").value;
     const mTitle = document.querySelector("#mTitle").value;
-    const reviews = document.querySelector(".reviews");
+    const inputDate = document.querySelector("#formDateSend");
     const notice = document.querySelector(".notice");
-    
-    console.log(comment)
- 
+    let d = new Date()
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
+    let date = `${months[d.getMonth()]}, ${d.getDate()} ${d.getFullYear()}`
+
     let reviewLst = getLocalStorage("reviews") || [];
-    console.log(movie.Title);
-    console.log(reviewLst)
     if(!username == "" || !comment == ""){
-      reviewLst.push({comment: comment, name: username, movie: mTitle})
+      reviewLst.push({comment: comment, name: username, movie: mTitle, date: inputDate.value = date})
       setLocalStorage("reviews", reviewLst);
       notice.innerHTML = `<p>Your Review for ${movie.Title} was added</p>`;
+      setTimeout(function(){
+        window.location.reload();
+     }, 4000);
     }
     else{
         console.log("comment not addewd")
