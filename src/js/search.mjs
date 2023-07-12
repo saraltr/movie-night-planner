@@ -11,11 +11,12 @@ export function createSearchBox() {
   // create the search button element
   const searchButton = document.createElement("button");
   searchButton.setAttribute("id", "searchButton");
-  searchButton.textContent = "Search";
+  searchButton.textContent = "🔍";
   searchButton.classList.add("search-button");
 
   const searchBox = document.createElement("div");
   searchBox.classList.add("search-box");
+  searchBox.style.display = "inline-flex"
   searchBox.appendChild(searchInput);
   searchBox.appendChild(searchButton);
 
