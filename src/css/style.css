@@ -330,6 +330,15 @@ iframe {
         display: grid;
         grid-template-columns: 1.5fr 1fr;
     }
+    .error-Mess {
+        grid-column: 1/3;
+        padding: 10px;
+        margin-bottom: .5rem;
+    }
+    .error-Mess a {
+        color: white;
+        text-decoration: underline;
+    }
     .mov-inf{
         display: flex;
         flex-direction: column;
