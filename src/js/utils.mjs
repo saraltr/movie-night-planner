@@ -34,6 +34,29 @@ export function addMovieToStorage(movie, list) {
   }
 }
 
+export function addCommentToStorage(movie){
+    const comment = document.querySelector("#comment").value;
+    const username = document.querySelector("#username").value;
+    const mTitle = document.querySelector("#mTitle").value;
+    const reviews = document.querySelector(".reviews");
+    const notice = document.querySelector(".notice");
+    
+    console.log(comment)
+ 
+    let reviewLst = getLocalStorage("reviews") || [];
+    console.log(movie.Title);
+    console.log(reviewLst)
+    if(!username == "" || !comment == ""){
+      reviewLst.push({comment: comment, name: username, movie: mTitle})
+      setLocalStorage("reviews", reviewLst);
+      notice.innerHTML = `<p>Your Review for ${movie.Title} was added</p>`;
+    }
+    else{
+        console.log("comment not addewd")
+        notice.innerHTML = `<p>There was an error and the comment was not added</p>`
+    }
+}
+
 
 export function toggleIcon(img, movie, src){
   const favList = getLocalStorage("fav-list") || [];
