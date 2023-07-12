@@ -12,6 +12,9 @@
     --font-base: 19px;
     --small-font: 1em;
     --large-font: 1.5em;
+
+    --glowing-filter: drop-shadow(0 0 0.70rem #526C8D);
+
 }
 
 * {
@@ -63,7 +66,7 @@ label, input, textarea{
 
 /* style the banner */
 .banner {
-    background-color: var(--secondary-color);
+    background-image: linear-gradient(90deg, #40125f 6%, rgba(157,52,51,1) 28%, rgba(201,41,41,1) 51%, rgba(201,41,41,1) 76%, #40125f 91%);
 }
 
 .posters-container::-webkit-scrollbar {
@@ -110,7 +113,14 @@ label, input, textarea{
 .banner h1, .banner p, .fav-user-list h3 {
     padding: 1rem;
     color: white;
+    text-shadow: 0 0 5px #d0d0d0;
 }
+
+.banner p img {
+    display: inline; 
+    vertical-align:bottom; 
+}
+
 
 .bannerSection h2 {
     color: var(--tertiary-color);
@@ -141,6 +151,9 @@ label, input, textarea{
 .userContainer li{
     list-style: none;
 }
+.userContainer p {
+    color: white;
+}
 .fav-container, .watchlist-Container{
     margin: 1rem 0;
     padding: 0;
@@ -156,6 +169,9 @@ label, input, textarea{
 #favMovie-icon{
     width: 30px;
     height: 30px;
+}
+.movie-title {
+    text-overflow: ellipsis;
 }
 
 /* search results page */
@@ -185,7 +201,9 @@ label, input, textarea{
 #fav-Btn img, #watchlist-Btn img{
     width: 30px; 
 }
-
+#fav-Btn:hover, #watchlist-Btn:hover {
+    transform: scale(1.15);
+}
 #posterImg {
     max-width: 200px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
@@ -196,7 +214,7 @@ label, input, textarea{
     transform: scale(1.1);
     cursor: pointer;
     border: solid 2px var(--light-grey);
-    filter: drop-shadow(0 0 0.70rem #526C8D);
+    filter: var(--glowing-filter);
 }
 .movie-details p, #movie-detail  p, #movie-comments{
     color: white;
@@ -209,9 +227,26 @@ label, input, textarea{
 }
 
 #movie-detail, #movie-comments{
-    /* background-color: #631f90b5; */
-    /* color: #122936; */
-    background-image: linear-gradient(to right, #631f90f6, #526c8df1, #122936f4, #9d3533);
+    background-image: linear-gradient(90deg, #9d3533f6 0%, rgba(62, 59, 145, 0.954) 100%);
+    /* background-image: linear-gradient(to right, #631f90f6, #526c8df1, #122936e6, #122936e6, #9d3533); */
+}
+
+.btnContainer button, #fav-Btn, #watchlist-Btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+.rotation {
+    animation-name: spin;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
 }
 #commtBtn{
     font-size: 1.3rem;
@@ -244,7 +279,7 @@ iframe {
     max-width: 100%;
     width: 560px;
     height: 315px;
-    filter: drop-shadow(0 0 0.70rem #526C8D)
+    filter: var(--glowing-filter);
 }
 
 .joinBtn {
@@ -260,8 +295,36 @@ iframe {
 }
 
 .userIcons {
-    margin-top: 20px;
+    display: flex;
+    align-items: center;
 }
+
+.userIcons h3 {
+    margin-right: .5rem;
+}
+.onlineUsers {
+    display: inline-block;
+    position: relative;
+    padding: 10px;
+}
+  
+.icon-text {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    transition: opacity 0.3s;
+}
+  
+.onlineUsers:hover .icon-text {
+    opacity: 1;
+}
+
 
 .joinBtn:hover {
     transform: scale(1.1);
@@ -272,9 +335,10 @@ iframe {
     color: var(--light-grey);
     text-align: start;
 }
+
 .mov-inf-rating, fieldset{
     background-color: rgb(0, 0, 0, .5);
-    padding: .5rem;
+    padding: 10px;
 }
 
 
@@ -287,7 +351,7 @@ iframe {
     }
     
     #movie-detail{
-        padding: 1rem;
+        padding-top: 1rem;
         display: grid;
         grid-template-columns: 1.5fr 1fr;
     }
@@ -306,7 +370,7 @@ iframe {
         grid-column: 2/3;
         justify-self: start;
         margin-left: 20px;
-        filter: drop-shadow(0 0 0.70rem white)
+        filter: drop-shadow(0 0 0.70rem white);
     }
     .mov-inf-descr, .mov-inf-rating{
         grid-column: 1/3;

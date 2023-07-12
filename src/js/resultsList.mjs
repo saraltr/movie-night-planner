@@ -26,15 +26,15 @@ export async function displayMovies() {
       favBtn.addEventListener("click", () => {
         const movieTitle = favBtn.getAttribute("data-title");
         const movie = results.Search.find((movie) => movie.Title === movieTitle);
+        console.log(movie);
         addMovieToStorage(movie, "fav-list");
-        //toggle fav img icon
-        const img = favBtn.firstChild
-        const src2 = "../images/icons8-favorite-40.png";
-        setLocalStorage("toggle-icon", false);
-       // console.log(movie)
-        toggleIcon(img, movie, src2)
-          
         
+        //toggle fav img icon
+        // const img = favBtn.firstChild
+        // const src2 = "../images/icons8-favorite-40.png";
+        // setLocalStorage("toggle-icon", false);
+       // console.log(movie)
+        // toggleIcon(img, movie, src2) 
       });
     });
 
@@ -47,11 +47,11 @@ export async function displayMovies() {
         const movie = results.Search.find((movie) => movie.Title === movieTitle);
         addMovieToStorage(movie, "watch-list");
 
-        const img = watchBtn.firstChild
-        const src2 = "../images/icons8-bookmark-32.png";
-        setLocalStorage("toggle-icon", false);
+        // const img = watchBtn.firstChild
+        // const src2 = "../images/icons8-bookmark-32.png";
+        // setLocalStorage("toggle-icon", false);
        // console.log(movie)
-        toggleIcon(img, movie, src2)
+        // toggleIcon(img, movie, src2)
       });
     });
     
@@ -62,6 +62,8 @@ export async function displayMovies() {
 
 // generate the HTML template for the movie results
 export function resultsTemplate(movies) {
+  const favBtn = require("../public/images/icons8-favorite-40.png");
+  const watchListBtn = require("../public/images/bookmark.png");
   console.log(movies)
   if (!movies || !movies.Search || !Array.isArray(movies.Search)) {
     return "<h2>Sorry, we couldn\'t find any results. Try again!</h2>";
@@ -88,8 +90,8 @@ export function resultsTemplate(movies) {
           <p>${movieTitle} (${movieYear})<p>
 
         </a>
-        <button id="fav-Btn" data-title="${movieTitle}"><img id="fav-Icon" src="../images/icons8-corazones-40.png" alt="Fav Icon" title="Add ${movieTitle} to Favorites"></button>
-        <button id="watchlist-Btn" data-title="${movieTitle}"><img src="../images/bookmark.png" alt="Watchlist Icon" title="Add ${movieTitle} to Watch List"></button>
+        <button id="fav-Btn" data-title="${movieTitle}"><img id="fav-Icon" src="${favBtn}" alt="Fav Icon" title="Add ${movieTitle} to Favorites"></button>
+        <button id="watchlist-Btn" data-title="${movieTitle}"><img src="${watchListBtn}" alt="Watchlist Icon" title="Add ${movieTitle} to Watch List"></button>
       </li>`;
     }
   });

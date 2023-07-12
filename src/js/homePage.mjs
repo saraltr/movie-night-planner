@@ -81,11 +81,22 @@ export async function createBanner(url, bannerText, mainBanner = true) {
     const bannerDiv = document.createElement("div");
 
     if (mainBanner) {
+      const iconClap = require("../public/images/clap.png");
       const bannerTitle = document.createElement("h1");
       bannerTitle.textContent = bannerText;
       const bannerMessage = document.createElement("p");
-      bannerMessage.textContent = "🎬 -- Lights, Camera, Action! Plan Your Perfect Movie Night. --🍿";
-      bannerDiv.classList.add("banner")
+      const clapImage = document.createElement("img");
+      clapImage.src = iconClap;
+      clapImage.alt = "clap icon"
+      bannerMessage.appendChild(clapImage); // append the image element to the paragraph
+      bannerMessage.innerHTML += "-- Lights, Camera, Action! Plan Your Perfect Movie Night. --";
+      const iconFilm = require("../public/images/film.png");
+      const filmImage = document.createElement("img");
+      filmImage.src = iconFilm;
+      filmImage.alt = "film icon";
+      bannerMessage.appendChild(filmImage);
+      const bannerDiv = document.createElement("div");
+      bannerDiv.classList.add("banner");
       bannerDiv.appendChild(bannerTitle);
       bannerDiv.appendChild(bannerMessage);
       bannerSection.appendChild(bannerDiv);

@@ -6,6 +6,7 @@ export async function displayMovieDetails(movieTitle, selector){
    const container = document.querySelector(selector);
    const commentDiv = document.querySelector("#movie-comments");
    const movie = await (await getMoviesByTitle(movieTitle)).json(); 
+
    if(!movie){
        throw new SyntaxError("The movie you are trying to find is not available.")
    }   
@@ -89,6 +90,8 @@ export async function displayMovieDetails(movieTitle, selector){
 }
 
 function renderMovieDetails(movie){
+    const favBtn = require("../public/images/icons8-favorite-40.png");
+    const watchListBtn = require("../public/images/bookmark.png");
     const template = `
     <div class="mov-inf">
     <h1>${movie.Title} (${movie.Year})</h1>
@@ -101,9 +104,9 @@ function renderMovieDetails(movie){
         <p><b>Actors:</b> ${movie.Actors}</p>
         <p><b>Language:</b> ${movie.Language}</p>
         <p><b>Awards:</b> ${movie.Awards}</p>
-        <div>
-        <button id="fav-Btn" data-title="${movie.Title}"><img src="../images/icons8-favorite-40.png" alt="Fav Icon" title="Add ${movie.Title} to Favorites"></button>
-        <button id="watchlist-Btn" data-title="${movie.Title}"><img src="../images/bookmark.png" alt="Watchlist Icon" title="Add ${movie.Title} to Watch List"></button>
+        <div class="btnContainer">
+        <button id="fav-Btn" data-title="${movie.Title}"><img src="${favBtn}" alt="Fav Icon" title="Add ${movie.Title} to Favorites"></button>
+        <button id="watchlist-Btn" data-title="${movie.Title}"><img src="${watchListBtn}" alt="Watchlist Icon" title="Add ${movie.Title} to Watch List"></button>
         </div>
         <div class="create-Party">
             <button class="joinBtn">Create Watch Party 🎥</button>
