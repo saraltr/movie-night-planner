@@ -130,17 +130,15 @@ label, input, textarea{
 }
 
 #scroll-Btn {
+    width: 50px;
     position: fixed;
     bottom: 20px;
     right: 30px;
-    z-index: 99;
-    border: solid 2px var(--tertiary-color);
-    color: white;
-    background-color: var(--primary-color);
+    z-index: 2;
     cursor: pointer;
-    padding: 12px;
-    border-radius: 15px;
-    font-family: var(--font-body);
+    background-color: white;
+    padding: .5rem;
+    border-radius: 10px;
 }
 
 /*USER PAGE*/
