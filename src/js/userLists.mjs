@@ -1,13 +1,17 @@
-import { getLocalStorage } from './utils.mjs';
+import { getLocalStorage, setLocalStorage } from './utils.mjs';
 
 export function movieFavList(selector, list){
     try{
     const favList = getLocalStorage(list) || [];
     const favEl = document.querySelector(selector);
     const favCtner = document.querySelector(".fav-container");
+    const wtchCtner = document.querySelector(".watchlist-Container");
 
     if(favList.length === 0){
-        favCtner.innerHTML = `<h3>Create your Fav List</h3>
+        favCtner.innerHTML = `<h3>Create your List</h3>
+                            <p>Explore and add Movies to share with your friends!</p>`
+    } else if( wtchCtner.length === 0){
+        wtchCtner.innerHTML = `<h3>Create your List</h3>
                             <p>Explore and add Movies to share with your friends!</p>`
     }
 
@@ -24,13 +28,14 @@ export function movieFavList(selector, list){
 
     const movie = favList.map((item) => {
          return template = `<li>
+            <div class="delBtn" title="Delete '${item.Title}' from list"><button class="delete-movie" data-title="${item.Title}" data-lst="${list}"> X </button></div>
             <a href="/movie-details/index.html?movie=${item.Title}" > 
                 <img src="${item.Poster}" alt="Poster of ${item.Title}" />
                 <h3 class="movie-title">${item.Title} (${item.Year})</h3>
             </a>
         </li>`;
     });
-    // console.log(movie);
+     console.log(`here ${movie}`);
     favEl.innerHTML = movie.join("");
 
     const favImages = favEl.querySelectorAll("img"); // selecting all img elements within the fav list container
@@ -48,6 +53,45 @@ export function movieFavList(selector, list){
             favEl.style.justifyContent = "space-between";
         }
     }, 0);
+
+    //HANDLE REMOVE MOVIE FROM LISTS
+    const deleteBtn = document.querySelectorAll(".delete-movie");
+
+    deleteBtn.forEach((del)=>{
+        del.style.position = "absolute";
+        del.style.right = "0";
+        del.style.border = "1px solid #d0d0d0";
+        del.style.backgroundColor = "#122936";
+        del.style.color = "#d0d0d0";
+        del.style.opacity = ".7"
+        del.style.fontSize = "25px";
+        del.addEventListener("mouseover", ()=>{
+            del.style.opacity = "1";
+            del.style.color = "#fff";
+            del.style.padding = ".3rem";
+            setTimeout(() => {
+                del.style.color = "#d0d0d0";
+                 del.style.opacity = ".7"
+                 del.style.padding = ".2rem";
+              }, 1000);
+        })
+        
+
+        del.addEventListener("click",()=>{
+            const movieTitle = del.getAttribute("data-title");
+            const movieLst = del.getAttribute("data-lst");
+            const index = favList.findIndex((item) => item.Title === movieTitle);
+            if (index != -1 && movieLst === list) { //get specific index and from that specific list
+                favList.splice(index, 1);
+               setLocalStorage(movieLst, favList);
+               setTimeout(function(){
+                window.location.reload();
+             }, 1000);
+             }
+        });
+
+    })
+   
 
 } catch {
     console.log("Error: Could not create list");
