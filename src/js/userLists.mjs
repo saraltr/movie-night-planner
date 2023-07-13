@@ -5,9 +5,13 @@ export function movieFavList(selector, list){
     const favList = getLocalStorage(list) || [];
     const favEl = document.querySelector(selector);
     const favCtner = document.querySelector(".fav-container");
+    const wtchCtner = document.querySelector(".watchlist-Container");
 
     if(favList.length === 0){
-        favCtner.innerHTML = `<h3>Create your Fav List</h3>
+        favCtner.innerHTML = `<h3>Create your List</h3>
+                            <p>Explore and add Movies to share with your friends!</p>`
+    } else if( wtchCtner.length === 0){
+        wtchCtner.innerHTML = `<h3>Create your List</h3>
                             <p>Explore and add Movies to share with your friends!</p>`
     }
 
@@ -24,7 +28,7 @@ export function movieFavList(selector, list){
 
     const movie = favList.map((item) => {
          return template = `<li>
-            <div class="delBtn" title="Delete Movie from list"><button class="delete-movie" data-title="${item.Title}" data-lst="${list}"> X </button></div>
+            <div class="delBtn" title="Delete '${item.Title}' from list"><button class="delete-movie" data-title="${item.Title}" data-lst="${list}"> X </button></div>
             <a href="/movie-details/index.html?movie=${item.Title}" > 
                 <img src="${item.Poster}" alt="Poster of ${item.Title}" />
                 <h3 class="movie-title">${item.Title} (${item.Year})</h3>
@@ -80,6 +84,9 @@ export function movieFavList(selector, list){
             if (index != -1 && movieLst === list) { //get specific index and from that specific list
                 favList.splice(index, 1);
                setLocalStorage(movieLst, favList);
+               setTimeout(function(){
+                window.location.reload();
+             }, 1000);
              }
         });
 
