@@ -24,7 +24,7 @@ export function movieFavList(selector, list){
 
     const movie = favList.map((item) => {
          return template = `<li>
-            <div><button class="delete-movie" data-title="${item.Title}" data-lst="${list}">X</button></div>
+            <div class="delBtn" title="Delete Movie from list"><button class="delete-movie" data-title="${item.Title}" data-lst="${list}"> X </button></div>
             <a href="/movie-details/index.html?movie=${item.Title}" > 
                 <img src="${item.Poster}" alt="Poster of ${item.Title}" />
                 <h3 class="movie-title">${item.Title} (${item.Year})</h3>
@@ -52,12 +52,32 @@ export function movieFavList(selector, list){
 
     //HANDLE REMOVE MOVIE FROM LISTS
     const deleteBtn = document.querySelectorAll(".delete-movie");
+
     deleteBtn.forEach((del)=>{
+        del.style.position = "absolute";
+        del.style.right = "0";
+        del.style.border = "1px solid #d0d0d0";
+        del.style.backgroundColor = "#122936";
+        del.style.color = "#d0d0d0";
+        del.style.opacity = ".7"
+        del.style.fontSize = "25px";
+        del.addEventListener("mouseover", ()=>{
+            del.style.opacity = "1";
+            del.style.color = "#fff";
+            del.style.padding = ".3rem";
+            setTimeout(() => {
+                del.style.color = "#d0d0d0";
+                 del.style.opacity = ".7"
+                 del.style.padding = ".2rem";
+              }, 1000);
+        })
+        
+
         del.addEventListener("click",()=>{
             const movieTitle = del.getAttribute("data-title");
             const movieLst = del.getAttribute("data-lst");
             const index = favList.findIndex((item) => item.Title === movieTitle);
-            if (index != -1 && movieLst === list) {
+            if (index != -1 && movieLst === list) { //get specific index and from that specific list
                 favList.splice(index, 1);
                setLocalStorage(movieLst, favList);
              }
