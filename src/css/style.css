@@ -136,7 +136,7 @@ label, input, textarea{
     right: 30px;
     z-index: 2;
     cursor: pointer;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.728);
     padding: .5rem;
     border-radius: 10px;
 }
