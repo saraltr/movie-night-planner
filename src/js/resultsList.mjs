@@ -64,38 +64,36 @@ export async function displayMovies() {
 export function resultsTemplate(movies) {
   const favBtn = require("../public/images/icons8-favorite-40.png");
   const watchListBtn = require("../public/images/bookmark.png");
-  console.log(movies)
+  console.log(movies);
+
   if (!movies || !movies.Search || !Array.isArray(movies.Search)) {
-    return "<h2>Sorry, we couldn\'t find any results. Try again!</h2>";
+    return "<h2>Sorry, we couldn't find any results. Try again!</h2>";
   }
 
   const numMatches = movies.Search.length;
   let template = `<h1>🔎 Search Results</h1>
   <h2>Found ${numMatches} Matches for "${searchTerm}"</h2>`;
   template += "<ul class='resultsList'>";
-  
-  
+
   movies.Search.forEach((movie) => {
     const movieTitle = movie.Title;
-    const moviePoster = movie.Poster;   
+    const moviePoster = movie.Poster;
     const mediaType = movie.Type;
     const movieYear = movie.Year;
-    // console.log(movie);
 
-    if (mediaType === "movie"){
+    if (mediaType === "movie") {
       template += `
       <li class="movie-details">
         <a href="/movie-details/index.html?movie=${movieTitle}" >
-          <img id="posterImg" src="${moviePoster}" alt="Poster of ${movieTitle}" />
+          ${moviePoster && moviePoster !== "N/A" ? `<img id="posterImg" src="${moviePoster}" alt="Poster of ${movieTitle}" />` : `<p>No Poster Available</p>`}
           <p>${movieTitle} (${movieYear})<p>
-
         </a>
         <button id="fav-Btn" data-title="${movieTitle}"><img id="fav-Icon" src="${favBtn}" alt="Fav Icon" title="Add ${movieTitle} to Favorites"></button>
         <button id="watchlist-Btn" data-title="${movieTitle}"><img src="${watchListBtn}" alt="Watchlist Icon" title="Add ${movieTitle} to Watch List"></button>
       </li>`;
     }
   });
-  
-  template += '</ul>';
+
+  template += "</ul>";
   return template;
 }
