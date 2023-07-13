@@ -22,5 +22,6 @@ createSearchBox(); // creates the search box component
 
 createBanner("trending/movie/week?language=en-US", "Welcome to Movie Night Planner!");
 createBanner("movie/now_playing?language=en-US&page=1", "Currently in theatres", false);
+createBanner("movie/top_rated?language=en-US&page=1", "Top Rated", false);
 createList();
 createScrollBtn();

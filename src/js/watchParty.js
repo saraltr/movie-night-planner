@@ -1,5 +1,5 @@
 import { createSearchBox, redirectToSearchResults } from './search.mjs';
-import { getParamn, createScrollBtn } from "./utils.mjs"
+import { getParam, createScrollBtn } from "./utils.mjs"
 import { initialize } from "./watchParty.mjs"
 
 
