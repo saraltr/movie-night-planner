@@ -1,4 +1,4 @@
-import { getLocalStorage } from './utils.mjs';
+import { getLocalStorage, setLocalStorage } from './utils.mjs';
 
 export function movieFavList(selector, list){
     try{
@@ -24,13 +24,14 @@ export function movieFavList(selector, list){
 
     const movie = favList.map((item) => {
          return template = `<li>
+            <div><button class="delete-movie" data-title="${item.Title}" data-lst="${list}">X</button></div>
             <a href="/movie-details/index.html?movie=${item.Title}" > 
                 <img src="${item.Poster}" alt="Poster of ${item.Title}" />
                 <h3 class="movie-title">${item.Title} (${item.Year})</h3>
             </a>
         </li>`;
     });
-    // console.log(movie);
+     console.log(`here ${movie}`);
     favEl.innerHTML = movie.join("");
 
     const favImages = favEl.querySelectorAll("img"); // selecting all img elements within the fav list container
@@ -48,6 +49,22 @@ export function movieFavList(selector, list){
             favEl.style.justifyContent = "space-between";
         }
     }, 0);
+
+    //HANDLE REMOVE MOVIE FROM LISTS
+    const deleteBtn = document.querySelectorAll(".delete-movie");
+    deleteBtn.forEach((del)=>{
+        del.addEventListener("click",()=>{
+            const movieTitle = del.getAttribute("data-title");
+            const movieLst = del.getAttribute("data-lst");
+            const index = favList.findIndex((item) => item.Title === movieTitle);
+            if (index != -1 && movieLst === list) {
+                favList.splice(index, 1);
+               setLocalStorage(movieLst, favList);
+             }
+        });
+
+    })
+   
 
 } catch {
     console.log("Error: Could not create list");
