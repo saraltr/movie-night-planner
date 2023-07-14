@@ -94,7 +94,7 @@ export async function createList(url = "", bannerText, mainBanner = true) {
 export async function discoverList() {
   const popularWords = ["dark", "flower", "youth", "home", "fire", "little", "fantastic", "star", "lady", "one", "lost", "new", "love", "life", "night", "world", "meet"];
   const randomWord = popularWords[Math.floor(Math.random() * popularWords.length)];
-  console.log(randomWord);
+  // console.log(randomWord);
   return randomWord;
 }
 
@@ -141,12 +141,12 @@ export async function recommendationsList() {
   const searchTerm = localStorage.getItem("searchTerm");
 
   // if there is movies in the favlist, display this list, otherwise ignore it
-  if (favList) {
-    console.log(favList.length);
+  if (favList && favList.length !== 0) {
+    // console.log(favList.length);
     const randomIndex = Math.floor(Math.random() * favList.length);
     const randomMovie = favList[randomIndex];
     const movieTitle = randomMovie.Title;
-    console.log(movieTitle);
+    // console.log(movieTitle);
     const movie = await getMovies(`search/movie?query=${encodeURIComponent(movieTitle)}`);
     const movieId = movie.results[0].id;
     createList(`movie/${movieId}/recommendations?language=en-US&page=1`, "Recommendations", false);
