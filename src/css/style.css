@@ -93,7 +93,7 @@ label, input, textarea{
     background-color: var(--tertiary-color);
 }
 
-.fav-user-list h3 {
+h3.movie-title {
     padding: 1rem 0;
     max-width: 250px;
     width: 100%;
