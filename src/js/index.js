@@ -3,6 +3,7 @@ import { createBanner, createList } from './homePage.mjs';
 import { movieFavList } from './userLists.mjs';
 import { initialize } from './watchParty.mjs';
 import { createScrollBtn } from './utils.mjs'
+import { buildNavigation } from './hamburgerMenu.mjs';
 
 // event listener to make sure the dom is loaded before the js is executed
 document.addEventListener("DOMContentLoaded", () => {
@@ -19,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 createSearchBox(); // creates the search box component
+buildNavigation();
 
 createBanner("trending/movie/week?language=en-US", "Welcome to Movie Night Planner!");
 createBanner("movie/now_playing?language=en-US&page=1", "Currently in theatres", false);

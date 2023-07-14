@@ -1,3 +1,4 @@
+import { buildNavigation } from './hamburgerMenu.mjs';
 import { createScrollBtn } from './utils.mjs'
 
 const loginForm = document.getElementById("login-user");
@@ -10,3 +11,4 @@ loginForm.addEventListener("submit", (e) => {
 });
 
 createScrollBtn();
+buildNavigation()

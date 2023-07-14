@@ -32,13 +32,23 @@ h1, h2, h3{
     font-size: var(--large-font);
 }
 
-p{
+p, #primaryNav li{
     font-family: var(--font-body);
     font-size: var(--small-font);
 }
 
-a{
+a, #primaryNav li{
     text-decoration: none;
+}
+#primaryNav li{
+    font-size: 18px;
+    padding: 1rem;
+}
+nav ul {
+    display: none;
+}
+nav ul.open{
+    display: block;
 }
 label, input, textarea{
     display: block;
@@ -58,7 +68,7 @@ footer{
     padding: 1rem 0;
     margin-top: 5rem;
 }
-footer a:hover{
+footer a:hover, #primaryNav li a:hover{
     text-decoration: underline;
 }
 
@@ -171,10 +181,10 @@ footer a:hover{
 .userContainer h1 {
     color: var(--secondary-color);
 }
-.userContainer li{
+.userContainer li, #primaryNav li {
     list-style: none;
 }
-.userContainer p {
+.userContainer p, #primaryNav li a {
     color: white;
 }
 .fav-container, .watchlist-Container{
@@ -195,6 +205,8 @@ footer a:hover{
 }
 .movie-title {
     text-overflow: ellipsis;
+    max-width: 250px;
+    padding: 0;
 }
 
 /* search results page */

@@ -1,3 +1,4 @@
+import { buildNavigation } from './hamburgerMenu.mjs';
 import { createSearchBox, redirectToSearchResults } from './search.mjs';
 import { movieFavList } from "./userLists.mjs";
 import { createScrollBtn } from './utils.mjs'
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 createSearchBox();
+buildNavigation();
 
 //display the lists
 movieFavList(".fav-user-list", "fav-list");
