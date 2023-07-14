@@ -92,7 +92,12 @@ label, input, textarea{
 .list-container::-webkit-scrollbar-thumb {
     background-color: var(--tertiary-color);
 }
-  
+
+.fav-user-list h3 {
+    padding: 1rem 0;
+    max-width: 250px;
+    width: 100%;
+}
 /* .posters-container.loop {
     animation: scrollLoop 20s linear infinite;
 }
@@ -110,7 +115,7 @@ label, input, textarea{
     background-color: var(--secondary-color);
 }
 
-.banner h1, .banner p, .fav-user-list h3 {
+.banner h1, .banner p {
     padding: 1rem;
     color: white;
     text-shadow: 0 0 5px #d0d0d0;
@@ -257,8 +262,12 @@ label, input, textarea{
     background-color: rgb(141, 26, 24)
 }
 
-#resultsContainer h1, #resultsContainer h2{
+#resultsContainer {
     background-color: var(--primary-color);
+}
+
+#noResults {
+    padding: 1rem;
 }
 
 /* watch party page */

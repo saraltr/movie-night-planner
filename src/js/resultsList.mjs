@@ -63,11 +63,12 @@ export async function displayMovies() {
 // generate the HTML template for the movie results
 export function resultsTemplate(movies) {
   const favBtn = require("../public/images/icons8-favorite-40.png");
+  const noResults = require("../public/images/searching.gif");
   const watchListBtn = require("../public/images/bookmark.png");
   console.log(movies);
 
   if (!movies || !movies.Search || !Array.isArray(movies.Search)) {
-    return "<h2>Sorry, we couldn't find any results. Try again!</h2>";
+    return `<h2>Sorry, we couldn't find any results. Try again!</h2> <img id="noResults" src="${noResults}" alt="no results gif">`;
   }
 
   const numMatches = movies.Search.length;

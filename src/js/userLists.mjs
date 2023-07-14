@@ -7,13 +7,13 @@ export function movieFavList(selector, list){
     const favCtner = document.querySelector(".fav-container");
     const wtchCtner = document.querySelector(".watchlist-Container");
 
-    if(favList.length === 0){
+    if (!favList && favList.length === 0) {
         favCtner.innerHTML = `<h3>Create your List</h3>
-                            <p>Explore and add Movies to share with your friends!</p>`
-    } else if( wtchCtner.length === 0){
+                              <p>Explore and add Movies to share with your friends!</p>`;
+      } if (!wtchCtner && wtchCtner.length === 0) {
         wtchCtner.innerHTML = `<h3>Create your List</h3>
-                            <p>Explore and add Movies to share with your friends!</p>`
-    }
+                              <p>Explore and add Movies to share with your friends!</p>`;
+      }
 
     // console.log(favList);
 
@@ -35,7 +35,7 @@ export function movieFavList(selector, list){
             </a>
         </li>`;
     });
-     console.log(`here ${movie}`);
+    //  console.log(`here ${movie}`);
     favEl.innerHTML = movie.join("");
 
     const favImages = favEl.querySelectorAll("img"); // selecting all img elements within the fav list container
@@ -44,15 +44,6 @@ export function movieFavList(selector, list){
       img.style.width = "250px";
       img.style.objectFit = "cover";
     });
-
-    // check if the list overflows and apply justify-content if necessary
-    setTimeout(() => {
-        if (favEl.scrollWidth > favEl.clientWidth) {
-            favEl.style.justifyContent = "start";
-        } else {
-            favEl.style.justifyContent = "space-between";
-        }
-    }, 0);
 
     //HANDLE REMOVE MOVIE FROM LISTS
     const deleteBtn = document.querySelectorAll(".delete-movie");
@@ -65,6 +56,7 @@ export function movieFavList(selector, list){
         del.style.color = "#d0d0d0";
         del.style.opacity = ".7"
         del.style.fontSize = "25px";
+        del.style.cursor = "pointer";
         del.addEventListener("mouseover", ()=>{
             del.style.opacity = "1";
             del.style.color = "#fff";
@@ -81,7 +73,7 @@ export function movieFavList(selector, list){
             const movieTitle = del.getAttribute("data-title");
             const movieLst = del.getAttribute("data-lst");
             const index = favList.findIndex((item) => item.Title === movieTitle);
-            if (index != -1 && movieLst === list) { //get specific index and from that specific list
+            if (index !== -1 && movieLst === list) { //get specific index and from that specific list
                 favList.splice(index, 1);
                setLocalStorage(movieLst, favList);
                setTimeout(function(){
@@ -93,8 +85,8 @@ export function movieFavList(selector, list){
     })
    
 
-} catch {
-    console.log("Error: Could not create list");
+} catch (err) {
+    console.log("Error, could not create list:", err);
 }
    
 }
