@@ -27,7 +27,7 @@ export function movieFavList(selector, list){
         favEl.style.padding = "1rem";
 
     const movie = favList.map((item) => {
-         return template = `<li>
+         return `<li>
             <div class="delBtn" title="Delete '${item.Title}' from list"><button class="delete-movie" data-title="${item.Title}" data-lst="${list}"> X </button></div>
             <a href="/movie-details/index.html?movie=${item.Title}" > 
                 <img src="${item.Poster}" alt="Poster of ${item.Title}" />
