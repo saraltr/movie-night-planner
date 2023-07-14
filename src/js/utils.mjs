@@ -85,34 +85,19 @@ export function toggleIcon(img, movie, src){
     setLocalStorage("toggle-icon", true)
   } 
 }
-export function createScrollBtn() {
-  const mainElement = document.querySelector("main");
-  const scrollBtn = document.createElement("button");
-  scrollBtn.setAttribute("id", "scroll-Btn");
-  scrollBtn.textContent = "Top";
-  mainElement.appendChild(scrollBtn);
 
-  window.onscroll = function () {
-    scrollFunction(scrollBtn);
-  };
+// Function to create a scroll-to-top button
+export function createScrollBtn() {
+  const scrollBtn = document.createElement("img");
+  scrollBtn.src = require("../public/images/up.png")
+  scrollBtn.setAttribute("id", "scroll-Btn");
+  document.body.appendChild(scrollBtn);
+
+  document.addEventListener("scroll", () => {
+    scrollBtn.style.display = window.scrollY > 100 ? "block" : "none";
+  });
 
   scrollBtn.addEventListener("click", () => {
-    topFunction();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
-}
-
-function scrollFunction(btn) {
-  if (
-    document.documentElement.scrollTop > 100
-  ) {
-    btn.style.display = "block";
-  } else {
-    btn.style.display = "none";
-  }
-}
-
-// function to scroll to the top when the button is clicked
-function topFunction() {
-  document.documentElement.scrollTop = 0;
-
 }
