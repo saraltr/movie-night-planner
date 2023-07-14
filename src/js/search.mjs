@@ -21,7 +21,7 @@ export function createSearchBox() {
   searchBox.appendChild(searchButton);
 
   // append the search box and button to the menu div
-  const menuDiv = document.querySelector(".menu");
+  const menuDiv = document.querySelector(".search-movie");
   menuDiv.prepend(searchBox);
 }
 

@@ -1,3 +1,4 @@
+import { buildNavigation } from './hamburgerMenu.mjs';
 import { displayMovies } from './resultsList.mjs';
 import { createSearchBox, redirectToSearchResults } from './search';
 import { createScrollBtn } from './utils.mjs'
@@ -15,5 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 createSearchBox()
+buildNavigation()
 displayMovies()
 createScrollBtn();

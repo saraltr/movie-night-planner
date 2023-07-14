@@ -1,6 +1,7 @@
 import {displayMovieDetails} from './movieDetails.mjs';
 import { getParam, createScrollBtn } from './utils.mjs';
 import { createSearchBox, redirectToSearchResults } from './search.mjs';
+import { buildNavigation } from './hamburgerMenu.mjs';
 
 document.addEventListener("DOMContentLoaded", () => {
     const searchButton = document.querySelector("#searchButton");
@@ -18,4 +19,5 @@ const movieTitle = getParam("movie");
 displayMovieDetails(movieTitle, "#movie-detail");
 
 createSearchBox();
+buildNavigation();
 createScrollBtn();

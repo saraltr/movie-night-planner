@@ -1,3 +1,4 @@
+import { buildNavigation } from './hamburgerMenu.mjs';
 import { createSearchBox, redirectToSearchResults } from './search.mjs';
 import { getParam, createScrollBtn } from "./utils.mjs"
 import { initialize } from "./watchParty.mjs"
@@ -23,4 +24,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 createSearchBox(); // creates the search box component
+buildNavigation();
 createScrollBtn();
