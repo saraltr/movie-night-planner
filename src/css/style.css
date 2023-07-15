@@ -465,6 +465,20 @@ iframe {
     text-align: start;
 }
 
+.suggestions-dropdown {
+    background-color: white;
+    list-style: none;
+    text-align: left;
+    padding: 0 5px;
+    margin: 0;
+}
+
+.suggestions-dropdown li:hover{
+    background-color: var(--tertiary-color);
+    color: white;
+    cursor: pointer;
+}
+
 @media screen and (min-width: 700px) {
     fieldset{
         width: 80%;

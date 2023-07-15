@@ -67,7 +67,7 @@ export async function saveMovieNight() {
     // create and display dropdown if there are suggestions
     if (movieSuggestions && movieSuggestions.length > 0) {
       const dropdown = document.createElement("ul");
-      dropdown.classList.add('suggestions-dropdown');
+      dropdown.classList.add("suggestions-dropdown");
 
       movieSuggestions.forEach((movie) => {
         const suggestionItem = document.createElement("li");
