@@ -25,7 +25,7 @@ export function buildNavigation(){
 }
 
 function renderNav(){
-    return template = `<nav>
+    return `<nav>
     <button id="hamburgerBtn">
         <span><img src="../images/menuIcon.png" alt="hamburger menu icon"></span>
         <span><img src="../images/icons8-x-48.png" alt="close menu icon"></span>
