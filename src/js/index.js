@@ -4,6 +4,7 @@ import { movieFavList } from './userLists.mjs';
 import { initialize } from './watchParty.mjs';
 import { createScrollBtn } from './utils.mjs'
 import { buildNavigation } from './hamburgerMenu.mjs';
+import { displayPopups } from './popups.mjs';
 
 // event listener to make sure the dom is loaded before the js is executed
 document.addEventListener("DOMContentLoaded", () => {
@@ -25,3 +26,5 @@ buildNavigation();
 createList("trending/movie/week?language=en-US", "Welcome to Movie Night Planner!");
 homePageList();
 createScrollBtn();
+
+displayPopups();
