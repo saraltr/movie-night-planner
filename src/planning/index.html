@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planner | Movie Night Planner</title>
+  <meta name="description" content="Movie Night Planner planning page">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="../js/planner.js" type="module"></script>
+</head>
+<body>
+  <header class="divider">
+    <div class="main-header">
+      <div class="logo-container">
+        <a href="../index.html">
+          <img src="../public/images/mnp-logo.svg" alt="movie night planner logo">
+        </a>
+      </div>
+      <div class="search-movie"></div>
+      <div><a href="../login/index.html">
+          <img src="../public/images/userIcon.png" alt="user icon">
+      </a></div>
+      <div class="menu">
+      </div>
+    </div>
+  </header>
+  <main>
+  <div id="plannerContainer">
+    <form id="planning-form">
+        <label for="movie-title">Movie Title:</label>
+        <input type="text" id="movie-title"  placeholder="Search.." required>
+        <p id="values"></p>
+        <div class="suggestions"></div>
+  
+        <label for="date">Date:</label>
+        <input type="date" id="date" required>
+  
+        <label for="time">Time:</label>
+        <input type="time" id="time" required>
+  
+        <label for="notes">Additional Notes:</label>
+        <textarea id="notes"></textarea>
+  
+        <button type="submit">Plan Movie Night</button>
+      </form>
+  </div>
+  <div id="nightsContainer"></div>
+  </main>
+  <footer>
+    <div class="logo-container logo-container-footer">
+      <a href="index.html">
+        <img src="../public/images/mnp-logo.svg" alt="movie night planner logo">
+      </a>
+    </div>
+    <div class="authors">
+      <h2>Authors</h2>
+      <h4>Sara Latorre</h4>
+      <p><b>GitHub:</b> <a href="https://github.com/saraltr" target="_blank">https://github.com/saraltr</a></p>
+      <h4>Ruth Cardona</h4>
+      <p><b>GitHub:</b> <a href="https://github.com/CarGuzRuth7" target="_blank">https://github.com/CarGuzRuth7</a></p>
+
+    </div>
+    <div class="footer-desc">
+      <hr>
+      <p>&copy;WDD330 Final Project - BYUI Spring 2023</p>
+    </div>
+  </footer>
+</body>
+</html>

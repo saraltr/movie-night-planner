@@ -27,12 +27,12 @@ export function buildNavigation(){
 function renderNav(){
     return `<nav>
     <button id="hamburgerBtn">
-        <span><img src="../images/menuIcon.png" alt="hamburger menu icon"></span>
-        <span><img src="../images/icons8-x-48.png" alt="close menu icon"></span>
+        <span><img src="${require("../public/images/menuIcon.png")}" alt="hamburger menu icon"></span>
+        <span><img src="${require("../public/images/icons8-x-48.png")}" alt="close menu icon"></span>
     </button>
     <ul id="primaryNav">
         <li><a href="/user/index.html">Profile</a></li>
-        <li><a href="#">Planner</a></li>
+        <li><a href="/planning/index.html">Planner</a></li>
         <li><a href="#">Discover</a></li>
         <li><a href="/watch-party/index.html">Watch Party</a></li>
     </ul>
