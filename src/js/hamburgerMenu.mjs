@@ -33,7 +33,7 @@ function renderNav(){
     <ul id="primaryNav">
         <li><a href="/user/index.html">Profile</a></li>
         <li><a href="#">Planner</a></li>
-        <li><a href="#">Discover</a></li>
+        <li><a href="/index.html">Discover</a></li>
         <li><a href="/watch-party/index.html">Watch Party</a></li>
     </ul>
   </nav> `

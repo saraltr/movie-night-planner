@@ -1,0 +1,8 @@
+[
+    {
+        "title": "PLAN YOUR MOVIE!",
+        "message": "Schedule a movie with you family and friends",
+        "redirect": "../planning/index.html",
+        "callToAct": "Start Now"
+    }
+]
