@@ -5,8 +5,8 @@
     --primary-color: #122936;
     --secondary-color: #9D3433;
     --tertiary-color: #40125f;
-    --light-grey: #d0d0d0;
-    --quaternary: #526C8D;
+    --light-grey: #e6d9d9;
+    --quaternary: #405d85;
 
     /* font sizes */
     --font-base: 19px;
@@ -209,6 +209,9 @@ h3.movie-title {
 .userContainer p, #primaryNav li a {
     color: white;
 }
+.userContainer h2 {
+    padding-top: 1rem;
+}
 .fav-container, .watchlist-Container{
     margin: 1rem 0;
     padding: 0;
@@ -406,9 +409,60 @@ iframe {
     z-index: 2;
 }
 .delete-movie:hover{
-    opacity: 1;
+    opacity: 5;
     color: #fff;
+    transform: scale(1.1);
+}
+
+/* planning page */
+
+#planning-form {
+    width: 80%;
+    margin: auto;
+    background-color: var(--quaternary);
+    padding: 1rem;
+}
+
+#planning-form label {
+    color: white;
+}
+#planning-form input:required {
+    border-left: solid 4px var(--secondary-color);
+    background-color: var(--light-grey);
+}
+#planning-form input:valid {
+    border-left: solid 4px rgb(57, 117, 82);
+    background-color: white;
+}
+#planning-form button {
+    font-family: var(--font-headline);
+    margin-top: 15px;
+    padding: 5px;
+    color: var(--quaternary);
+    border-radius: 7px;
+    cursor: pointer;
+}
+#planning-form button:hover {
+    transform: scale(1.1);
+}
+
+#nightsContainer {
+    background-color: var(--light-grey);
+    width: 80%;
+    margin: 2rem auto;
     padding: .2rem;
+    border-radius: 10px;
+}
+#nightsContainer h2{
+    color: var(--secondary-color);
+}
+.planned-night {
+    background-color: var(--secondary-color);
+    padding: .5rem;
+    margin: 10px;
+    color: white;
+    border-radius: 10px;
+    text-align: start;
 }
 
 @media screen and (min-width: 700px) {
