@@ -1,5 +1,5 @@
 import {displayMovieDetails} from './movieDetails.mjs';
-import { getParam, createScrollBtn } from './utils.mjs';
+import { getParam, createScrollBtn, generateBreadcrumb } from './utils.mjs';
 import { createSearchBox, redirectToSearchResults } from './search.mjs';
 import { buildNavigation } from './hamburgerMenu.mjs';
 
@@ -16,8 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const movieTitle = getParam("movie");
+console.log(movieTitle);
+generateBreadcrumb(movieTitle);
 displayMovieDetails(movieTitle, "#movie-detail");
-
 createSearchBox();
 buildNavigation();
 createScrollBtn();

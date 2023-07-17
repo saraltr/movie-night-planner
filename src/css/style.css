@@ -479,6 +479,29 @@ iframe {
     cursor: pointer;
 }
 
+/* breadcrumb */
+.breadcrumb-list {
+    display: flex;
+    list-style: none;
+    background-color: var(--secondary-color);
+    margin: 15px 0;
+    align-items: center;
+}
+.breadcrumb-item {
+    margin: 10px;
+    color: white;
+}
+.breadcrumb-slash {
+    color: white;
+    margin: 10px;
+}
+.breadcrumb-item a {
+    color: white;
+}
+.breadcrumb-home {
+    margin-left: 10px;
+}
+
 @media screen and (min-width: 700px) {
     fieldset{
         width: 80%;

@@ -1,7 +1,7 @@
 import { buildNavigation } from './hamburgerMenu.mjs';
 import { displayMovies } from './resultsList.mjs';
 import { createSearchBox, redirectToSearchResults } from './search';
-import { createScrollBtn } from './utils.mjs'
+import { createScrollBtn, generateBreadcrumb, getParam } from './utils.mjs'
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+const param = getParam("search");
+
+generateBreadcrumb(param);
 createSearchBox()
 buildNavigation()
 displayMovies()

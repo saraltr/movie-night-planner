@@ -1,7 +1,7 @@
 import { buildNavigation } from './hamburgerMenu.mjs';
 import { createSearchBox, redirectToSearchResults } from './search.mjs';
 import { movieFavList } from "./userLists.mjs";
-import { createScrollBtn } from './utils.mjs'
+import { createScrollBtn, generateBreadcrumb } from './utils.mjs'
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
       redirectToSearchResults(searchTerm); // redirecting to the search results page with the search term
     });
 });
+
+const favContainerEl = document.querySelector(".breadcrumbContainer");
+generateBreadcrumb("", favContainerEl);
 
 createSearchBox();
 buildNavigation();

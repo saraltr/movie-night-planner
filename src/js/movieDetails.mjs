@@ -1,6 +1,6 @@
 import { comment } from "postcss";
 import { getMoviesByTitle, getMovies } from "./externalServices.mjs";
-import { getLocalStorage, setLocalStorage, addMovieToStorage, addCommentToStorage } from "./utils.mjs";
+import { getLocalStorage, addMovieToStorage, addCommentToStorage } from "./utils.mjs";
 
 export async function displayMovieDetails(movieTitle, selector) {
   let container = document.querySelector(selector);
@@ -17,12 +17,24 @@ export async function displayMovieDetails(movieTitle, selector) {
       movie = movie.results[0];
     }
 
+    if (!movieTitle) {
+      // Display a message when the movie title is null or undefined
+      const errorMessage = `
+        <div class="error-Mess">
+          <h1>No movie found</h1>
+          <p>Please select a valid movie.</p>
+        </div>
+      `;
+      container.innerHTML = errorMessage;
+      return;
+    }
+
     let renderMD = renderMovieDetails(movie);
     let comments = renderCommentForm(movie);
 
     container.innerHTML = renderMD;
     commentDiv.innerHTML = comments;
-
+    
     const detailsContainer = document.querySelector(".detailsContainer");
     detailsContainer.style.backgroundImage = `url("${movie.Poster}")`;
     detailsContainer.style.backgroundSize = "cover";
@@ -56,7 +68,7 @@ export async function displayMovieDetails(movieTitle, selector) {
     //SHOW REVIEWS ON SCREEN
     const reviews = document.querySelector(".reviews");
     let commentList = getLocalStorage("reviews") || [];
-    console.log(commentList);
+    // console.log(commentList);
 
     if (commentList.length === 0) {
         // message to display when there is no user comments yet
@@ -101,7 +113,7 @@ export async function displayMovieDetails(movieTitle, selector) {
 }
 
 function renderMovieDetails(movie) {
-  console.log(movie);
+  // console.log(movie);
   const favBtn = require("../public/images/icons8-favorite-40.png");
   const watchListBtn = require("../public/images/bookmark.png");
   let ratingsTemplate = "";
