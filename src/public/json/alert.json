@@ -4,5 +4,29 @@
         "message": "Schedule a movie with you family and friends",
         "redirect": "../planning/index.html",
         "callToAct": "Start Now"
+    },
+    {
+        "title": "JOIN THE PARTY WITH JOHN WICK",
+        "message": " Action, Crime, Thriller. This movie will make you experiment what's feel to be alive",
+        "redirect": "../watch-party/index.html?movie=JOHN WICK%3A CHAPTER 4",
+        "callToAct": "Watch Now"
+    },
+    {
+        "title": "Add, remove, plan.. ACTION!",
+        "message": "Visit your list to plan the next weekend movie night",
+        "redirect": "../user/index.html",
+        "callToAct": "Go To My List"
+    },
+    {
+        "title": "INVITE YOUR FRIENDS",
+        "message": "Login and plan with your friend which movie to watch",
+        "redirect": "../login/index.html",
+        "callToAct": "Login Now"
+    },
+    {
+        "title": "FALL IN LOVE WITH THE SOUND OF MUSIC",
+        "message": "A tuneful, heartwarming story, it is based on the real life story of the Von Trapp Family",
+        "redirect": "../watch-party/index.html?movie=The%20Sound%20of%20Music",
+        "callToAct": "Watch Now"
     }
 ]

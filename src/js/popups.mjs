@@ -59,30 +59,29 @@ function displayResults(data){
         a.setAttribute("href", item.redirect);
         a.style.color = "var(--secondary-color)";
         a.style.padding = ".2rem";
-        a.addEventListener("mouseover", ()=>{
-            a.style.border = "1px solid #40125f";
-            setTimeout(() => {
-                a.style.border = "none";
-    
-              }, 2000);
-        })
+        a.addEventListener("mouseover", ()=>{ a.style.border = "1px solid #40125f"; });
+        a.addEventListener("mouseout", ()=>{ a.style.border = "none"; });
         message.style.color = "var(--primary-color)";
+
+        let template = `<h2 style="color: var(--primary-color);">${item.title}</h2>
+        <p style="padding: .5rem; color: var(--primary-color);">${item.message}</p>
+        <a href="${item.redirect}" style="color: var(--secondary-color);">${item.callToAct}</a>
+        `;
         
-        list.push(message);
-        section.appendChild(h1)
-        section.appendChild(message)
-        section.appendChild(a)
+        list.push(template);
+        // section.appendChild(h1)
+        // section.appendChild(message)
+        // section.appendChild(a)
     });
   
-  //  let randomp = list[Math.floor(Math.random() * list.length)];
+    let randomp = list[Math.floor(Math.random() * list.length)];
     section.appendChild(closeBtn);
-  //  section.appendChild(randomp);
+    section.insertAdjacentHTML("beforeend",  randomp);
     main.appendChild(section);
-    setTimeout(() => {
-      
+
+    setTimeout(() => {  
       section.style.transform = "translateX(0)";
     }, 4000);
-
 
     closeBtn.addEventListener("click", () => {
         section.style.display = "none";
