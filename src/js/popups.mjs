@@ -1,14 +1,15 @@
 
 export async function displayPopups(){
+  const popupsData = require("../public/json/alert.json");
     //
-    const response = await fetch("../public/json/alert.json");
-    if (response.ok) {
-      let data = await response.json();
-      console.log(data)
-      displayResults(data);
-    } else {
-      throw new Error("Bad Response");
-    }
+    // const response = await fetch("../public/json/alert.json");
+    // if (response.ok) {
+    //   let data = await response.json();
+    //   console.log(data)
+      displayResults(popupsData);
+    // } else {
+    //   throw new Error("Bad Response");
+    // }
     
 }
 
