@@ -1,7 +1,7 @@
 
 export async function displayPopups(){
     //
-    const response = await fetch("../json/alert.json");
+    const response = await fetch("../public/json/alert.json");
     if (response.ok) {
       let data = await response.json();
       console.log(data)
