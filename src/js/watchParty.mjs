@@ -1,5 +1,6 @@
 import { fetchTrailerId } from "./externalServices.mjs"
-import { getData } from "./utils.mjs"
+import { addCommentToStorage, getData, getLocalStorage } from "./utils.mjs"
+
 
 const movieData = require("../public/json/movies.json");
 
@@ -98,6 +99,53 @@ export async function initialize(movieTitle = null) {
     const filmTitle = document.querySelector(".filmTitle");
     filmTitle.innerHTML=  `Currently watching: ▶️${movieTitle}`;
 
+    //COMMENT SECTION
+    const main = document.querySelector("main");
+    const commentDiv = document.createElement("div");
+    commentDiv.classList.add("movie-comments")
+    commentDiv.innerHTML = renderCommentForm(movieTitle);
+    main.appendChild(commentDiv)
+    
+     //ADD COMMENTS TO STORAGE
+     const commentBtn = document.querySelector("#commtBtn");
+     commentBtn.addEventListener("click", (e) => {
+       e.preventDefault();
+       addCommentToStorage(movieTitle);
+     });
+
+     //SHOW REVIEWS ON SCREEN
+     const reviews = document.querySelector(".reviews");
+     let commentList = getLocalStorage("reviews") || [];
+     // console.log(commentList);
+ 
+     if (commentList.length === 0) {
+         // message to display when there is no user comments yet
+         const noCommentsMessage = `<p>No comments yet</p>`;
+         reviews.innerHTML = noCommentsMessage;
+     }
+ 
+     commentList.forEach((item) => {
+       if (movieTitle === item.movie) {
+         let div = document.createElement("div");
+         let name = document.createElement("h4");
+         let comment = document.createElement("p");
+ 
+         name.innerHTML = `💬 ${item.name} (${item.date})`;
+         comment.innerHTML = item.comment;
+ 
+         div.style.backgroundColor = "rgb(0, 0, 0, .5)";
+         div.style.marginTop = ".5rem";
+         div.style.padding = ".3rem 1rem";
+         div.style.textAlign = "start";
+         div.style.border = "2px solid #d0d0d0";
+ 
+         div.appendChild(name);
+         div.appendChild(comment);
+ 
+         reviews.appendChild(div);
+       }
+     });
+
   } else {
     // for the home page
 
@@ -159,4 +207,24 @@ function displayOnlineUsers() {
   titleDiv.textContent = "Online Users: "
   trailerSection.appendChild(userIconsDiv);
   userIconsDiv.insertAdjacentElement("afterbegin", titleDiv);
+}
+
+function renderCommentForm(movieTitle) {
+  let form = `
+    <h2>Reviews</h2>
+    <div class="reviews"></div>
+
+    <h2>Share a Comment</h2>
+    <div class="notice"></div>
+    <form method="post">
+      <fieldset>
+        <label>Name: <input id="username" type="text" name="name"></label>
+        <label>Your Comment: <textarea id="comment" name="comment"></textarea></label>
+        <input id="commtBtn" type="button" name="submit" value="Share Comment">
+        <input id="mTitle" type="hidden" name="movieTitle" value="${movieTitle}">
+        <input type="hidden" name="timeSend" id="formDateSend">
+      </fieldset>
+    </form>
+  `;
+  return form;
 }
