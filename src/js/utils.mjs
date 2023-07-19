@@ -148,7 +148,9 @@ export function addCommentToStorage(movie){
     if(!username == "" || !comment == ""){
       reviewLst.push({comment: comment, name: username, movie: mTitle, date: inputDate.value = date})
       setLocalStorage("reviews", reviewLst);
-      notice.innerHTML = `<p>Your Review for ${movie.Title} was added</p>`;
+      if(movie.Title){
+        notice.innerHTML = `<p>Your Review for ${movie.Title} was added</p>`;}
+      else{ notice.innerHTML = `<p>Your Review for ${movie} was added</p>`;}  
       setTimeout(function(){
         window.location.reload();
      }, 4000);
