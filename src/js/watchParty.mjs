@@ -19,8 +19,7 @@ function playTrailer(trailerId) {
 // function to create the trailer sections depending on the pages 
 function createTrailerSection(trailerIframe, showJoinPartyButton = true) { // the join party is only visible in the main index
 
-  const mainElement = document.querySelector(".watchListContainer");
-  mainElement.style.backgroundColor = "#122936";
+  const mainElement = document.querySelector("main");
 
   // creates this one if it is on the main index
   if (showJoinPartyButton) {
