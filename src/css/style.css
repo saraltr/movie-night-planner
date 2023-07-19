@@ -317,6 +317,9 @@ h3.movie-title {
 
 /* watch party page */
 
+.watchListContainer {
+    background-color: var(--primary-color);
+}
 #party-form {
     width: 80%;
     margin: auto;
@@ -422,7 +425,7 @@ iframe {
     text-align: start;
 }
 
-.mov-inf-rating, .mov-inf-descr, fieldset{
+.mov-inf-rating, .mov-inf-descr, #login-user fieldset{
     background-color: var(--secondary-color);
     padding: 10px;
     color: white;
@@ -653,8 +656,8 @@ iframe {
         border: 1px solid #40125f;
     }
     .watchListContainer iframe {
-        width: 70vw; /* 70% of the viewport width */
-        height: calc(70vw * (315 / 560)); /* Calculate the height to maintain the aspect ratio */
-        max-width: 100%; /* Set a maximum width to ensure it doesn't exceed the screen width */
+        width: 70vw; 
+        height: calc(70vw * (315 / 560));
+        max-width: 100%; 
       }
 }

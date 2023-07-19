@@ -81,7 +81,6 @@ function createMovieInfoTemplate(movie) {
 
 // function to initialize the iframe
 export async function initialize(movieTitle = null) {
-  // movieData = await getData();
 
   // gets random movie of the json file 
   const randomMovie = selectRandomMovie(movieData);
@@ -144,7 +143,14 @@ export async function initialize(movieTitle = null) {
         reviews.appendChild(div);
       }
     });
-  } else {
+
+  // Only call displayOnlineUsers if .trailerSection exists
+  const trailerSection = document.querySelector(".trailerSection");
+  if (trailerSection) {
+    displayOnlineUsers();
+  }
+  } 
+  else {
     // for the home page
     // gets the id of the movie using the title
     const trailerId = await fetchTrailerId(randomMovie.title);
@@ -231,7 +237,6 @@ function renderCommentForm(movieTitle) {
 
 export function showMovieSelection() {
   const mainElement = document.querySelector("main");
-  mainElement.style.backgroundColor = "#122936";
 
   // create a movie selection section
   const movieSelectionSection = document.createElement("section");
