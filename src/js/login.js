@@ -1,6 +1,6 @@
 import { buildNavigation } from './hamburgerMenu.mjs';
 import { createSearchBox, redirectToSearchResults } from './search.mjs';
-import { createScrollBtn, generateBreadcrumb, getParam } from './utils.mjs'
+import { createScrollBtn, generateBreadcrumb} from './utils.mjs'
 
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const movieTitle = getParam("movie");
-console.log(movieTitle);
+// console.log(movieTitle);
 generateBreadcrumb(movieTitle);
 displayMovieDetails(movieTitle, "#movie-detail");
 createSearchBox();

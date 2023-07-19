@@ -62,7 +62,7 @@ export async function saveMovieNight() {
 
   function displayMovieSuggestions(movieSuggestions) {
     // clear previous suggestions
-    suggestionsContainer.innerHTML = '';
+    suggestionsContainer.innerHTML = "";
 
     // create and display dropdown if there are suggestions
     if (movieSuggestions && movieSuggestions.length > 0) {
