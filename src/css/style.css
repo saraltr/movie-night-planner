@@ -239,12 +239,28 @@ h3.movie-title {
     margin: 0;
     margin-top: auto;
 }
+#login-user legend{
+    font-size: var(--large-font);
+    padding: 10px;
+    color: #fff;
+    font-family: var(--font-headline);
+}
 
+#loginBtn {
+    width: 35%;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--secondary-color);
+    font-family: var(--font-headline);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
 
 #fav-Btn {
     margin: auto;
     padding: 0;
-    
 }
 #fav-Btn img, #watchlist-Btn img{
     width: 30px; 
@@ -274,10 +290,26 @@ h3.movie-title {
     position: relative;
 }
 
-#movie-detail, #movie-comments{
-    background-image: linear-gradient(90deg, #9d3533f6 0%, rgba(62, 59, 145, 0.954) 100%);
-    /* background-image: linear-gradient(to right, #631f90f6, #526c8df1, #122936e6, #122936e6, #9d3533); */
+
+@keyframes style_gradient {
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
 }
+  
+  #movie-detail,
+  #movie-comments {
+    background-image: linear-gradient(75deg, #9d3533e2 0%, #ac2422dc 20%, #40125fde 40%, #40125fe7 60%, #0020a0d8 80%, #122936d4 100%);
+    background-size: 200% 100%;
+    animation: style_gradient 15s linear infinite alternate;
+  }
+  
 
 .btnContainer button, #fav-Btn, #watchlist-Btn {
     background: none;
@@ -300,11 +332,14 @@ h3.movie-title {
     font-size: 1.3rem;
     text-align: center;
     background-color: var(--secondary-color);
-    color: #d0d0d0;
+    color: #fff;
     border: none;
+    border-radius: 20px;
+    cursor: pointer;
 }
 #commtBtn:hover{
-    background-color: rgb(141, 26, 24)
+    background-color: rgb(141, 26, 24);
+    transform: scale(1.1);
 }
 
 #resultsContainer {
@@ -426,9 +461,18 @@ iframe {
 }
 
 .mov-inf-rating, .mov-inf-descr, #login-user fieldset{
-    background-color: var(--secondary-color);
     padding: 10px;
     color: white;
+}
+#login-user{
+    background-color: var(--secondary-color);
+}
+
+.descr-wrapper {
+    background-color: #9d353346;
+    margin: 1rem;
+    border: solid 1px white;
+    box-shadow: 0px 0px 8px var(--light-grey);
 }
 
 .delBtn{
@@ -501,7 +545,7 @@ iframe {
 }
 
 .suggestions-dropdown li:hover{
-    background-color: var(--tertiary-color);
+    background-color: lightslategrey;
     color: white;
     cursor: pointer;
 }
@@ -536,10 +580,16 @@ iframe {
         max-width: 500px;
         box-shadow: 0px 0px 8px var(--light-grey);
     }
+
+    #commtBtn {
+        width: 70%;
+        margin: 0 auto;
+    }
     
     #movie-detail, footer{
         padding-top: 1rem;
         display: grid;
+        gap: 30px;
         grid-template-columns: 1.5fr 1fr;
     }
     .footer-desc{
@@ -575,7 +625,7 @@ iframe {
         margin-left: 20px;
         filter: drop-shadow(0 0 0.70rem white);
     }
-    .mov-inf-descr, .mov-inf-rating{
+    .mov-inf-descr, .descr-wrapper{
         grid-column: 1/3;
         margin: 0 5rem;
     }
@@ -620,17 +670,6 @@ iframe {
     .login-icon{
         grid-column: 4/5;
         grid-row: 1/2;
-    }
-    #login-user legend{
-        font-size: var(--large-font);
-        padding: 10px;
-        color: var(--secondary-color);
-        font-family: var(--font-headline);
-    }
-    #loginBtn {
-        width: 50%;
-        margin: auto;
-        text-align: center;
     }
     #hamburgerBtn{
         display: none;

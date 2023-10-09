@@ -148,13 +148,15 @@ function renderMovieDetails(movie) {
       </div>
     </div>
     <img class="mov-inf-img" src="${movie.Poster}" alt="Poster of ${movie.Title}">
-    <div class="mov-inf-descr">
-      <h2>Description</h2>
-      <p>${movie.Plot}</p>
-    </div>
-    <div class="mov-inf-rating">
-      <h2>⭐⭐Ratings⭐⭐<h2>
-      ${ratingsTemplate}
+    <div class="descr-wrapper">
+      <div class="mov-inf-descr">
+        <h2>Description</h2>
+        <p>${movie.Plot}</p>
+      </div>
+      <div class="mov-inf-rating">
+        <h2>⭐⭐Ratings⭐⭐<h2>
+        ${ratingsTemplate}
+      </div>
     </div>
   `;
   return template;
