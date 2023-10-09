@@ -28,7 +28,7 @@ function createPostersContainer(movies, createTemplate, className) {
 }
 
 // creates the lists of movies
-export async function createList(url = "", bannerText, mainBanner = true) {
+export async function createList(url = "", bannerText, mainBanner = true, sortByPopularity = false) {
   try {
     const mainElement = document.querySelector("main");
     const bannerSection = document.createElement("section");
@@ -76,6 +76,10 @@ export async function createList(url = "", bannerText, mainBanner = true) {
     if (url) {
       // if it gets an url, uses the getMovie function to get the results
       bannerMovies = await getMovies(url);
+      // Sort the bannerMovies by popularity if specified
+      if (sortByPopularity) {
+        bannerMovies.results.sort((a, b) => b.popularity - a.popularity);
+      }
     } else {
       // otherwise uses the fetchMovieBySearch to more peronalized lists
       const randomWord = await discoverList(); // popular keywords to get random movies in the discover list
@@ -149,14 +153,14 @@ export async function recommendationsList() {
     // console.log(movieTitle);
     const movie = await getMovies(`search/movie?query=${encodeURIComponent(movieTitle)}`);
     const movieId = movie.results[0].id;
-    createList(`movie/${movieId}/recommendations?language=en-US&page=1`, "Recommendations", false);
+    createList(`movie/${movieId}/recommendations?language=en-US&page=1`, "Recommendations", false, true);
   }
   // only if there is a searchTerm saved 
   if (searchTerm) {
     const movie = await getMovies(`search/movie?query=${encodeURIComponent(searchTerm)}`);
     const movieId = movie.results[0].id;
-    console.log(movieId);
-    createList(`movie/${movieId}/recommendations?include_adult=false&language=en-US&page=1`, "Continue Exploring", false);
+    createList(`search/movie?query=${encodeURIComponent(searchTerm)}&language=en-US&page=1`, "Continue Exploring", false, true);
+
   }
 }
 
